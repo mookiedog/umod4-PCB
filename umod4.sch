@@ -5067,7 +5067,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </part>
 <part name="+3V16" library="supply1" deviceset="+3V3" device=""/>
 <part name="V17" library="supply2" deviceset="GND" device=""/>
-<part name="TP2" library="robins-v7" deviceset="TEST-POINT" device="-1035"/>
 <part name="TP3" library="robins-v7" deviceset="TEST-POINT" device="-1035"/>
 <part name="V18" library="supply2" deviceset="GND" device=""/>
 <part name="TP4" library="robins-v7" deviceset="TEST-POINT" device="-1035"/>
@@ -5164,10 +5163,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="+3V21" library="supply1" deviceset="+3V3" device=""/>
 <part name="S2" library="robins-v7" deviceset="SWITCH" device="-TAC-5.2MM"/>
 <part name="V37" library="supply2" deviceset="GND" device=""/>
-<part name="R17" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C25744/10K">
-<attribute name="LCSC_PART" value="C25744"/>
-</part>
-<part name="+3V22" library="supply1" deviceset="+3V3" device=""/>
 <part name="JP2" library="pinhead" deviceset="PINHD-1X2" device=""/>
 <part name="+3V23" library="supply1" deviceset="+3V3" device=""/>
 <part name="V38" library="supply2" deviceset="GND" device=""/>
@@ -5178,7 +5173,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <attribute name="LCSC_PART" value="C97521"/>
 </part>
 <part name="V39" library="supply2" deviceset="GND" device=""/>
-<part name="JP4" library="SparkFun-Jumpers" deviceset="JUMPER-SMT_2_NC_TRACE" device="_NO-SILK" value="NC"/>
+<part name="V28" library="supply2" deviceset="GND" device=""/>
+<part name="V40" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5768,15 +5764,11 @@ that the inverter provides</text>
 <instance part="V31" gate="GND" x="205.74" y="50.8" rot="MR0"/>
 <instance part="V32" gate="GND" x="147.32" y="46.99" rot="MR270"/>
 <instance part="JP3" gate="G$1" x="142.24" y="52.07" rot="R90"/>
-<instance part="R17" gate="G$1" x="38.1" y="50.8" smashed="yes">
-<attribute name="NAME" x="34.29" y="52.2986" size="1.778" layer="95"/>
-<attribute name="VALUE" x="31.75" y="47.498" size="1.778" layer="96"/>
-<attribute name="LCSC_PART" x="25.4" y="45.72" size="1.27" layer="96" display="both"/>
-</instance>
-<instance part="+3V22" gate="G$1" x="30.48" y="55.88"/>
 <instance part="R18" gate="G$1" x="96.52" y="63.5" rot="R180">
 <attribute name="LCSC_PART" x="104.14" y="68.58" size="1.27" layer="96" rot="R180" display="both"/>
 </instance>
+<instance part="V28" gate="GND" x="45.72" y="55.88" rot="MR0"/>
+<instance part="V40" gate="GND" x="45.72" y="93.98" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -6066,6 +6058,18 @@ that the inverter provides</text>
 <pinref part="V32" gate="GND" pin="GND"/>
 <pinref part="JP3" gate="G$1" pin="1"/>
 </segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="!OE2"/>
+<wire x1="48.26" y1="99.06" x2="45.72" y2="99.06" width="0.1524" layer="91"/>
+<pinref part="V40" gate="GND" pin="GND"/>
+<wire x1="45.72" y1="96.52" x2="45.72" y2="99.06" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="V28" gate="GND" pin="GND"/>
+<wire x1="45.72" y1="58.42" x2="45.72" y2="60.96" width="0.1524" layer="91"/>
+<pinref part="U3" gate="G$1" pin="!OE2"/>
+<wire x1="45.72" y1="60.96" x2="48.26" y2="60.96" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+3V3" class="0">
 <segment>
@@ -6111,12 +6115,6 @@ that the inverter provides</text>
 <wire x1="205.74" y1="81.28" x2="205.74" y2="83.82" width="0.1524" layer="91"/>
 <junction x="205.74" y="81.28"/>
 <pinref part="+3V17" gate="G$1" pin="+3V3"/>
-</segment>
-<segment>
-<pinref part="R17" gate="G$1" pin="1"/>
-<wire x1="33.02" y1="50.8" x2="30.48" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="+3V22" gate="G$1" pin="+3V3"/>
-<wire x1="30.48" y1="50.8" x2="30.48" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="W/!R!" class="0">
@@ -6178,21 +6176,6 @@ that the inverter provides</text>
 <pinref part="U7" gate="G$1" pin="O"/>
 <wire x1="170.18" y1="78.74" x2="180.34" y2="78.74" width="0.1524" layer="91"/>
 <label x="180.34" y="78.74" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="!ADDR_EN!" class="0">
-<segment>
-<pinref part="U3" gate="G$1" pin="!OE2"/>
-<wire x1="48.26" y1="60.96" x2="45.72" y2="60.96" width="0.1524" layer="91"/>
-<pinref part="U1" gate="G$1" pin="!OE2"/>
-<wire x1="45.72" y1="60.96" x2="38.1" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="99.06" x2="45.72" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="99.06" x2="45.72" y2="60.96" width="0.1524" layer="91"/>
-<junction x="45.72" y="60.96"/>
-<label x="38.1" y="60.96" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="R17" gate="G$1" pin="2"/>
-<wire x1="43.18" y1="50.8" x2="45.72" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="50.8" x2="45.72" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="NC1_IN" class="0">
@@ -6451,7 +6434,6 @@ but can be reset by the Pico W if desired.</text>
 <attribute name="VALUE" x="58.801" y="34.036" size="1.778" layer="96" rot="R270"/>
 <attribute name="LCSC_PART" x="58.42" y="12.7" size="1.27" layer="96" rot="R90" display="both"/>
 </instance>
-<instance part="TP2" gate="G$1" x="200.66" y="63.5"/>
 <instance part="TP3" gate="G$1" x="15.24" y="60.96"/>
 <instance part="V18" gate="GND" x="15.24" y="55.88" rot="MR0"/>
 <instance part="TP4" gate="G$1" x="7.62" y="60.96"/>
@@ -6488,7 +6470,6 @@ but can be reset by the Pico W if desired.</text>
 <attribute name="VALUE" x="60.96" y="124.206" size="1.778" layer="96" rot="MR0" align="top-left"/>
 </instance>
 <instance part="V39" gate="GND" x="63.5" y="127" rot="MR270"/>
-<instance part="JP4" gate="G$1" x="208.28" y="60.96" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -7051,17 +7032,6 @@ but can be reset by the Pico W if desired.</text>
 <wire x1="25.4" y1="132.08" x2="27.94" y2="132.08" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$16" class="0">
-<segment>
-<pinref part="U4" gate="G$1" pin="GPIO28_ADC2"/>
-<wire x1="160.02" y1="60.96" x2="200.66" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="200.66" y1="60.96" x2="200.66" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="TP2" gate="G$1" pin="TP"/>
-<wire x1="200.66" y1="60.96" x2="203.2" y2="60.96" width="0.1524" layer="91"/>
-<junction x="200.66" y="60.96"/>
-<pinref part="JP4" gate="G$1" pin="2"/>
-</segment>
-</net>
 <net name="N$13" class="0">
 <segment>
 <pinref part="U4" gate="G$1" pin="USB_DM"/>
@@ -7143,9 +7113,9 @@ but can be reset by the Pico W if desired.</text>
 </net>
 <net name="!RESET!_HC11_OUT" class="0">
 <segment>
-<pinref part="JP4" gate="G$1" pin="1"/>
-<wire x1="213.36" y1="60.96" x2="218.44" y2="60.96" width="0.1524" layer="91"/>
-<label x="218.44" y="60.96" size="1.27" layer="95" xref="yes"/>
+<label x="170.18" y="60.96" size="1.27" layer="95" xref="yes"/>
+<pinref part="U4" gate="G$1" pin="GPIO28_ADC2"/>
+<wire x1="170.18" y1="60.96" x2="160.02" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
@@ -7580,13 +7550,6 @@ SPI1_MISO is used as LCD_RST</text>
 <pinref part="M1" gate="G$1" pin="GP22"/>
 <wire x1="180.34" y1="129.54" x2="195.58" y2="129.54" width="0.1524" layer="91"/>
 <label x="195.58" y="129.54" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="!ADDR_EN!" class="0">
-<segment>
-<pinref part="M1" gate="G$1" pin="GP21"/>
-<wire x1="180.34" y1="124.46" x2="195.58" y2="124.46" width="0.1524" layer="91"/>
-<label x="195.58" y="124.46" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="SPARE0" class="0">

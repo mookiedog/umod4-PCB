@@ -2,11 +2,13 @@
 
 This project represents the design of the UltraMod4 PCB board. The [Ultramod4](https://github.com/mookiedog/umod4) project replaces the EPROM in an Aprila Gen 1 ECU with a circuit board that combines realtime ECU datalogging with GPS position and location.
 
+![Ultramod4 PCB layout](images/pcb_image_4V1.jpg)
+
 ## Goals
 
-### Evolution
+### Status
 
-This project will evolve. The first version of the board has been fabricated and tested. It is functional, but the bringup process has already identifed a number of changes to be incorporated on any new revision. Right now, I am letting the changes stack up until such time as some change/fix/feature forces a new board revision. See the file ChangeList.md for more information on that subject.
+This project is still evolving. The first version of the board has been fabricated and tested. It is functional, but the bringup process has already identifed a number of changes to be incorporated on any new revision. Right now, I am letting the changes stack up until such time as some change/fix/feature forces a new board revision. See the file [ChangeList.md](ChangeList.md) for the current set of changes planned for the next PCB revision.
 
 ### Design For Manufacture
 
