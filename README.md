@@ -1,6 +1,6 @@
 # Umod4PCB
 
-This project represents the design of the UltraMod4 PCB board. The [Ultramod4](https://github.com/mookiedog/umod4) project replaces the EPROM in an Aprila Gen 1 ECU with a circuit board that combines realtime ECU datalogging with GPS position and location.
+The [Ultramod4](https://github.com/mookiedog/umod4) project replaces the EPROM in an Aprila Gen 1 ECU with a circuit board that combines realtime ECU datalogging with GPS position and location.  This repository contains the PCB design files for the project.
 
 ![Ultramod4 PCB layout](images/pcb_image_4V1.jpg)
 
@@ -12,12 +12,14 @@ This project is still evolving. The first version of the board has been fabricat
 
 ### Design For Manufacture
 
-This project uses a bare RP2040 chip, which is too difficult for me to place by hand for my [home-brew reflow](https://github.com/mookiedog/Reflow) process. So instead, this design is set up for fabrication at JCLPCB.com. The parts on the BOM are chosen from JCLPCB's parts supplier LSCS.com. I stayed away from oddball parts and only selected components that seemed to be extremely well-stocked at LCSC. Even so, stocks flutuate and parts come and go. Nonetheless, this project has proven its ability to go through the entire JCLPCB/LCSC process and deliver PCBs loaded with parts that function as designed.
+This project uses a bare RP2040 chip, which is too difficult for me to place by hand for reflowing the board using my [home-brew reflow](https://github.com/mookiedog/Reflow) process. Instead, this design is set up from the get-go for fabrication at JLCPCB.com. Where possible, the BOM parts were chosen from JLCPCB's "basic" component list to avoid the fee for using an "extended" component. Even so, stocks of "basic" parts fluctuate and components become obsolete, so the BOM might change with time. 
+
+The initial version of the design has proven it can go end-to-end through the entire JCLPCB fabrication process where the resulting boards function as designed.
 
 ## Design Tool Choice
 
 I know this will be a problem for some, but the project is currently written using Cadsoft Eagle.  It's because I've used Eagle for the last bazillion years. I am still using an old version of Eagle (V7.6) that I own outright. These days, you are forced to forced to buy new versions of Eagle on a monthly subscription basis. That doesn't work for me, because I make no money off this stuff and can't afford the subscription fees.  Too bad, I like Eagle.
 
-Anyway, I realize that at some point it would be worth switching over to something like KiCad.
+Anyway, I realize that at some point it would be worth switching the design over to something like KiCad to make it more accessible to the open source community.
 
 Someday.
