@@ -2,8 +2,8 @@ __*/
 doc/
 
 # Ignore all the schematic and board backup files
-*.s#[1-9]
-*.b#[1-9]
+*.s#[#1-9]
+*.b#[#1-9]
 
 # Ignore the files created by the CAM process
 # When we generate a release tag, we will attach a zip file containing all
