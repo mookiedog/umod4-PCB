@@ -1979,6 +1979,27 @@ is attached to pins soldered to the Pico itself and not connecting down to the m
 <wire x1="3.175" y1="-1.715" x2="3.175" y2="1.715" width="0.2032" layer="51"/>
 <text x="-3.81" y="-2.54" size="0.8128" layer="25" font="vector" ratio="16">&gt;NAME</text>
 </package>
+<package name="WS2812-2020">
+<text x="-1.515" y="1.45606875" size="0.8128" layer="25">&gt;NAME</text>
+<text x="-1.515" y="-1.47663125" size="0.8128" layer="27" align="top-left">&gt;VALUE</text>
+<wire x1="1.1" y1="-1" x2="-1.1" y2="-1" width="0.127" layer="51"/>
+<wire x1="-1.1" y1="-1" x2="-1.1" y2="1" width="0.127" layer="51"/>
+<wire x1="-1.1" y1="1" x2="1.1" y2="1" width="0.127" layer="51"/>
+<wire x1="1.1" y1="1" x2="1.1" y2="-1" width="0.127" layer="51"/>
+<wire x1="1.515" y1="1.25" x2="-1.515" y2="1.25" width="0.05" layer="39"/>
+<wire x1="-1.515" y1="1.25" x2="-1.515" y2="-1.25" width="0.05" layer="39"/>
+<wire x1="-1.515" y1="-1.25" x2="1.515" y2="-1.25" width="0.05" layer="39"/>
+<wire x1="1.515" y1="-1.25" x2="1.515" y2="1.25" width="0.05" layer="39"/>
+<circle x="1.87" y="-0.55" radius="0.1" width="0.2" layer="51"/>
+<wire x1="0.245" y1="-1" x2="-0.245" y2="-1" width="0.127" layer="21"/>
+<wire x1="0.245" y1="1" x2="-0.245" y2="1" width="0.127" layer="21"/>
+<circle x="1.87" y="-0.55" radius="0.1" width="0.2" layer="21"/>
+<rectangle x1="-0.3" y1="0" x2="0.3" y2="0.5" layer="51"/>
+<smd name="3" x="-0.915" y="0.55" dx="0.7" dy="0.7" layer="1"/>
+<smd name="4" x="-0.915" y="-0.55" dx="0.7" dy="0.7" layer="1"/>
+<smd name="1" x="0.915" y="-0.55" dx="0.7" dy="0.7" layer="1"/>
+<smd name="2" x="0.915" y="0.55" dx="0.7" dy="0.7" layer="1"/>
+</package>
 </packages>
 <symbols>
 <symbol name="74XX541">
@@ -2271,6 +2292,19 @@ is attached to pins soldered to the Pico itself and not connecting down to the m
 <wire x1="7.62" y1="-5.08" x2="-10.16" y2="-5.08" width="0.254" layer="94"/>
 <text x="-10.16" y="7.874" size="1.778" layer="95" font="vector">&gt;Name</text>
 <text x="-10.16" y="-7.366" size="1.778" layer="96" font="vector">&gt;Value</text>
+</symbol>
+<symbol name="WS2812">
+<wire x1="-10.16" y1="7.62" x2="10.16" y2="7.62" width="0.4064" layer="94"/>
+<wire x1="10.16" y1="7.62" x2="10.16" y2="-7.62" width="0.4064" layer="94"/>
+<wire x1="10.16" y1="-7.62" x2="-10.16" y2="-7.62" width="0.4064" layer="94"/>
+<wire x1="-10.16" y1="-7.62" x2="-10.16" y2="-5.08" width="0.4064" layer="94"/>
+<wire x1="-10.16" y1="-5.08" x2="-10.16" y2="7.62" width="0.4064" layer="94"/>
+<text x="-10.16" y="7.62" size="1.778" layer="95">&gt;NAME</text>
+<text x="-10.16" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="DI" x="-15.24" y="0" length="middle" direction="in"/>
+<pin name="DO" x="15.24" y="0" length="middle" direction="out" rot="R180"/>
+<pin name="GND" x="15.24" y="-5.08" length="middle" direction="pwr" rot="R180"/>
+<pin name="VDD" x="15.24" y="5.08" length="middle" direction="pwr" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -2613,6 +2647,24 @@ is attached to pins soldered to the Pico itself and not connecting down to the m
 <connect gate="G$1" pin="SWDIO" pad="2"/>
 <connect gate="G$1" pin="SWO" pad="6"/>
 <connect gate="G$1" pin="VCC" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="WS2812" prefix="U" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="WS2812" x="0" y="0"/>
+</gates>
+<devices>
+<device name="-2020" package="WS2812-2020">
+<connects>
+<connect gate="G$1" pin="DI" pad="3"/>
+<connect gate="G$1" pin="DO" pad="1"/>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="VDD" pad="4"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -3663,43 +3715,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="0.635" y1="0" x2="0.15875" y2="0.47625" width="0.2032" layer="51"/>
 <wire x1="0.635" y1="0" x2="0.15875" y2="-0.47625" width="0.2032" layer="51"/>
 </package>
-<package name="WS2812B">
-<description>&lt;h3&gt;WS2812B&lt;/h3&gt;
-
-&lt;p&gt;Specifications:
-&lt;ul&gt;&lt;li&gt;Pin count: 4&lt;/li&gt;
-&lt;li&gt;Size: 5.0 x 5.0 mm&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;&lt;b&gt;Datasheet referenced for footprint:&lt;/b&gt; &lt;a href="http://cdn.sparkfun.com/datasheets/BreakoutBoards/WS2812B.pdf"&gt;WS2812B&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Example device:
-&lt;ul&gt;&lt;li&gt;WS2812B&lt;/li&gt;</description>
-<smd name="1" x="2.577" y="-1.6" dx="1.651" dy="1" layer="1" rot="R180"/>
-<smd name="4" x="-2.577" y="-1.6" dx="1.651" dy="1" layer="1" rot="R180"/>
-<smd name="3" x="-2.577" y="1.6" dx="1.651" dy="1" layer="1" rot="R180"/>
-<smd name="2" x="2.577" y="1.6" dx="1.651" dy="1" layer="1" rot="R180"/>
-<wire x1="2.5" y1="-2.5" x2="2.5" y2="2.5" width="0.127" layer="51"/>
-<wire x1="2.5" y1="2.5" x2="-2.5" y2="2.5" width="0.127" layer="51"/>
-<wire x1="-2.5" y1="2.5" x2="-2.5" y2="-2.5" width="0.127" layer="51"/>
-<wire x1="-2.5" y1="-2.5" x2="2.5" y2="-2.5" width="0.127" layer="51"/>
-<text x="0" y="2.794" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-2.794" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
-<wire x1="2.4892" y1="-2.362203125" x2="2.4892" y2="-2.616203125" width="0.2032" layer="21"/>
-<wire x1="2.4892" y1="-2.616203125" x2="2.4384" y2="-2.616203125" width="0.2032" layer="21"/>
-<wire x1="2.4384" y1="-2.616203125" x2="2.4384" y2="-2.611121875" width="0.2032" layer="21"/>
-<wire x1="2.4384" y1="-2.611121875" x2="-2.512059375" y2="-2.611121875" width="0.2032" layer="21"/>
-<wire x1="-2.512059375" y1="-2.611121875" x2="-2.512059375" y2="-2.37998125" width="0.2032" layer="21"/>
-<wire x1="2.50951875" y1="2.319021875" x2="2.50951875" y2="2.5908" width="0.2032" layer="21"/>
-<wire x1="2.50951875" y1="2.5908" x2="2.45871875" y2="2.5908" width="0.2032" layer="21"/>
-<wire x1="2.45871875" y1="2.5908" x2="2.45871875" y2="2.593340625" width="0.2032" layer="21"/>
-<wire x1="2.45871875" y1="2.593340625" x2="-2.50951875" y2="2.593340625" width="0.2032" layer="21"/>
-<wire x1="-2.50951875" y1="2.593340625" x2="-2.50951875" y2="2.36728125" width="0.2032" layer="21"/>
-<wire x1="2.54" y1="0.889" x2="2.54" y2="-0.8128" width="0.2032" layer="21"/>
-<wire x1="-2.54" y1="-0.8636" x2="-2.54" y2="0" width="0.2032" layer="21"/>
-<wire x1="-2.54" y1="0" x2="-2.54" y2="0.8636" width="0.2032" layer="21"/>
-<wire x1="-2.54" y1="0" x2="0" y2="2.54" width="0.2032" layer="21"/>
-<circle x="-2.8575" y="2.8575" radius="0.2032" width="0" layer="21"/>
-<circle x="-1.27" y="1.905" radius="0.2032" width="0" layer="51"/>
-</package>
 </packages>
 <symbols>
 <symbol name="LED">
@@ -3726,55 +3741,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <vertex x="-2.921" y="-2.413"/>
 <vertex x="-2.413" y="-2.921"/>
 </polygon>
-</symbol>
-<symbol name="LED-TRICOLOR-WS28X1">
-<description>&lt;h3&gt;WS28X1 RGB LED - I2C Control&lt;/h3&gt;
-&lt;p&gt;4 pin RGB LED with I2C Controller built-in&lt;/p&gt;</description>
-<wire x1="10.16" y1="7.62" x2="10.16" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-5.08" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="2.54" y1="-5.08" x2="-2.54" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-5.08" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="-5.08" x2="-12.7" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-12.7" y1="-5.08" x2="-12.7" y2="7.62" width="0.254" layer="94"/>
-<wire x1="-12.7" y1="7.62" x2="-5.08" y2="7.62" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="7.62" x2="-2.54" y2="7.62" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="7.62" x2="2.54" y2="7.62" width="0.254" layer="94"/>
-<wire x1="2.54" y1="7.62" x2="10.16" y2="7.62" width="0.254" layer="94"/>
-<wire x1="-0.508" y1="1.27" x2="-0.508" y2="0" width="0.254" layer="94"/>
-<wire x1="-0.508" y1="0" x2="-0.508" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="-0.508" y1="-1.27" x2="0.762" y2="0" width="0.254" layer="94"/>
-<wire x1="0.762" y1="0" x2="-0.508" y2="1.27" width="0.254" layer="94"/>
-<wire x1="0.762" y1="1.27" x2="0.762" y2="0" width="0.254" layer="94"/>
-<wire x1="0.762" y1="0" x2="0.762" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="0.762" y1="0" x2="2.032" y2="0" width="0.254" layer="94"/>
-<wire x1="-0.508" y1="0" x2="-1.778" y2="0" width="0.254" layer="94"/>
-<wire x1="-0.508" y1="-1.778" x2="-0.508" y2="-3.048" width="0.254" layer="94"/>
-<wire x1="-0.508" y1="-3.048" x2="-0.508" y2="-4.318" width="0.254" layer="94"/>
-<wire x1="-0.508" y1="-4.318" x2="0.762" y2="-3.048" width="0.254" layer="94"/>
-<wire x1="0.762" y1="-3.048" x2="-0.508" y2="-1.778" width="0.254" layer="94"/>
-<wire x1="0.762" y1="-1.778" x2="0.762" y2="-3.048" width="0.254" layer="94"/>
-<wire x1="0.762" y1="-3.048" x2="0.762" y2="-4.318" width="0.254" layer="94"/>
-<wire x1="0.762" y1="-3.048" x2="2.032" y2="-3.048" width="0.254" layer="94"/>
-<wire x1="-0.508" y1="-3.048" x2="-1.778" y2="-3.048" width="0.254" layer="94"/>
-<wire x1="-0.508" y1="4.318" x2="-0.508" y2="3.048" width="0.254" layer="94"/>
-<wire x1="-0.508" y1="3.048" x2="-0.508" y2="1.778" width="0.254" layer="94"/>
-<wire x1="-0.508" y1="1.778" x2="0.762" y2="3.048" width="0.254" layer="94"/>
-<wire x1="0.762" y1="3.048" x2="-0.508" y2="4.318" width="0.254" layer="94"/>
-<wire x1="0.762" y1="4.318" x2="0.762" y2="3.048" width="0.254" layer="94"/>
-<wire x1="0.762" y1="3.048" x2="0.762" y2="1.778" width="0.254" layer="94"/>
-<wire x1="0.762" y1="3.048" x2="2.032" y2="3.048" width="0.254" layer="94"/>
-<wire x1="-0.508" y1="3.048" x2="-1.778" y2="3.048" width="0.254" layer="94"/>
-<pin name="VDD" x="-15.24" y="5.08" visible="pin" length="short"/>
-<pin name="VSS" x="12.7" y="5.08" visible="pin" length="short" rot="R180"/>
-<pin name="DI" x="-15.24" y="-2.54" visible="pin" length="short"/>
-<pin name="DO" x="12.7" y="-2.54" visible="pin" length="short" rot="R180"/>
-<text x="-2.54" y="8.382" size="1.778" layer="95" font="vector" align="bottom-center">&gt;NAME</text>
-<text x="-2.54" y="-7.62" size="1.778" layer="95" font="vector" align="bottom-center">&gt;VALUE</text>
-<wire x1="-2.54" y1="7.62" x2="-2.54" y2="-5.08" width="0.254" layer="94" style="shortdash"/>
-<wire x1="2.54" y1="7.62" x2="2.54" y2="-5.08" width="0.254" layer="94" style="shortdash"/>
-<text x="-1.524" y="5.5118" size="1.27" layer="94">RGB</text>
-<text x="-3.175" y="-2.159" size="1.27" layer="94" rot="R90">WS28x1</text>
-<wire x1="-5.08" y1="7.62" x2="-5.08" y2="-5.08" width="0.254" layer="94" style="shortdash"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -3856,38 +3822,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <technology name="">
 <attribute name="PROD_ID" value="DIO-00862" constant="no"/>
 <attribute name="VALUE" value="GREEN" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="WS2812B" prefix="D" uservalue="yes">
-<description>&lt;h3&gt;WS2812B SMD addressable RGB LED&lt;/h3&gt;
-5x5mm SMD LED with built-in controller IC.
-
-&lt;p&gt;&lt;li&gt;&lt;b&gt;Color:&lt;/b&gt; Red/Green/Blue&lt;/li&gt;
-&lt;li&gt;&lt;b&gt;mC Rating: &lt;/b&gt;RGB: 390, 660, 180 mcd&lt;/li&gt;
-&lt;li&gt;&lt;b&gt;Forward Voltage: &lt;/b&gt; RGB: 2.0, 3.0, 3.0 V&lt;/li&gt;
-&lt;li&gt;&lt;b&gt;Packages:&lt;/b&gt;WS2812B&lt;/li&gt;
-&lt;/p&gt;
-&lt;p&gt;SparkFun Products:
-&lt;ul&gt;&lt;li&gt;&lt;a href=”https://www.sparkfun.com/products/13794”&gt;Blynk Board - ESP8266&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</description>
-<gates>
-<gate name="G$1" symbol="LED-TRICOLOR-WS28X1" x="2.54" y="0"/>
-</gates>
-<devices>
-<device name="" package="WS2812B">
-<connects>
-<connect gate="G$1" pin="DI" pad="4"/>
-<connect gate="G$1" pin="DO" pad="2"/>
-<connect gate="G$1" pin="VDD" pad="1"/>
-<connect gate="G$1" pin="VSS" pad="3"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="PROD_ID" value="DIO-12503"/>
-<attribute name="VALUE" value="WS2812B" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -5285,10 +5219,6 @@ Used as a test point connection for pogo pins or other debugging tools.
 </part>
 <part name="SUPPLY21" library="supply2" deviceset="GND" device=""/>
 <part name="+3V19" library="supply1" deviceset="+3V3" device=""/>
-<part name="V13" library="supply2" deviceset="GND" device=""/>
-<part name="D3" library="SparkFun-LED" deviceset="WS2812B" device="" value="C2761795/WS2812B">
-<attribute name="LCSC_PART" value="C2761795"/>
-</part>
 <part name="C26" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
@@ -5349,6 +5279,8 @@ Used as a test point connection for pogo pins or other debugging tools.
 <part name="+3V22" library="supply1" deviceset="+3V3" device=""/>
 <part name="V30" library="supply2" deviceset="GND" device=""/>
 <part name="+3V24" library="supply1" deviceset="+3V3" device=""/>
+<part name="U8" library="robins-v7" deviceset="WS2812" device="-2020" value="WS2812C-2020"/>
+<part name="V41" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -6969,7 +6901,7 @@ but can be reset by the Pico W if desired.</text>
 <pinref part="U4" gate="G$1" pin="GPIO23"/>
 </segment>
 </net>
-<net name="RP_RUN" class="0">
+<net name="EP_RUN" class="0">
 <segment>
 <wire x1="119.38" y1="73.66" x2="104.14" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="73.66" x2="104.14" y2="66.04" width="0.1524" layer="91"/>
@@ -7320,9 +7252,9 @@ LCD interface</text>
 <text x="40.64" y="7.62" size="1.778" layer="97">If this output is '1' or 'HI-Z',
 the HC11 RESET signal will be asserted.
 Drive to '0' to let the HC11 run.</text>
-<text x="101.6" y="66.04" size="1.27" layer="97">Power LED from VSYS so that it will
-work if the Umod4 is powered from USB
-but the ECU is unpowered.</text>
+<text x="213.36" y="71.12" size="1.27" layer="97" rot="MR0">Power LED from VSYS so that it will
+work when the Umod4 is powered from USB
+even if the ECU is unpowered.</text>
 <text x="20.32" y="121.92" size="1.778" layer="97">The SPI TFT LCD is read-only:
 SPI1_MISO is used as LCD_RST</text>
 <text x="17.78" y="154.94" size="1.27" layer="97">LCD_SCK</text>
@@ -7357,16 +7289,12 @@ SPI1_MISO is used as LCD_RST</text>
 <instance part="+3V19" gate="G$1" x="45.72" y="134.62" smashed="yes">
 <attribute name="VALUE" x="43.18" y="134.62" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="V13" gate="GND" x="182.88" y="60.96" rot="R90"/>
-<instance part="D3" gate="G$1" x="165.1" y="55.88">
-<attribute name="LCSC_PART" x="149.86" y="45.72" size="1.27" layer="96" display="both"/>
+<instance part="C26" gate="G$1" x="180.34" y="58.42" smashed="yes" rot="MR0">
+<attribute name="NAME" x="178.816" y="61.341" size="1.778" layer="95" rot="MR0"/>
+<attribute name="VALUE" x="181.864" y="63.119" size="1.778" layer="96" rot="MR180"/>
+<attribute name="LCSC_PART" x="190.5" y="60.96" size="1.27" layer="96" rot="MR180" display="both"/>
 </instance>
-<instance part="C26" gate="G$1" x="134.62" y="53.34" smashed="yes">
-<attribute name="NAME" x="136.144" y="56.261" size="1.778" layer="95"/>
-<attribute name="VALUE" x="133.096" y="58.039" size="1.778" layer="96" rot="R180"/>
-<attribute name="LCSC_PART" x="124.46" y="55.88" size="1.27" layer="96" rot="R180" display="both"/>
-</instance>
-<instance part="V34" gate="GND" x="134.62" y="45.72"/>
+<instance part="V34" gate="GND" x="180.34" y="50.8" rot="MR0"/>
 <instance part="Q2" gate="G$1" x="35.56" y="20.32" rot="MR0">
 <attribute name="LCSC_PART" x="30.48" y="15.24" size="1.27" layer="96" rot="MR0" display="both"/>
 </instance>
@@ -7380,6 +7308,8 @@ SPI1_MISO is used as LCD_RST</text>
 <instance part="+3V24" gate="G$1" x="205.74" y="149.86" smashed="yes" rot="R270">
 <attribute name="VALUE" x="205.74" y="149.86" size="1.778" layer="96"/>
 </instance>
+<instance part="U8" gate="G$1" x="134.62" y="60.96"/>
+<instance part="V41" gate="GND" x="152.4" y="50.8"/>
 </instances>
 <busses>
 </busses>
@@ -7409,13 +7339,8 @@ SPI1_MISO is used as LCD_RST</text>
 <pinref part="SUPPLY21" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<wire x1="177.8" y1="60.96" x2="180.34" y2="60.96" width="0.1524" layer="91"/>
-<pinref part="V13" gate="GND" pin="GND"/>
-<pinref part="D3" gate="G$1" pin="VSS"/>
-</segment>
-<segment>
 <pinref part="C26" gate="G$1" pin="2"/>
-<wire x1="134.62" y1="50.8" x2="134.62" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="55.88" x2="180.34" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="V34" gate="GND" pin="GND"/>
 </segment>
 <segment>
@@ -7429,6 +7354,12 @@ SPI1_MISO is used as LCD_RST</text>
 <wire x1="93.98" y1="86.36" x2="88.9" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="88.9" y1="86.36" x2="88.9" y2="83.82" width="0.1524" layer="91"/>
 <pinref part="V30" gate="GND" pin="GND"/>
+</segment>
+<segment>
+<pinref part="U8" gate="G$1" pin="GND"/>
+<wire x1="149.86" y1="55.88" x2="152.4" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="55.88" x2="152.4" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="V41" gate="GND" pin="GND"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -7505,7 +7436,7 @@ SPI1_MISO is used as LCD_RST</text>
 <pinref part="M1" gate="G$1" pin="GP3"/>
 </segment>
 </net>
-<net name="RP_RUN" class="0">
+<net name="EP_RUN" class="0">
 <segment>
 <label x="195.58" y="139.7" size="1.27" layer="95" xref="yes"/>
 <wire x1="180.34" y1="137.16" x2="187.96" y2="137.16" width="0.1524" layer="91"/>
@@ -7687,13 +7618,13 @@ SPI1_MISO is used as LCD_RST</text>
 </segment>
 <segment>
 <pinref part="C26" gate="G$1" pin="1"/>
-<wire x1="134.62" y1="58.42" x2="134.62" y2="60.96" width="0.1524" layer="91"/>
-<pinref part="D3" gate="G$1" pin="VDD"/>
-<wire x1="134.62" y1="60.96" x2="149.86" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="134.62" y1="60.96" x2="134.62" y2="63.5" width="0.1524" layer="91"/>
-<junction x="134.62" y="60.96"/>
-<wire x1="134.62" y1="63.5" x2="129.54" y2="63.5" width="0.1524" layer="91"/>
-<label x="129.54" y="63.5" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="180.34" y1="63.5" x2="180.34" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="66.04" x2="180.34" y2="68.58" width="0.1524" layer="91"/>
+<junction x="180.34" y="66.04"/>
+<wire x1="180.34" y1="68.58" x2="185.42" y2="68.58" width="0.1524" layer="91"/>
+<label x="185.42" y="68.58" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<pinref part="U8" gate="G$1" pin="VDD"/>
+<wire x1="180.34" y1="66.04" x2="149.86" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="WP_SWCLK" class="0">
@@ -7716,11 +7647,9 @@ SPI1_MISO is used as LCD_RST</text>
 </net>
 <net name="WS2812_DI" class="0">
 <segment>
-<wire x1="149.86" y1="53.34" x2="144.78" y2="53.34" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="53.34" x2="144.78" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="40.64" x2="129.54" y2="40.64" width="0.1524" layer="91"/>
-<label x="129.54" y="40.64" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="D3" gate="G$1" pin="DI"/>
+<wire x1="119.38" y1="60.96" x2="114.3" y2="60.96" width="0.1524" layer="91"/>
+<label x="114.3" y="60.96" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="U8" gate="G$1" pin="DI"/>
 </segment>
 <segment>
 <pinref part="M1" gate="G$1" pin="GP22"/>
@@ -7753,9 +7682,9 @@ SPI1_MISO is used as LCD_RST</text>
 </net>
 <net name="WS2812_DO" class="0">
 <segment>
-<pinref part="D3" gate="G$1" pin="DO"/>
-<wire x1="177.8" y1="53.34" x2="182.88" y2="53.34" width="0.1524" layer="91"/>
-<label x="182.88" y="53.34" size="1.27" layer="95" xref="yes"/>
+<label x="157.48" y="60.96" size="1.27" layer="95" xref="yes"/>
+<pinref part="U8" gate="G$1" pin="DO"/>
+<wire x1="149.86" y1="60.96" x2="157.48" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SPARE2" class="0">
@@ -8015,18 +7944,6 @@ SPI1_MISO is used as LCD_RST</text>
 <approved hash="104,7,139.7,106.68,J1,VDD,+3V3,,,"/>
 <approved hash="104,3,73.66,63.5,U3,VCC,+3V3,,,"/>
 <approved hash="104,3,73.66,101.6,U1,VCC,+3V3,,,"/>
-<approved hash="104,5,139.7,154.94,U4,ADC_AVDD,+3V3,,,"/>
-<approved hash="104,5,137.16,154.94,U4,USB_VDD,+3V3,,,"/>
-<approved hash="104,5,132.08,154.94,U4,IOVDD5,+3V3,,,"/>
-<approved hash="104,5,119.38,154.94,U4,IOVDD0,+3V3,,,"/>
-<approved hash="104,5,121.92,154.94,U4,IOVDD1,+3V3,,,"/>
-<approved hash="104,5,124.46,154.94,U4,IOVDD2,+3V3,,,"/>
-<approved hash="104,5,127,154.94,U4,IOVDD3,+3V3,,,"/>
-<approved hash="104,5,129.54,154.94,U4,IOVDD4,+3V3,,,"/>
-<approved hash="104,5,114.3,154.94,U4,VREG_IN,+3V3,,,"/>
-<approved hash="104,5,111.76,154.94,U4,VREG_OUT,1.0V,,,"/>
-<approved hash="104,5,106.68,154.94,U4,DVDD1,1.0V,,,"/>
-<approved hash="104,5,104.14,154.94,U4,DVDD0,1.0V,,,"/>
 <approved hash="104,6,180.34,162.56,M1,3V3(OUT),+3V3,,,"/>
 <approved hash="202,6,180.34,157.48,M1,3V3_EN,,,,"/>
 <approved hash="104,6,144.78,99.06,M1,SWGND,GND,,,"/>
@@ -8034,15 +7951,9 @@ SPI1_MISO is used as LCD_RST</text>
 <approved hash="106,3,170.18,60.96,NC1_OUT,,,,,"/>
 <approved hash="106,6,144.78,129.54,SPARE1,,,,,"/>
 <approved hash="106,6,144.78,132.08,SPARE2,,,,,"/>
-<approved hash="106,6,177.8,53.34,WS2812_DO,,,,,"/>
 <approved hash="106,1,20.32,127,XIRQ_5V,,,,,"/>
-<approved hash="113,5,173.897,49.1913,TP1,,,,,"/>
-<approved hash="113,5,201.837,64.4313,TP2,,,,,"/>
-<approved hash="113,5,227.237,64.4313,TP3,,,,,"/>
-<approved hash="113,5,219.617,64.4313,TP4,,,,,"/>
 <approved hash="113,1,67.2173,107.611,TP5,,,,,"/>
 <approved hash="113,1,67.2173,122.851,TP6,,,,,"/>
-<approved hash="113,5,60.96,153.408,S1,,,,,"/>
 <approved hash="113,6,231.14,135.628,S2,,,,,"/>
 <approved hash="113,4,65.8029,73.7912,JP2,,,,,"/>
 </errors>
