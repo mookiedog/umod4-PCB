@@ -95,6 +95,10 @@ The following issues were detected and resolved during bringup:
     1. Bike should run even if PicoW is dead or missing
     1. R17 has been removed and the ADDR_EN signal permanently grounded.
 
+1) __GPS Disables UART During Debug Sessions__
+    1) It turns out that a NEO-8 GPS will disable its UART interface if it sees too many framing errors on its RX pin within 1 second. This can happen if the RX pin is held to '0' for some reason. This should not be a problem in a real system, but while debugging, when the system is stopped at the initial breakpoint in main(), the RX pin will be at '0' until the system boots enough to init the serial interface to its idle state of '1'.
+    1) Fix: Added a 10K pullup to the UART0_TX signal that drives the GPS RX pin. 
+
 ### V4.1 Enhancements
 
 1)	__RP2040: Made HC11 RESET Control Permanent__  The RP2040 should be the only thing controlling HC11 RESET.

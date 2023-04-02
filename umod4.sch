@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -5281,6 +5281,10 @@ Used as a test point connection for pogo pins or other debugging tools.
 <part name="+3V24" library="supply1" deviceset="+3V3" device=""/>
 <part name="U8" library="robins-v7" deviceset="WS2812" device="-2020" value="WS2812C-2020"/>
 <part name="V41" library="supply2" deviceset="GND" device=""/>
+<part name="+3V20" library="supply1" deviceset="+3V3" device=""/>
+<part name="R8" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C25744/10K">
+<attribute name="LCSC_PART" value="C25744"/>
+</part>
 </parts>
 <sheets>
 <sheet>
@@ -7265,6 +7269,10 @@ SPI1_MISO is used as LCD_RST</text>
 <text x="17.78" y="142.24" size="1.27" layer="97">LCD_BKLT</text>
 <text x="17.78" y="139.7" size="1.27" layer="97">LCD_GND</text>
 <text x="17.78" y="137.16" size="1.27" layer="97">LCD_VCC</text>
+<wire x1="139.7" y1="157.48" x2="140.97" y2="158.75" width="0.1524" layer="97"/>
+<wire x1="139.7" y1="157.48" x2="140.97" y2="156.21" width="0.1524" layer="97"/>
+<wire x1="139.7" y1="156.21" x2="140.97" y2="154.94" width="0.1524" layer="97"/>
+<wire x1="140.97" y1="154.94" x2="139.7" y2="153.67" width="0.1524" layer="97"/>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -7487,19 +7495,19 @@ SPI1_MISO is used as LCD_RST</text>
 <net name="UART0_TX" class="0">
 <segment>
 <label x="129.54" y="160.02" size="1.27" layer="95" rot="R180" xref="yes"/>
-<wire x1="139.7" y1="160.02" x2="129.54" y2="160.02" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="160.02" x2="139.7" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="160.02" x2="129.54" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="160.02" x2="137.16" y2="157.48" width="0.1524" layer="91"/>
 <pinref part="M1" gate="G$1" pin="GP0"/>
-<wire x1="139.7" y1="157.48" x2="144.78" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="157.48" x2="144.78" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="UART0_RX" class="0">
 <segment>
 <label x="129.54" y="157.48" size="1.27" layer="95" rot="R180" xref="yes"/>
-<wire x1="137.16" y1="157.48" x2="129.54" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="157.48" x2="137.16" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="157.48" x2="129.54" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="157.48" x2="134.62" y2="154.94" width="0.1524" layer="91"/>
 <pinref part="M1" gate="G$1" pin="GP1"/>
-<wire x1="137.16" y1="154.94" x2="144.78" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="154.94" x2="144.78" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GPS_PPS" class="0">
@@ -7893,6 +7901,12 @@ SPI1_MISO is used as LCD_RST</text>
 <instance part="M2" gate="G$1" x="116.84" y="109.22"/>
 <instance part="V33" gate="GND" x="137.16" y="101.6"/>
 <instance part="+3V18" gate="G$1" x="137.16" y="121.92"/>
+<instance part="+3V20" gate="G$1" x="93.98" y="137.16" smashed="yes">
+<attribute name="VALUE" x="91.44" y="137.16" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="R8" gate="G$1" x="93.98" y="127" rot="R90">
+<attribute name="LCSC_PART" x="99.06" y="119.38" size="1.27" layer="96" rot="R90" display="both"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -7911,6 +7925,11 @@ SPI1_MISO is used as LCD_RST</text>
 <pinref part="M2" gate="G$1" pin="VCC"/>
 <wire x1="137.16" y1="114.3" x2="132.08" y2="114.3" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<wire x1="93.98" y1="132.08" x2="93.98" y2="134.62" width="0.1524" layer="91"/>
+<pinref part="+3V20" gate="G$1" pin="+3V3"/>
+<pinref part="R8" gate="G$1" pin="2"/>
+</segment>
 </net>
 <net name="GND" class="0">
 <segment>
@@ -7923,8 +7942,13 @@ SPI1_MISO is used as LCD_RST</text>
 <net name="UART0_TX" class="0">
 <segment>
 <pinref part="M2" gate="G$1" pin="RX_IN"/>
-<wire x1="101.6" y1="111.76" x2="86.36" y2="111.76" width="0.1524" layer="91"/>
-<label x="86.36" y="111.76" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="101.6" y1="111.76" x2="93.98" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="111.76" x2="93.98" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="116.84" x2="86.36" y2="116.84" width="0.1524" layer="91"/>
+<label x="86.36" y="116.84" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="R8" gate="G$1" pin="1"/>
+<wire x1="93.98" y1="116.84" x2="93.98" y2="121.92" width="0.1524" layer="91"/>
+<junction x="93.98" y="116.84"/>
 </segment>
 </net>
 <net name="UART0_RX" class="0">
