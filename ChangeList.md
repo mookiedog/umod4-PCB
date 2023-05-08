@@ -47,11 +47,19 @@ The following issues were detected and resolved during bringup:
     1. Workaround: When attaching a debugger, swap the squid connections for SWD CLK and SWD DAT
 
 ## V4.1 Proposed Changes & Enhancements
+1) Add ability to measure +12 Unswitched voltage. Note: The Pico only has 4 A/D inputs located on GPIOs [26..29].
+    1) This will require moving the pushbutton off GPIO26(currently SPARE1)
+    1) Should consider moving some of the other signals to different GPIOs so that the analog pins remain free
+        1) GPS_PPS
+        1) EP_RUN
+        1) SPARE0
+        1) GPIO29 cannot be used by Umod4: it is used by PICO_W to measure VSYS and does not have a wiring connection off the PicoW PCB
 1) Is it even worth adding the 10-pin JTAG and squid pins for the WP? Why not just attach squid pins to the Pico-W itself? The only reason that the EP has a 10-pin and squid pins is because it is a bare chip
     1) A Pico-W only supports squid pins
     1) Squid pins work for the PicoDebug unit, old style or CSMIS
     1) I have not seen a compelling reason to use a JLink, but it may come
-
+1) __Add the ability to power-control the SD card__ During testing, I have seen cards that fail spectacularly after bad commands to the point that they need a power-cycle to continue. It would also make the whole hot-plug thing a bit safer because the hotPlug manager would keep power off while a socket was empty, only powering it up after a card had been inserted for some amount of time. It should only need a logic-level PFET to implement it.
+1) __Add decoupling capacitance to the SD card power__ Meed the spec as defined in the SD card spec specification 3.01, section E.2. Basically, use a 47 uF cap on the unswitched (incoming power) side of the PFET and a 4.7uF cap followed by a 0.1 uF cap on the switched side of the PFET.
 1)	__HC11 XTAL hole needs to move to the left and be as tall as possible__
     1. To do: examine other ECUs to see how variable the XTAL's location is
 7)	__A little more clearance is needed for the capacitor near the silkscreen “od 4V”__
