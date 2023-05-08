@@ -46,6 +46,8 @@ The following issues were detected and resolved during bringup:
     1. Issue: The SWD CLK and DAT silkscreen was correct, but the wiring to the pins was swapped.
     1. Workaround: When attaching a debugger, swap the squid connections for SWD CLK and SWD DAT
 
+1) __GPS would disable UART during debug sessions__ Fixed by adding a pullup resistor to the PicoW GPS TX pin to hold the TX pin high by default after RESET. See below for more details.
+
 ## V4.1 Proposed Changes & Enhancements
 1) Add ability to measure +12 Unswitched voltage. Note: The Pico only has 4 A/D inputs located on GPIOs [26..29].
     1) This will require moving the pushbutton off GPIO26(currently SPARE1)
@@ -60,13 +62,8 @@ The following issues were detected and resolved during bringup:
     1) I have not seen a compelling reason to use a JLink, but it may come
 1) __Add the ability to power-control the SD card__ During testing, I have seen cards that fail spectacularly after bad commands to the point that they need a power-cycle to continue. It would also make the whole hot-plug thing a bit safer because the hotPlug manager would keep power off while a socket was empty, only powering it up after a card had been inserted for some amount of time. It should only need a logic-level PFET to implement it.
 1) __Add decoupling capacitance to the SD card power__ Meed the spec as defined in the SD card spec specification 3.01, section E.2. Basically, use a 47 uF cap on the unswitched (incoming power) side of the PFET and a 4.7uF cap followed by a 0.1 uF cap on the switched side of the PFET.
-1)	__HC11 XTAL hole needs to move to the left and be as tall as possible__
-    1. To do: examine other ECUs to see how variable the XTAL's location is
-7)	__A little more clearance is needed for the capacitor near the silkscreen “od 4V”__
-8)	__More clearance for mainboard cap by the GND test point near JP4__
-9)	__GPS mounting hole does not line up very well__
-10)	__It looks like the series termination resistor on E is not required__
-    1. It makes the signal a bit cleaner, but the ADDR signals are not much worse.
+7)	__A little more clearance is needed for the mainboard capacitor near the silkscreen “od 4V”__
+8)	__More clearance for mainboard capacitor by the GND test point near JP4__
 11)	__Consider adding a Power Supply__
     1. Power the PW from unswitched +12
         1. PW needs to be able to remain powered after ignition is switched off
@@ -83,12 +80,9 @@ The following issues were detected and resolved during bringup:
         1. The WS2812 needs a +5V supply, which is nowhere near the RP2040
 15)	__Consider moving the parts from under the Pico W so it could be mounted directly to the board without the socket or pins__
     1. would reduce the height of the board, although it appears to not be a problem at the moment
-16)	__Add a test point for GPIO24/TX so that it can be used to measure RP2040 CLKOUT__
-    1. Useful during bringup
-17)	__Add a test point to scope the buffered E signal__
-    1. scoping this signal was beneficial during bringup
-1) __Replace the MicroSD socket with a more modern one__
-    1. The current version was used because I had some in stock and could hand solder it after getting the board back from JLCPCB. The old one is perfectly functional, it's just that newer MicroSD sockets are a bit smaller.
+
+1) __Replace the MicroSD socket with something from LCSC__
+    1. The current version was used because I had some in stock and could hand solder it after getting the board back from JLCPCB. The old one is perfectly functional, it's just that if I get something from LCSC, it will be cheaper and JLCPCB will be able to include it in their assembly process
 
 ## V4.1 Implemented Changes, So Far
 
@@ -121,8 +115,26 @@ The following issues were detected and resolved during bringup:
 
 1) __Add squid pins for J3/WP for use with PicoProbe__
 
+1)	__Add a test point to scope the buffered E signal__
+    1. scoping this signal was beneficial during bringup
+    1. Added a 0.028 via as a test point. The size 0.028 matches the DIP socket and is large enought to not be tented.
+
+1)	__Add a test point for EP GPIO24/TX so that it can be used to measure RP2040 CLKOUT__
+    1. Useful during bringup
+    1. Used a 0.028 via so it would not be tented. Also made the corresponding RX uart signal the same drill size so both signals could be scoped at these test points
+    1. I'm not bothering with adding a test pad for the PicoW because a scope can attach directly to the GPIO24 pin if desired.
+
+1)	__HC11 XTAL hole needs to move to the left and be as tall as possible__
+    1. Moved the left side of the hole to add an additional 0.050 inch.
+    1. Increased the hole size by 0.010 on top and bottom
+
+9)	__GPS mounting hole does not line up very well__
+    1. The problem was the drawing did not spec the distance between the solder holes and the mounting hole. Measuring the real parts added about 0.7mm to the distance from the original footprint. Note that fixing this required extending the board upwards by 0.050 to get enough clearance between the mounting hole and the edge of the board.
+
 ## Discarded Changes
 
 The following changes were under consideration, but discarded for various reasons.
 
-    <<None, so far>>
+1)	__Series termination resistor on E is not required__
+    1. It makes the signal a bit cleaner, but the ADDR signals are not much worse.
+    1. Determination: The resistor is essentially free and everything works, so I'm leaving it alone.
