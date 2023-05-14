@@ -49,18 +49,31 @@ The following issues were detected and resolved during bringup:
 1) __GPS would disable UART during debug sessions__ Fixed by adding a pullup resistor to the PicoW GPS TX pin to hold the TX pin high by default after RESET. See below for more details.
 
 ## V4.1 Proposed Changes & Enhancements
-1) Add ability to measure +12 Unswitched voltage. Note: The Pico only has 4 A/D inputs located on GPIOs [26..29].
+1) __Broken Power Supply Plan__ I think the power supply plan is broken. The requirements are:
+    1) Bench testing:
+        1) Everything on Umod4 board should be powered whenever USB power is plugged into the PicoW, regardless of presence of +12 unswitched or ECU 5V
+    2) In system:
+        1) When +12 unswitched is present, the board can decide if it wants to be powered or not
+            1) it should stay powered if it has work to do, like transfer a file via wifi or finish writing data to SD card
+        1) If the voltage level on +12 unswitched indicates that it is on a battery charger, then the system could decide to remain powered indefintely so that firmware updates could be pushed at anytime via wifi without having to walk out to the garage and turn the ignition on or something like that
+
+        1) if +5_ECU is present, the ignition is on and the system must remain powered Because keep_alive is driven through a diode, there is no way for the WP to screw up and drive keep_alive low when +5_ECU is present. The WP can't accidentally turn the power off. 
+            1) during bench testing, if the ECU is powered via +12V switched (the normal 12V input wiring into the ECU), it's as though the ignition key is ON because +5_ECU will be present due.
+
+        1) If +5_ECU is NOT present, as might happen if a bare Umod4 board was powered on a bench, not in an ECU, we would still like the system to run. This could be accomplished via a diode from VSYS
+
+1) __Add ability to measure +12 Unswitched voltage__ Note: The Pico only has 4 A/D inputs located on GPIOs [26..29].
     1) This will require moving the pushbutton off GPIO26(currently SPARE1)
     1) Should consider moving some of the other signals to different GPIOs so that the analog pins remain free
         1) GPS_PPS
         1) EP_RUN
         1) SPARE0
         1) GPIO29 cannot be used by Umod4: it is used by PICO_W to measure VSYS and does not have a wiring connection off the PicoW PCB
-1) Is it even worth adding the 10-pin JTAG and squid pins for the WP? Why not just attach squid pins to the Pico-W itself? The only reason that the EP has a 10-pin and squid pins is because it is a bare chip
-    1) A Pico-W only supports squid pins
-    1) Squid pins work for the PicoDebug unit, old style or CSMIS
-    1) I have not seen a compelling reason to use a JLink, but it may come
+1) __Add ability to measure SD Card Current Draw__
+1) __Add ability to measure total 3V3 consumption__
+1) __Add ability to measure VSYS current__
 1) __Add the ability to power-control the SD card__ During testing, I have seen cards that fail spectacularly after bad commands to the point that they need a power-cycle to continue. It would also make the whole hot-plug thing a bit safer because the hotPlug manager would keep power off while a socket was empty, only powering it up after a card had been inserted for some amount of time. It should only need a logic-level PFET to implement it.
+    1) There are lots of commodity USB power switch controllers that would do perfectly. They are logic-level controlled, have ESD protection, surge management, etc and cost 10 cents at LCSC.
 1) __Add decoupling capacitance to the SD card power__ Meed the spec as defined in the SD card spec specification 3.01, section E.2. Basically, use a 47 uF cap on the unswitched (incoming power) side of the PFET and a 4.7uF cap followed by a 0.1 uF cap on the switched side of the PFET.
 7)	__A little more clearance is needed for the mainboard capacitor near the silkscreen “od 4V”__
 8)	__More clearance for mainboard capacitor by the GND test point near JP4__
@@ -131,6 +144,9 @@ The following issues were detected and resolved during bringup:
 9)	__GPS mounting hole does not line up very well__
     1. The problem was the drawing did not spec the distance between the solder holes and the mounting hole. Measuring the real parts added about 0.7mm to the distance from the original footprint. Note that fixing this required extending the board upwards by 0.050 to get enough clearance between the mounting hole and the edge of the board.
 
+1) __Delete S2__
+    1. Never used. Since it is an analog pin, it is better served for a different purpose
+
 ## Discarded Changes
 
 The following changes were under consideration, but discarded for various reasons.
@@ -138,3 +154,6 @@ The following changes were under consideration, but discarded for various reason
 1)	__Series termination resistor on E is not required__
     1. It makes the signal a bit cleaner, but the ADDR signals are not much worse.
     1. Determination: The resistor is essentially free and everything works, so I'm leaving it alone.
+
+2) __Add 10-pin debug header for WP__
+    1) Determination: just use the squid pins built right on top of the PicoW where they can be accessed with right angle header pins.
