@@ -6668,22 +6668,22 @@ Block, Siemens and generic&lt;p&gt;
 <part name="FRAME7" library="frames" deviceset="LETTER_L" device="" value="LETTER_L"/>
 <part name="V19" library="supply2" deviceset="GND" device=""/>
 <part name="V21" library="supply2" deviceset="GND" device=""/>
-<part name="U3" library="robins-v7" deviceset="74XX541" device="-TSSOP20" value="C113281/74LVC541">
+<part name="U3" library="robins-v7" deviceset="74XX541" device="-TSSOP20" value="74LVC541">
 <attribute name="LCSC_PART" value="C113281"/>
 </part>
-<part name="U1" library="robins-v7" deviceset="74XX541" device="-TSSOP20" value="C113281/74LVC541">
+<part name="U1" library="robins-v7" deviceset="74XX541" device="-TSSOP20" value="74LVC541">
 <attribute name="LCSC_PART" value="C113281"/>
 </part>
-<part name="C1" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C1" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C2" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C52923/1u/25V/X5R">
+<part name="C2" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="1u/25V/X5R">
 <attribute name="LCSC_PART" value="C52923"/>
 </part>
-<part name="C3" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C3" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C4" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C52923/1u/25V/X5R">
+<part name="C4" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="1u/25V/X5R">
 <attribute name="LCSC_PART" value="C52923"/>
 </part>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
@@ -6692,44 +6692,44 @@ Block, Siemens and generic&lt;p&gt;
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 <part name="V22" library="supply2" deviceset="GND" device=""/>
 <part name="V25" library="supply2" deviceset="GND" device=""/>
-<part name="R3" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C25744/10K">
+<part name="R3" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="10K">
 <attribute name="LCSC_PART" value="C25744"/>
 </part>
 <part name="+3V8" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V9" library="supply1" deviceset="+3V3" device=""/>
-<part name="U4" library="robins-v7" deviceset="RP2040" device="-QFN56" value="C2040/RP2040">
+<part name="U4" library="robins-v7" deviceset="RP2040" device="-QFN56" value="RP2040">
 <attribute name="LCSC_PART" value="C2040"/>
 </part>
-<part name="C5" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C5" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C6" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C6" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
 <part name="V7" library="supply2" deviceset="GND" device=""/>
 <part name="V8" library="supply2" deviceset="GND" device=""/>
-<part name="C7" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C7" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C8" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C8" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C9" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C9" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C10" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C10" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C11" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C11" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C12" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C12" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C15" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C15" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C16" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C16" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
 <part name="V10" library="supply2" deviceset="GND" device=""/>
@@ -6742,57 +6742,57 @@ Block, Siemens and generic&lt;p&gt;
 </part>
 <part name="V15" library="supply2" deviceset="GND" device=""/>
 <part name="+3V13" library="supply1" deviceset="+3V3" device=""/>
-<part name="Y1" library="SparkFun-Clocks" deviceset="CRYSTAL" device="SMD-3.2X2.5" value="C9002/12MHz">
+<part name="Y1" library="SparkFun-Clocks" deviceset="CRYSTAL" device="SMD-3.2X2.5" value="12MHz">
 <attribute name="LCSC_PART" value="C9002"/>
 </part>
-<part name="R4" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C11702/1K">
+<part name="R4" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="1K">
 <attribute name="LCSC_PART" value="C11702"/>
 </part>
-<part name="C17" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1562/33p/6.3V/COG">
+<part name="C17" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="33p/6.3V/COG">
 <attribute name="LCSC_PART" value="C1562"/>
 </part>
-<part name="C18" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1562/33p/6.3V/COG">
+<part name="C18" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="33p/6.3V/COG">
 <attribute name="LCSC_PART" value="C1562"/>
 </part>
 <part name="V6" library="supply2" deviceset="GND" device=""/>
-<part name="U2" library="robins-v7" deviceset="74LVC4245" device="-TSSOP24" value="C6091/74LVC4245">
+<part name="U2" library="robins-v7" deviceset="74LVC4245" device="-TSSOP24" value="74LVC4245">
 <attribute name="LCSC_PART" value="C6091"/>
 </part>
-<part name="R6" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C25744/10K">
+<part name="R6" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="10K">
 <attribute name="LCSC_PART" value="C25744"/>
 </part>
-<part name="R1" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C25744/10K">
+<part name="R1" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="10K">
 <attribute name="LCSC_PART" value="C25744"/>
 </part>
-<part name="R2" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C25905/5K1">
+<part name="R2" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="5K1">
 <attribute name="LCSC_PART" value="C25905"/>
 </part>
 <part name="P+7" library="supply1" deviceset="+5V" device="" value="+5_ECU"/>
 <part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
-<part name="D2" library="SparkFun-LED" deviceset="LED-GREEN" device="0603" value="C72043/Green">
+<part name="D2" library="SparkFun-LED" deviceset="LED-GREEN" device="0603" value="Green">
 <attribute name="LCSC_PART" value="C72043"/>
 </part>
-<part name="R7" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C25117/470R">
+<part name="R7" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="470R">
 <attribute name="LCSC_PART" value="C25117"/>
 </part>
 <part name="+3V14" library="supply1" deviceset="+3V3" device=""/>
 <part name="TP1" library="robins-v7" deviceset="TEST-POINT" device="-1035"/>
 <part name="V5" library="supply2" deviceset="GND" device=""/>
 <part name="+3V15" library="supply1" deviceset="+3V3" device=""/>
-<part name="C19" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C19" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C20" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C12530/2u2/6.3V/X5R">
+<part name="C20" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="2u2/6.3V/X5R">
 <attribute name="LCSC_PART" value="C12530"/>
 </part>
-<part name="C21" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C12530/2u2/6.3V/X5R">
+<part name="C21" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="2u2/6.3V/X5R">
 <attribute name="LCSC_PART" value="C12530"/>
 </part>
 <part name="V16" library="supply2" deviceset="GND" device=""/>
-<part name="C22" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C12530/2u2/6.3V/X5R">
+<part name="C22" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="2u2/6.3V/X5R">
 <attribute name="LCSC_PART" value="C12530"/>
 </part>
-<part name="U6" library="robins-v7" deviceset="74LVC2G04" device="-SOT23-6" value="C10428/74LVC2G04">
+<part name="U6" library="robins-v7" deviceset="74LVC2G04" device="-SOT23-6" value="74LVC2G04">
 <attribute name="LCSC_PART" value="C10428"/>
 </part>
 <part name="+3V16" library="supply1" deviceset="+3V3" device=""/>
@@ -6800,32 +6800,32 @@ Block, Siemens and generic&lt;p&gt;
 <part name="TP3" library="robins-v7" deviceset="TEST-POINT" device="-1035"/>
 <part name="V18" library="supply2" deviceset="GND" device=""/>
 <part name="TP4" library="robins-v7" deviceset="TEST-POINT" device="-1035"/>
-<part name="C23" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C23" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C24" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C24" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
 <part name="V26" library="supply2" deviceset="GND" device=""/>
 <part name="TP5" library="robins-v7" deviceset="TEST-POINT" device="-1035"/>
 <part name="TP6" library="robins-v7" deviceset="TEST-POINT" device="-1035"/>
-<part name="R5" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C25744/10K">
+<part name="R5" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="10K">
 <attribute name="LCSC_PART" value="C25744"/>
 </part>
-<part name="U7" library="robins-v7" deviceset="74LVC2G04" device="-SOT23-6" value="C10428/74LVC2G04">
+<part name="U7" library="robins-v7" deviceset="74LVC2G04" device="-SOT23-6" value="74LVC2G04">
 <attribute name="LCSC_PART" value="C10428"/>
 </part>
 <part name="J2" library="10118194-0001LF" deviceset="10118194-0001LF" device="">
 <attribute name="LCSC_PART" value="C132563"/>
 </part>
-<part name="R10" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C25100/27R">
+<part name="R10" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="27R">
 <attribute name="LCSC_PART" value="C25100"/>
 </part>
-<part name="R11" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C25100/27R">
+<part name="R11" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="27R">
 <attribute name="LCSC_PART" value="C25100"/>
 </part>
 <part name="V29" library="supply2" deviceset="GND" device=""/>
-<part name="C25" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C25" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
 <part name="+3V17" library="supply1" deviceset="+3V3" device=""/>
@@ -6833,22 +6833,22 @@ Block, Siemens and generic&lt;p&gt;
 <part name="M2" library="robins-v7" deviceset="GPS-GENERIC-DS" device="-DBL-SIDED" value="Generic single-sided NEO-8"/>
 <part name="V33" library="supply2" deviceset="GND" device=""/>
 <part name="+3V18" library="supply1" deviceset="+3V3" device=""/>
-<part name="J5" library="robins-v7" deviceset="CON-1X8" device="-VERT" value="C160394/JST BM08B-SRSS">
+<part name="J5" library="robins-v7" deviceset="CON-1X8" device="-VERT" value="JST BM08B-SRSS">
 <attribute name="LCSC_PART" value="C160394"/>
 </part>
 <part name="SUPPLY21" library="supply2" deviceset="GND" device=""/>
 <part name="+3V19" library="supply1" deviceset="+3V3" device=""/>
-<part name="C26" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C26" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
 <part name="V34" library="supply2" deviceset="GND" device=""/>
 <part name="V32" library="supply2" deviceset="GND" device=""/>
 <part name="JP3" library="SparkFun-Jumpers" deviceset="JUMPER-SMT_2_NC_TRACE" device="_NO-SILK" value="NC"/>
 <part name="V36" library="supply2" deviceset="GND" device=""/>
-<part name="Q2" library="SparkFun-DiscreteSemi" deviceset="TRANS_NPN" device="-MMBTA42" value="C2150/SS8050">
+<part name="Q2" library="SparkFun-DiscreteSemi" deviceset="TRANS_NPN" device="-MMBTA42" value="SS8050">
 <attribute name="LCSC_PART" value="C2150"/>
 </part>
-<part name="R12" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C25744/10K">
+<part name="R12" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="10K">
 <attribute name="LCSC_PART" value="C25744"/>
 </part>
 <part name="+3V10" library="supply1" deviceset="+3V3" device=""/>
@@ -6857,27 +6857,27 @@ Block, Siemens and generic&lt;p&gt;
 </part>
 <part name="SUPPLY1" library="SparkFun-PowerSymbols" deviceset="1.0V" device=""/>
 <part name="S1" library="robins-v7" deviceset="SWITCH" device="-TAC-5.2MM"/>
-<part name="R13" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C11702/1K">
+<part name="R13" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="1K">
 <attribute name="LCSC_PART" value="C11702"/>
 </part>
 <part name="V2" library="supply2" deviceset="GND" device=""/>
-<part name="R14" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C25744/10K">
+<part name="R14" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="10K">
 <attribute name="LCSC_PART" value="C25744"/>
 </part>
-<part name="R15" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C25744/10K">
+<part name="R15" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="10K">
 <attribute name="LCSC_PART" value="C25744"/>
 </part>
-<part name="R16" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C25744/10K">
+<part name="R16" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="10K">
 <attribute name="LCSC_PART" value="C25744"/>
 </part>
 <part name="V35" library="supply2" deviceset="GND" device=""/>
 <part name="JP2" library="pinhead" deviceset="PINHD-1X2" device=""/>
 <part name="+3V23" library="supply1" deviceset="+3V3" device=""/>
 <part name="V38" library="supply2" deviceset="GND" device=""/>
-<part name="R18" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C25100/27R">
+<part name="R18" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="27R">
 <attribute name="LCSC_PART" value="C25100"/>
 </part>
-<part name="U5" library="SparkFun-IC-Memory" deviceset="W25Q32FV" device="SS" value="C97521/W25Q128JVSIQ">
+<part name="U5" library="SparkFun-IC-Memory" deviceset="W25Q32FV" device="SS" value="W25Q128JVSIQ">
 <attribute name="LCSC_PART" value="C97521"/>
 </part>
 <part name="V39" library="supply2" deviceset="GND" device=""/>
@@ -6885,14 +6885,18 @@ Block, Siemens and generic&lt;p&gt;
 <part name="V40" library="supply2" deviceset="GND" device=""/>
 <part name="TP2" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3X5" value=""/>
 <part name="J4" library="robins-v7" deviceset="CORTEX_DEBUG" device="-PTH"/>
-<part name="U8" library="robins-v7" deviceset="WS2812" device="-2020" value="WS2812C-2020"/>
+<part name="U8" library="robins-v7" deviceset="WS2812" device="-2020" value="WS2812C-2020">
+<attribute name="LCSC_PART" value="C2976072"/>
+</part>
 <part name="V41" library="supply2" deviceset="GND" device=""/>
 <part name="+3V20" library="supply1" deviceset="+3V3" device=""/>
-<part name="R8" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="C25744/10K">
+<part name="R8" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="10K">
 <attribute name="LCSC_PART" value="C25744"/>
 </part>
 <part name="SUPPLY2" library="supply2" deviceset="GND" device=""/>
-<part name="U9" library="robins-v7" deviceset="TPS560430" device="-SOT23-6" value="TPS560430X"/>
+<part name="U9" library="robins-v7" deviceset="TPS560430" device="-SOT23-6" value="LGS5148">
+<attribute name="LCSC_PART" value="C5123972"/>
+</part>
 <part name="SUPPLY7" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY5" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY9" library="supply2" deviceset="GND" device=""/>
@@ -6908,8 +6912,12 @@ Block, Siemens and generic&lt;p&gt;
 <part name="C31" library="robins-v7" deviceset="CAP" device="-0805" value="10uF/10V"/>
 <part name="R19" library="robins-v7" deviceset="RESISTOR" device="-0603" value="10K"/>
 <part name="SUPPLY3" library="supply2" deviceset="GND" device=""/>
-<part name="D3" library="SparkFun-DiscreteSemi" deviceset="DIODE-SCHOTTKY" device="-BAT20J" value="1A/23V/620mV"/>
-<part name="D4" library="SparkFun-DiscreteSemi" deviceset="DIODE-SCHOTTKY" device="-BAT20J" value="1A/23V/620mV"/>
+<part name="D3" library="SparkFun-DiscreteSemi" deviceset="DIODE-SCHOTTKY" device="-BAT20J" value="1N5819WS">
+<attribute name="LCSC_PART" value="C191023"/>
+</part>
+<part name="D4" library="SparkFun-DiscreteSemi" deviceset="DIODE-SCHOTTKY" device="-BAT20J" value="1N5819WS">
+<attribute name="LCSC_PART" value="C191023"/>
+</part>
 <part name="F1" library="fuse" deviceset="FUSE" device="PICOFUSE"/>
 <part name="V13" library="supply2" deviceset="GND" device=""/>
 <part name="V27" library="supply2" deviceset="GND" device=""/>
@@ -6918,16 +6926,25 @@ Block, Siemens and generic&lt;p&gt;
 <part name="+3V6" library="supply1" deviceset="+3V3" device=""/>
 <part name="R20" library="varistor" deviceset="S10K40" device=""/>
 <part name="SUPPLY6" library="supply2" deviceset="GND" device=""/>
-<part name="C14" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C1525/100n/10V/X7R">
+<part name="C14" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/10V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
 <part name="V11" library="supply2" deviceset="GND" device=""/>
-<part name="C27" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="C368809/4u7/10V/X5R">
+<part name="C27" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="4u7/10V/X5R">
 <attribute name="LCSC_PART" value="C368809"/>
 </part>
 <part name="V30" library="supply2" deviceset="GND" device=""/>
 <part name="+3V21" library="supply1" deviceset="+3V3" device=""/>
 <part name="J3" library="robins-v7" deviceset="FASTON-TAB" device="HORIZONTAL-MALE"/>
+<part name="R21" library="robins-v7" deviceset="RESISTOR" device="-0603" value="20K"/>
+<part name="R22" library="robins-v7" deviceset="RESISTOR" device="-0603" value="5K1"/>
+<part name="SUPPLY8" library="supply2" deviceset="GND" device=""/>
+<part name="D7" library="SparkFun-DiscreteSemi" deviceset="DIODE-SCHOTTKY" device="-BAT20J" value="1N5819WS">
+<attribute name="LCSC_PART" value="C191023"/>
+</part>
+<part name="+3V22" library="supply1" deviceset="+3V3" device=""/>
+<part name="C32" library="robins-v7" deviceset="CAP" device="-0603" value="1nF/25V"/>
+<part name="SUPPLY11" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7222,21 +7239,27 @@ VCCB is the 3.3V side and will drive its outputs to VCCB</text>
 <instance part="FRAME4" gate="G$1" x="0" y="0"/>
 <instance part="FRAME4" gate="G$2" x="147.32" y="0"/>
 <instance part="V4" gate="GND" x="121.92" y="88.9" rot="MR0"/>
-<instance part="C5" gate="G$1" x="165.1" y="88.9">
-<attribute name="LCSC_PART" x="165.1" y="88.9" size="1.27" layer="96" display="both"/>
+<instance part="C5" gate="G$1" x="165.1" y="88.9" smashed="yes">
+<attribute name="LCSC_PART" x="167.64" y="88.9" size="1.27" layer="96"/>
+<attribute name="NAME" x="167.894" y="91.821" size="1.778" layer="95"/>
+<attribute name="VALUE" x="167.894" y="85.471" size="1.778" layer="96"/>
 </instance>
-<instance part="C6" gate="G$1" x="81.28" y="104.14">
-<attribute name="LCSC_PART" x="81.28" y="104.14" size="1.27" layer="96" display="both"/>
+<instance part="C6" gate="G$1" x="81.28" y="104.14" smashed="yes">
+<attribute name="LCSC_PART" x="82.55" y="99.06" size="1.27" layer="96"/>
+<attribute name="NAME" x="82.804" y="107.061" size="1.778" layer="95"/>
+<attribute name="VALUE" x="82.804" y="101.981" size="1.778" layer="96"/>
 </instance>
 <instance part="V7" gate="GND" x="81.28" y="96.52" rot="MR0"/>
 <instance part="V8" gate="GND" x="165.1" y="81.28" rot="MR0"/>
 <instance part="U2" gate="G$1" x="127" y="119.38" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="132.08" y="142.24" size="1.27" layer="96" rot="MR0"/>
-<attribute name="NAME" x="137.16" y="140.97" size="1.27" layer="95" rot="MR0"/>
-<attribute name="LCSC_PART" x="134.62" y="144.78" size="1.27" layer="96" rot="MR0" display="both"/>
+<attribute name="VALUE" x="132.08" y="143.51" size="1.778" layer="96" rot="MR0"/>
+<attribute name="NAME" x="137.16" y="140.97" size="1.778" layer="95" rot="MR0"/>
+<attribute name="LCSC_PART" x="132.08" y="140.97" size="1.27" layer="96" rot="MR0"/>
 </instance>
-<instance part="R6" gate="G$1" x="149.86" y="104.14" rot="R270">
-<attribute name="LCSC_PART" x="149.86" y="104.14" size="1.27" layer="96" rot="R270" display="both"/>
+<instance part="R6" gate="G$1" x="149.86" y="104.14" smashed="yes" rot="R270">
+<attribute name="LCSC_PART" x="152.4" y="101.6" size="1.27" layer="96"/>
+<attribute name="NAME" x="152.4" y="105.6386" size="1.778" layer="95"/>
+<attribute name="VALUE" x="152.4" y="103.378" size="1.778" layer="96"/>
 </instance>
 <instance part="+3V5" gate="G$1" x="81.28" y="116.84"/>
 </instances>
@@ -7439,6 +7462,9 @@ VCCB is the 3.3V side and will drive its outputs to VCCB</text>
 <text x="152.4" y="86.36" size="1.27" layer="97">!CE! does not need to be complemented
 but we do need the voltage translation
 that the inverter provides</text>
+<text x="140.97" y="123.19" size="1.27" layer="97">A V divider is not required, but noise filtering
+might be useful. Also, R1 is required if a
+bare umod4 is powered on a bench, no ECU.</text>
 </plain>
 <instances>
 <instance part="FRAME7" gate="G$1" x="0" y="0"/>
@@ -7446,76 +7472,84 @@ that the inverter provides</text>
 <instance part="V19" gate="GND" x="76.2" y="93.98" rot="MR0"/>
 <instance part="V21" gate="GND" x="76.2" y="55.88" rot="MR0"/>
 <instance part="U3" gate="G$1" x="60.96" y="76.2">
-<attribute name="LCSC_PART" x="71.12" y="58.42" size="1.27" layer="96" display="both"/>
+<attribute name="LCSC_PART" x="64.77" y="55.88" size="1.27" layer="96"/>
 </instance>
 <instance part="U1" gate="G$1" x="60.96" y="114.3">
-<attribute name="LCSC_PART" x="71.12" y="96.52" size="1.27" layer="96" display="both"/>
+<attribute name="LCSC_PART" x="64.77" y="93.98" size="1.27" layer="96"/>
 </instance>
 <instance part="C1" gate="G$1" x="55.88" y="137.16" smashed="yes">
-<attribute name="NAME" x="57.404" y="140.081" size="1.778" layer="95"/>
+<attribute name="NAME" x="53.086" y="143.129" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="53.086" y="140.589" size="1.778" layer="96" rot="R180"/>
-<attribute name="LCSC_PART" x="33.02" y="137.16" size="1.27" layer="96" display="both"/>
+<attribute name="LCSC_PART" x="52.07" y="137.16" size="1.27" layer="96" rot="R180"/>
 </instance>
 <instance part="C2" gate="G$1" x="63.5" y="137.16" smashed="yes">
-<attribute name="NAME" x="65.024" y="140.081" size="1.778" layer="95"/>
-<attribute name="VALUE" x="66.294" y="136.271" size="1.778" layer="96"/>
-<attribute name="LCSC_PART" x="66.04" y="134.62" size="1.27" layer="96" display="both"/>
+<attribute name="NAME" x="67.564" y="141.351" size="1.778" layer="95"/>
+<attribute name="VALUE" x="67.564" y="138.811" size="1.778" layer="96"/>
+<attribute name="LCSC_PART" x="67.31" y="135.89" size="1.27" layer="96"/>
 </instance>
 <instance part="C3" gate="G$1" x="60.96" y="35.56" smashed="yes">
-<attribute name="NAME" x="62.484" y="38.481" size="1.778" layer="95"/>
+<attribute name="NAME" x="56.896" y="41.529" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="56.896" y="38.989" size="1.778" layer="96" rot="R180"/>
-<attribute name="LCSC_PART" x="35.56" y="35.56" size="1.27" layer="96" display="both"/>
+<attribute name="LCSC_PART" x="57.15" y="35.56" size="1.27" layer="96" rot="R180"/>
 </instance>
 <instance part="C4" gate="G$1" x="71.12" y="35.56" smashed="yes">
-<attribute name="NAME" x="72.644" y="38.481" size="1.778" layer="95"/>
-<attribute name="VALUE" x="73.914" y="34.671" size="1.778" layer="96"/>
-<attribute name="LCSC_PART" x="73.66" y="33.02" size="1.27" layer="96" display="both"/>
+<attribute name="NAME" x="73.914" y="39.751" size="1.778" layer="95"/>
+<attribute name="VALUE" x="73.914" y="37.211" size="1.778" layer="96"/>
+<attribute name="LCSC_PART" x="73.66" y="35.56" size="1.27" layer="96"/>
 </instance>
 <instance part="+3V1" gate="G$1" x="78.74" y="101.6" rot="R270"/>
 <instance part="+3V2" gate="G$1" x="78.74" y="63.5" rot="R270"/>
 <instance part="+3V3" gate="G$1" x="55.88" y="149.86"/>
-<instance part="+3V4" gate="G$1" x="60.96" y="46.99"/>
+<instance part="+3V4" gate="G$1" x="60.96" y="49.53"/>
 <instance part="V22" gate="GND" x="60.96" y="132.08" rot="MR0"/>
-<instance part="V25" gate="GND" x="68.58" y="30.48" rot="MR0"/>
+<instance part="V25" gate="GND" x="66.04" y="30.48" rot="MR0"/>
 <instance part="R1" gate="G$1" x="129.54" y="104.14" smashed="yes" rot="R270">
-<attribute name="NAME" x="131.0386" y="107.95" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="126.238" y="110.49" size="1.778" layer="96" rot="R270"/>
-<attribute name="LCSC_PART" x="124.46" y="91.44" size="1.27" layer="96" rot="R90" display="both"/>
+<attribute name="NAME" x="127" y="107.7214" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="127" y="104.902" size="1.778" layer="96" rot="R180"/>
+<attribute name="LCSC_PART" x="127" y="101.6" size="1.27" layer="96" rot="R180"/>
 </instance>
 <instance part="R2" gate="G$1" x="129.54" y="119.38" smashed="yes" rot="R270">
-<attribute name="NAME" x="131.0386" y="123.19" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="126.238" y="133.35" size="1.778" layer="96" rot="R270"/>
-<attribute name="LCSC_PART" x="124.46" y="116.84" size="1.27" layer="96" rot="R90" display="both"/>
+<attribute name="NAME" x="127" y="122.9614" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="127" y="120.142" size="1.778" layer="96" rot="R180"/>
+<attribute name="LCSC_PART" x="127" y="116.84" size="1.27" layer="96" rot="R180"/>
 </instance>
-<instance part="P+7" gate="1" x="134.62" y="132.08"/>
+<instance part="P+7" gate="1" x="129.54" y="132.08" smashed="yes">
+<attribute name="VALUE" x="133.35" y="134.62" size="1.778" layer="96" rot="R180"/>
+</instance>
 <instance part="U6" gate="G$1" x="160.02" y="147.32">
-<attribute name="LCSC_PART" x="162.56" y="139.7" size="1.27" layer="96" display="both"/>
+<attribute name="LCSC_PART" x="162.56" y="139.7" size="1.27" layer="96"/>
 </instance>
 <instance part="U6" gate="G$2" x="160.02" y="114.3"/>
 <instance part="U6" gate="G$3" x="205.74" y="132.08"/>
 <instance part="+3V16" gate="G$1" x="205.74" y="149.86"/>
 <instance part="V17" gate="GND" x="205.74" y="114.3" rot="MR0"/>
-<instance part="C23" gate="G$1" x="215.9" y="129.54">
-<attribute name="LCSC_PART" x="215.9" y="129.54" size="1.27" layer="96" display="both"/>
+<instance part="C23" gate="G$1" x="215.9" y="129.54" smashed="yes">
+<attribute name="LCSC_PART" x="218.44" y="127" size="1.27" layer="96"/>
+<attribute name="NAME" x="218.694" y="132.461" size="1.778" layer="95"/>
+<attribute name="VALUE" x="218.694" y="128.651" size="1.778" layer="96"/>
 </instance>
-<instance part="C24" gate="G$1" x="142.24" y="104.14">
-<attribute name="LCSC_PART" x="142.24" y="104.14" size="1.27" layer="96" display="both"/>
+<instance part="C24" gate="G$1" x="142.24" y="104.14" smashed="yes">
+<attribute name="LCSC_PART" x="144.78" y="101.6" size="1.27" layer="96"/>
+<attribute name="NAME" x="145.034" y="107.061" size="1.778" layer="95"/>
+<attribute name="VALUE" x="145.034" y="103.251" size="1.778" layer="96"/>
 </instance>
 <instance part="V26" gate="GND" x="142.24" y="93.98" rot="MR0"/>
 <instance part="U7" gate="G$1" x="160.02" y="78.74">
-<attribute name="LCSC_PART" x="162.56" y="71.12" size="1.27" layer="96" display="both"/>
+<attribute name="LCSC_PART" x="162.56" y="71.12" size="1.27" layer="96"/>
 </instance>
 <instance part="U7" gate="G$2" x="160.02" y="60.96"/>
 <instance part="U7" gate="G$3" x="205.74" y="68.58"/>
-<instance part="C25" gate="G$1" x="215.9" y="66.04">
-<attribute name="LCSC_PART" x="215.9" y="66.04" size="1.27" layer="96" display="both"/>
+<instance part="C25" gate="G$1" x="215.9" y="66.04" smashed="yes">
+<attribute name="LCSC_PART" x="218.44" y="64.77" size="1.27" layer="96"/>
+<attribute name="NAME" x="218.694" y="68.961" size="1.778" layer="95"/>
+<attribute name="VALUE" x="218.694" y="66.421" size="1.778" layer="96"/>
 </instance>
 <instance part="+3V17" gate="G$1" x="205.74" y="86.36"/>
 <instance part="V31" gate="GND" x="205.74" y="50.8" rot="MR0"/>
 <instance part="V32" gate="GND" x="147.32" y="46.99" rot="MR270"/>
 <instance part="JP3" gate="G$1" x="142.24" y="52.07" rot="R90"/>
 <instance part="R18" gate="G$1" x="96.52" y="63.5" rot="R180">
-<attribute name="LCSC_PART" x="104.14" y="68.58" size="1.27" layer="96" rot="R180" display="both"/>
+<attribute name="LCSC_PART" x="93.98" y="57.15" size="1.27" layer="96"/>
 </instance>
 <instance part="V28" gate="GND" x="45.72" y="55.88" rot="MR0"/>
 <instance part="V40" gate="GND" x="45.72" y="93.98" rot="MR0"/>
@@ -7771,10 +7805,10 @@ that the inverter provides</text>
 <segment>
 <pinref part="C3" gate="G$1" pin="2"/>
 <pinref part="C4" gate="G$1" pin="2"/>
-<wire x1="60.96" y1="33.02" x2="68.58" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="33.02" x2="66.04" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="V25" gate="GND" pin="GND"/>
-<wire x1="68.58" y1="33.02" x2="71.12" y2="33.02" width="0.1524" layer="91"/>
-<junction x="68.58" y="33.02"/>
+<wire x1="66.04" y1="33.02" x2="71.12" y2="33.02" width="0.1524" layer="91"/>
+<junction x="66.04" y="33.02"/>
 </segment>
 <segment>
 <pinref part="R1" gate="G$1" pin="2"/>
@@ -7823,7 +7857,7 @@ that the inverter provides</text>
 </net>
 <net name="+3V3" class="0">
 <segment>
-<wire x1="60.96" y1="40.64" x2="60.96" y2="44.45" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="40.64" x2="60.96" y2="46.99" width="0.1524" layer="91"/>
 <pinref part="+3V4" gate="G$1" pin="+3V3"/>
 <pinref part="C3" gate="G$1" pin="1"/>
 <pinref part="C4" gate="G$1" pin="1"/>
@@ -7891,9 +7925,7 @@ that the inverter provides</text>
 <net name="+5_ECU" class="0">
 <segment>
 <pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="129.54" y1="124.46" x2="129.54" y2="127" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="127" x2="134.62" y2="127" width="0.1524" layer="91"/>
-<wire x1="134.62" y1="127" x2="134.62" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="124.46" x2="129.54" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="P+7" gate="1" pin="+5V"/>
 </segment>
 </net>
@@ -7967,7 +7999,7 @@ that the inverter provides</text>
 <sheet>
 <plain>
 <text x="149.86" y="27.94" size="2.54" layer="94">Power Supply</text>
-<text x="160.02" y="76.2" size="1.778" layer="97">VBUS is supplied when a power supply
+<text x="179.07" y="76.2" size="1.778" layer="97">VBUS is supplied when a power supply
 is plugged into PicoW USB connector.
 When VBUS is present, it is used to
 power VSYS instead of TPS560430.</text>
@@ -8000,7 +8032,7 @@ Without that, the EN signal could be at 5V
 via +5_ECU when VIN (+12_US) was at GND.
 That would violate Ven &lt;= Vin and potentially 
 destroy the TPS56430.</text>
-<text x="35.56" y="71.12" size="1.27" layer="97">The resistor ensures that the default is for the
+<text x="104.14" y="74.93" size="1.27" layer="97">The resistor ensures that the default is for the
 TPS560430 power converter is to be turned OFF.
 The power converter will be enabled when:
   - Ignition is ON (+5_ECU will be present)
@@ -8035,7 +8067,11 @@ quickly. D1 provides power until Q1 is ON.
 <instance part="+3V23" gate="G$1" x="22.86" y="20.32"/>
 <instance part="V38" gate="GND" x="22.86" y="5.08" rot="MR0"/>
 <instance part="SUPPLY2" gate="GND" x="76.2" y="114.3"/>
-<instance part="U9" gate="G$1" x="116.84" y="124.46"/>
+<instance part="U9" gate="G$1" x="116.84" y="124.46" smashed="yes">
+<attribute name="LCSC_PART" x="109.22" y="111.76" size="1.27" layer="96"/>
+<attribute name="NAME" x="109.22" y="133.35" size="1.778" layer="95"/>
+<attribute name="VALUE" x="109.22" y="114.3" size="1.778" layer="96"/>
+</instance>
 <instance part="SUPPLY7" gate="GND" x="142.24" y="91.44"/>
 <instance part="SUPPLY5" gate="GND" x="104.14" y="111.76"/>
 <instance part="SUPPLY9" gate="GND" x="154.94" y="104.14"/>
@@ -8051,14 +8087,33 @@ quickly. D1 provides power until Q1 is ON.
 <instance part="C31" gate="G$1" x="170.18" y="116.84"/>
 <instance part="R19" gate="G$1" x="99.06" y="83.82" rot="R90"/>
 <instance part="SUPPLY3" gate="GND" x="99.06" y="73.66"/>
-<instance part="D3" gate="G$1" x="81.28" y="99.06"/>
-<instance part="D4" gate="G$1" x="81.28" y="88.9" rot="MR180"/>
-<instance part="F1" gate="G$1" x="43.18" y="137.16"/>
+<instance part="D3" gate="G$1" x="81.28" y="99.06" smashed="yes">
+<attribute name="LCSC_PART" x="82.55" y="100.33" size="1.27" layer="96"/>
+<attribute name="NAME" x="78.74" y="101.092" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="78.74" y="97.028" size="1.778" layer="96" font="vector" align="top-left"/>
+</instance>
+<instance part="D4" gate="G$1" x="81.28" y="88.9" smashed="yes" rot="MR180">
+<attribute name="LCSC_PART" x="82.55" y="87.63" size="1.27" layer="96" rot="MR180"/>
+<attribute name="NAME" x="78.74" y="86.868" size="1.778" layer="95" font="vector" rot="MR180"/>
+<attribute name="VALUE" x="78.74" y="90.932" size="1.778" layer="96" font="vector" rot="MR180" align="top-left"/>
+</instance>
+<instance part="F1" gate="G$1" x="26.67" y="137.16"/>
 <instance part="D5" gate="G$1" x="63.5" y="137.16"/>
 <instance part="D6" gate="G$1" x="63.5" y="149.86"/>
-<instance part="R20" gate="G$1" x="35.56" y="116.84" rot="R90"/>
-<instance part="SUPPLY6" gate="GND" x="35.56" y="106.68"/>
-<instance part="J3" gate="G$1" x="25.4" y="130.81" rot="R180"/>
+<instance part="R20" gate="G$1" x="19.05" y="116.84" rot="R90"/>
+<instance part="SUPPLY6" gate="GND" x="19.05" y="106.68"/>
+<instance part="J3" gate="G$1" x="8.89" y="130.81" rot="R180"/>
+<instance part="R21" gate="G$1" x="20.32" y="67.31" rot="R90"/>
+<instance part="R22" gate="G$1" x="20.32" y="50.8" rot="R90"/>
+<instance part="SUPPLY8" gate="GND" x="20.32" y="39.37"/>
+<instance part="D7" gate="G$1" x="36.83" y="66.04" rot="MR180">
+<attribute name="LCSC_PART" x="39.37" y="64.77" size="1.27" layer="96" rot="MR180"/>
+</instance>
+<instance part="+3V22" gate="G$1" x="66.04" y="71.12" smashed="yes">
+<attribute name="VALUE" x="64.77" y="72.39" size="1.778" layer="96"/>
+</instance>
+<instance part="C32" gate="G$1" x="30.48" y="50.8"/>
+<instance part="SUPPLY11" gate="GND" x="30.48" y="39.37"/>
 </instances>
 <busses>
 </busses>
@@ -8079,8 +8134,8 @@ quickly. D1 provides power until Q1 is ON.
 <segment>
 <pinref part="Q1" gate="G$1" pin="G"/>
 <wire x1="190.5" y1="119.38" x2="190.5" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="190.5" y1="88.9" x2="172.72" y2="88.9" width="0.1524" layer="91"/>
-<label x="172.72" y="88.9" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="190.5" y1="88.9" x2="184.15" y2="88.9" width="0.1524" layer="91"/>
+<label x="184.15" y="88.9" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -8127,8 +8182,18 @@ quickly. D1 provides power until Q1 is ON.
 </segment>
 <segment>
 <pinref part="R20" gate="G$1" pin="1"/>
-<wire x1="35.56" y1="111.76" x2="35.56" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="19.05" y1="111.76" x2="19.05" y2="109.22" width="0.1524" layer="91"/>
 <pinref part="SUPPLY6" gate="GND" pin="GND"/>
+</segment>
+<segment>
+<pinref part="R22" gate="G$1" pin="1"/>
+<pinref part="SUPPLY8" gate="GND" pin="GND"/>
+<wire x1="20.32" y1="45.72" x2="20.32" y2="41.91" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C32" gate="G$1" pin="2"/>
+<wire x1="30.48" y1="45.72" x2="30.48" y2="41.91" width="0.1524" layer="91"/>
+<pinref part="SUPPLY11" gate="GND" pin="GND"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -8137,6 +8202,12 @@ quickly. D1 provides power until Q1 is ON.
 <wire x1="12.7" y1="12.7" x2="22.86" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="22.86" y1="12.7" x2="22.86" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="+3V23" gate="G$1" pin="+3V3"/>
+</segment>
+<segment>
+<pinref part="D7" gate="G$1" pin="C"/>
+<wire x1="39.37" y1="66.04" x2="66.04" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="66.04" x2="66.04" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="+3V22" gate="G$1" pin="+3V3"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -8217,23 +8288,23 @@ quickly. D1 provides power until Q1 is ON.
 <net name="KEEP_ALIVE" class="0">
 <segment>
 <pinref part="D4" gate="G$1" pin="A"/>
-<wire x1="78.74" y1="88.9" x2="73.66" y2="88.9" width="0.1524" layer="91"/>
-<label x="73.66" y="88.9" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="78.74" y1="88.9" x2="74.93" y2="88.9" width="0.1524" layer="91"/>
+<label x="74.93" y="88.9" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="+12_US" class="0">
 <segment>
 <pinref part="F1" gate="G$1" pin="1"/>
-<wire x1="38.1" y1="137.16" x2="35.56" y2="137.16" width="0.1524" layer="91"/>
-<label x="30.48" y="137.16" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="21.59" y1="137.16" x2="19.05" y2="137.16" width="0.1524" layer="91"/>
+<label x="13.97" y="137.16" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="R20" gate="G$1" pin="2"/>
-<wire x1="35.56" y1="137.16" x2="30.48" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="35.56" y1="121.92" x2="35.56" y2="130.81" width="0.1524" layer="91"/>
-<junction x="35.56" y="137.16"/>
+<wire x1="19.05" y1="137.16" x2="13.97" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="19.05" y1="121.92" x2="19.05" y2="130.81" width="0.1524" layer="91"/>
+<junction x="19.05" y="137.16"/>
 <pinref part="J3" gate="G$1" pin="1"/>
-<wire x1="35.56" y1="130.81" x2="35.56" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="130.81" x2="35.56" y2="130.81" width="0.1524" layer="91"/>
-<junction x="35.56" y="130.81"/>
+<wire x1="19.05" y1="130.81" x2="19.05" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="13.97" y1="130.81" x2="19.05" y2="130.81" width="0.1524" layer="91"/>
+<junction x="19.05" y="130.81"/>
 </segment>
 </net>
 <net name="VIN" class="0">
@@ -8258,24 +8329,48 @@ quickly. D1 provides power until Q1 is ON.
 <junction x="99.06" y="137.16"/>
 <label x="101.6" y="137.16" size="1.27" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="R21" gate="G$1" pin="2"/>
+<wire x1="20.32" y1="72.39" x2="20.32" y2="77.47" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="77.47" x2="16.51" y2="77.47" width="0.1524" layer="91"/>
+<label x="16.51" y="77.47" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="+5_ECU" class="0">
 <segment>
 <pinref part="D6" gate="G$1" pin="A"/>
-<wire x1="60.96" y1="149.86" x2="35.56" y2="149.86" width="0.1524" layer="91"/>
-<label x="35.56" y="149.86" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="60.96" y1="149.86" x2="19.05" y2="149.86" width="0.1524" layer="91"/>
+<label x="19.05" y="149.86" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="D3" gate="G$1" pin="A"/>
-<wire x1="63.5" y1="99.06" x2="78.74" y2="99.06" width="0.1524" layer="91"/>
-<label x="63.5" y="99.06" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="76.2" y1="99.06" x2="78.74" y2="99.06" width="0.1524" layer="91"/>
+<label x="76.2" y="99.06" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$25" class="0">
 <segment>
 <pinref part="D5" gate="G$1" pin="A"/>
 <pinref part="F1" gate="G$1" pin="2"/>
-<wire x1="48.26" y1="137.16" x2="60.96" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="31.75" y1="137.16" x2="60.96" y2="137.16" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="VIN_MEAS" class="0">
+<segment>
+<pinref part="R21" gate="G$1" pin="1"/>
+<pinref part="R22" gate="G$1" pin="2"/>
+<wire x1="20.32" y1="62.23" x2="20.32" y2="59.69" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="59.69" x2="20.32" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="59.69" x2="30.48" y2="59.69" width="0.1524" layer="91"/>
+<junction x="20.32" y="59.69"/>
+<label x="45.72" y="59.69" size="1.27" layer="95" xref="yes"/>
+<wire x1="30.48" y1="59.69" x2="45.72" y2="59.69" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="59.69" x2="30.48" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="66.04" x2="34.29" y2="66.04" width="0.1524" layer="91"/>
+<junction x="30.48" y="59.69"/>
+<pinref part="D7" gate="G$1" pin="A"/>
+<pinref part="C32" gate="G$1" pin="1"/>
+<wire x1="30.48" y1="53.34" x2="30.48" y2="59.69" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
@@ -8284,14 +8379,13 @@ quickly. D1 provides power until Q1 is ON.
 <plain>
 <text x="149.86" y="27.94" size="2.54" layer="94">Eprom Emulator</text>
 <text x="203.2" y="38.1" size="1.27" layer="97">Approx 1.1 mA assuming Vf of 2.7V</text>
-<text x="233.68" y="160.02" size="1.27" layer="97">VBUS</text>
 <text x="172.72" y="73.66" size="1.27" layer="97">GP24 is RP2040.U1_TX</text>
 <text x="172.72" y="69.85" size="1.27" layer="97">GP25 is RP2040.U1_RX</text>
 <wire x1="213.36" y1="71.12" x2="214.63" y2="69.85" width="0.1524" layer="97"/>
 <wire x1="213.36" y1="71.12" x2="214.63" y2="72.39" width="0.1524" layer="97"/>
 <wire x1="213.36" y1="74.93" x2="214.63" y2="73.66" width="0.1524" layer="97"/>
 <wire x1="214.63" y1="73.66" x2="213.36" y2="72.39" width="0.1524" layer="97"/>
-<text x="91.44" y="175.26" size="1.778" layer="97">BOOTSEL</text>
+<text x="82.55" y="175.26" size="1.778" layer="97">BOOTSEL</text>
 <text x="88.9" y="63.5" size="1.27" layer="97">Default is that the RP2040 runs at boot,
 but can be reset by the Pico W if desired.</text>
 <text x="30.48" y="81.28" size="1.778" layer="97">'1' or 'HI-Z' asserts HC11 !RESET!.
@@ -8302,142 +8396,162 @@ but can be reset by the Pico W if desired.</text>
 <instance part="FRAME2" gate="G$2" x="147.32" y="0"/>
 <instance part="V1" gate="GND" x="162.56" y="43.18" rot="MR0"/>
 <instance part="V3" gate="GND" x="177.8" y="43.18" rot="MR0"/>
-<instance part="R3" gate="G$1" x="119.38" y="73.66" rot="R180">
-<attribute name="LCSC_PART" x="127" y="78.74" size="1.27" layer="96" rot="R180" display="both"/>
+<instance part="R3" gate="G$1" x="116.84" y="76.2" smashed="yes" rot="R180">
+<attribute name="LCSC_PART" x="115.57" y="77.47" size="1.27" layer="96"/>
+<attribute name="NAME" x="115.57" y="78.9686" size="1.778" layer="95"/>
+<attribute name="VALUE" x="119.38" y="74.422" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="+3V8" gate="G$1" x="104.14" y="78.74"/>
+<instance part="+3V8" gate="G$1" x="104.14" y="80.01"/>
 <instance part="+3V9" gate="G$1" x="175.26" y="165.1"/>
 <instance part="U4" gate="G$1" x="177.8" y="101.6">
-<attribute name="LCSC_PART" x="190.5" y="48.26" size="1.27" layer="96" display="both"/>
+<attribute name="LCSC_PART" x="190.5" y="48.26" size="1.27" layer="96"/>
 </instance>
 <instance part="C7" gate="G$1" x="7.62" y="35.56" smashed="yes">
 <attribute name="NAME" x="4.064" y="38.481" size="1.778" layer="95"/>
 <attribute name="VALUE" x="5.461" y="34.036" size="1.778" layer="96" rot="R270"/>
-<attribute name="LCSC_PART" x="5.08" y="12.7" size="1.27" layer="96" rot="R90" display="both"/>
+<attribute name="LCSC_PART" x="3.81" y="34.29" size="1.27" layer="96" rot="R270"/>
 </instance>
 <instance part="C8" gate="G$1" x="142.24" y="160.02" smashed="yes" rot="R270">
-<attribute name="NAME" x="146.304" y="155.321" size="1.778" layer="95"/>
+<attribute name="NAME" x="146.304" y="160.401" size="1.778" layer="95"/>
 <attribute name="VALUE" x="140.716" y="159.639" size="1.778" layer="96" rot="R180"/>
-<attribute name="LCSC_PART" x="132.08" y="157.48" size="1.27" layer="96" rot="R180" display="both"/>
+<attribute name="LCSC_PART" x="146.05" y="157.48" size="1.27" layer="96"/>
 </instance>
 <instance part="C9" gate="G$1" x="15.24" y="35.56" smashed="yes">
 <attribute name="NAME" x="11.684" y="38.481" size="1.778" layer="95"/>
 <attribute name="VALUE" x="13.081" y="34.036" size="1.778" layer="96" rot="R270"/>
-<attribute name="LCSC_PART" x="12.7" y="12.7" size="1.27" layer="96" rot="R90" display="both"/>
+<attribute name="LCSC_PART" x="11.43" y="34.29" size="1.27" layer="96" rot="R270"/>
 </instance>
 <instance part="C10" gate="G$1" x="22.86" y="35.56" smashed="yes">
 <attribute name="NAME" x="19.304" y="38.481" size="1.778" layer="95"/>
 <attribute name="VALUE" x="20.701" y="34.036" size="1.778" layer="96" rot="R270"/>
-<attribute name="LCSC_PART" x="20.32" y="12.7" size="1.27" layer="96" rot="R90" display="both"/>
+<attribute name="LCSC_PART" x="19.05" y="34.29" size="1.27" layer="96" rot="R270"/>
 </instance>
 <instance part="C11" gate="G$1" x="30.48" y="35.56" smashed="yes">
 <attribute name="NAME" x="26.924" y="38.481" size="1.778" layer="95"/>
 <attribute name="VALUE" x="28.321" y="34.036" size="1.778" layer="96" rot="R270"/>
-<attribute name="LCSC_PART" x="27.94" y="12.7" size="1.27" layer="96" rot="R90" display="both"/>
+<attribute name="LCSC_PART" x="26.67" y="34.29" size="1.27" layer="96" rot="R270"/>
 </instance>
 <instance part="C12" gate="G$1" x="38.1" y="35.56" smashed="yes">
 <attribute name="NAME" x="34.544" y="38.481" size="1.778" layer="95"/>
 <attribute name="VALUE" x="35.941" y="34.036" size="1.778" layer="96" rot="R270"/>
-<attribute name="LCSC_PART" x="35.56" y="12.7" size="1.27" layer="96" rot="R90" display="both"/>
+<attribute name="LCSC_PART" x="34.29" y="34.29" size="1.27" layer="96" rot="R270"/>
 </instance>
 <instance part="C15" gate="G$1" x="142.24" y="167.64" smashed="yes" rot="R270">
-<attribute name="NAME" x="146.304" y="165.481" size="1.778" layer="95"/>
+<attribute name="NAME" x="146.304" y="168.021" size="1.778" layer="95"/>
 <attribute name="VALUE" x="140.716" y="167.259" size="1.778" layer="96" rot="R180"/>
-<attribute name="LCSC_PART" x="132.08" y="165.1" size="1.27" layer="96" rot="R180" display="both"/>
+<attribute name="LCSC_PART" x="146.05" y="165.1" size="1.27" layer="96"/>
 </instance>
 <instance part="C16" gate="G$1" x="45.72" y="35.56" smashed="yes">
 <attribute name="NAME" x="42.164" y="38.481" size="1.778" layer="95"/>
 <attribute name="VALUE" x="43.561" y="34.036" size="1.778" layer="96" rot="R270"/>
-<attribute name="LCSC_PART" x="43.18" y="12.7" size="1.27" layer="96" rot="R90" display="both"/>
+<attribute name="LCSC_PART" x="41.91" y="34.29" size="1.27" layer="96" rot="R270"/>
 </instance>
 <instance part="V10" gate="GND" x="66.04" y="27.94" rot="MR0"/>
-<instance part="+3V11" gate="G$1" x="7.62" y="48.26"/>
+<instance part="+3V11" gate="G$1" x="7.62" y="48.26" smashed="yes">
+<attribute name="VALUE" x="5.08" y="49.53" size="1.778" layer="96"/>
+</instance>
 <instance part="V15" gate="GND" x="96.52" y="10.16" rot="MR0"/>
 <instance part="+3V13" gate="G$1" x="96.52" y="27.94"/>
-<instance part="Y1" gate="G$1" x="116.84" y="96.52" rot="R90">
-<attribute name="LCSC_PART" x="121.92" y="86.36" size="1.27" layer="96" rot="R90" display="both"/>
+<instance part="Y1" gate="G$1" x="116.84" y="96.52" smashed="yes" rot="R90">
+<attribute name="LCSC_PART" x="119.38" y="96.52" size="1.27" layer="96"/>
+<attribute name="NAME" x="120.65" y="98.552" size="1.778" layer="95" font="vector" align="bottom-center"/>
+<attribute name="VALUE" x="123.19" y="95.758" size="1.778" layer="96" font="vector" align="top-center"/>
 </instance>
 <instance part="R4" gate="G$1" x="129.54" y="88.9" smashed="yes" rot="R180">
-<attribute name="NAME" x="133.35" y="87.4014" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="138.43" y="92.202" size="1.778" layer="96" rot="R180"/>
-<attribute name="LCSC_PART" x="139.7" y="86.36" size="1.27" layer="96" rot="R180" display="both"/>
+<attribute name="NAME" x="128.27" y="91.6686" size="1.778" layer="95"/>
+<attribute name="VALUE" x="128.27" y="85.598" size="1.778" layer="96"/>
+<attribute name="LCSC_PART" x="128.27" y="90.17" size="1.27" layer="96"/>
 </instance>
 <instance part="C17" gate="G$1" x="111.76" y="104.14" smashed="yes" rot="R90">
 <attribute name="NAME" x="111.506" y="101.219" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="111.506" y="136.779" size="1.778" layer="96" rot="R180"/>
-<attribute name="LCSC_PART" x="116.84" y="109.22" size="1.27" layer="96" rot="R180" display="both"/>
+<attribute name="VALUE" x="116.586" y="108.839" size="1.778" layer="96" rot="R180"/>
+<attribute name="LCSC_PART" x="109.22" y="106.68" size="1.27" layer="96" rot="R180"/>
 </instance>
 <instance part="C18" gate="G$1" x="111.76" y="88.9" smashed="yes" rot="R90">
 <attribute name="NAME" x="111.506" y="93.599" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="111.506" y="85.979" size="1.778" layer="96" rot="R180"/>
-<attribute name="LCSC_PART" x="104.14" y="83.82" size="1.27" layer="96" rot="R180" display="both"/>
+<attribute name="VALUE" x="116.586" y="85.979" size="1.778" layer="96" rot="R180"/>
+<attribute name="LCSC_PART" x="109.22" y="87.63" size="1.27" layer="96" rot="R180"/>
 </instance>
 <instance part="V6" gate="GND" x="99.06" y="91.44" rot="MR0"/>
-<instance part="D2" gate="G$1" x="218.44" y="45.72" smashed="yes" rot="R270">
-<attribute name="NAME" x="211.328" y="46.609" size="1.778" layer="95" font="vector"/>
-<attribute name="VALUE" x="206.248" y="43.815" size="1.778" layer="96" font="vector" align="top-left"/>
-<attribute name="LCSC_PART" x="205.74" y="40.64" size="1.27" layer="96" display="both"/>
+<instance part="D2" gate="G$1" x="220.98" y="45.72" smashed="yes" rot="R270">
+<attribute name="NAME" x="221.488" y="49.149" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="217.678" y="43.815" size="1.778" layer="96" font="vector" align="top-left"/>
+<attribute name="LCSC_PART" x="222.25" y="46.99" size="1.27" layer="96"/>
 </instance>
-<instance part="R7" gate="G$1" x="236.22" y="45.72" rot="R180">
-<attribute name="LCSC_PART" x="241.3" y="50.8" size="1.27" layer="96" rot="R180" display="both"/>
+<instance part="R7" gate="G$1" x="236.22" y="45.72" smashed="yes" rot="R180">
+<attribute name="LCSC_PART" x="233.68" y="46.99" size="1.27" layer="96"/>
+<attribute name="NAME" x="233.68" y="48.4886" size="1.778" layer="95"/>
+<attribute name="VALUE" x="233.68" y="42.418" size="1.778" layer="96"/>
 </instance>
-<instance part="+3V14" gate="G$1" x="246.38" y="45.72" rot="R270"/>
-<instance part="TP1" gate="G$1" x="215.9" y="55.88" rot="R270"/>
-<instance part="V5" gate="GND" x="38.1" y="137.16" rot="MR0"/>
-<instance part="+3V15" gate="G$1" x="40.64" y="165.1"/>
-<instance part="C19" gate="G$1" x="40.64" y="149.86" smashed="yes">
-<attribute name="NAME" x="42.164" y="152.781" size="1.778" layer="95"/>
-<attribute name="VALUE" x="42.291" y="148.336" size="1.778" layer="96" rot="R270"/>
-<attribute name="LCSC_PART" x="45.72" y="147.32" size="1.27" layer="96" rot="R270" display="both"/>
+<instance part="+3V14" gate="G$1" x="245.11" y="53.34" smashed="yes">
+<attribute name="VALUE" x="241.3" y="54.61" size="1.778" layer="96"/>
 </instance>
-<instance part="C20" gate="G$1" x="33.02" y="152.4" smashed="yes">
-<attribute name="NAME" x="34.544" y="155.321" size="1.778" layer="95"/>
-<attribute name="VALUE" x="29.591" y="149.606" size="1.778" layer="96" rot="R270"/>
-<attribute name="LCSC_PART" x="27.94" y="149.86" size="1.27" layer="96" rot="R270" display="both"/>
+<instance part="TP1" gate="G$1" x="215.9" y="53.34" smashed="yes" rot="R270">
+<attribute name="NAME" x="215.9" y="54.61" size="1.778" layer="95"/>
+</instance>
+<instance part="V5" gate="GND" x="35.56" y="134.62" rot="MR0"/>
+<instance part="+3V15" gate="G$1" x="38.1" y="163.83" smashed="yes">
+<attribute name="VALUE" x="35.56" y="165.1" size="1.778" layer="96"/>
+</instance>
+<instance part="C19" gate="G$1" x="38.1" y="147.32" smashed="yes">
+<attribute name="NAME" x="39.624" y="150.241" size="1.778" layer="95"/>
+<attribute name="VALUE" x="41.021" y="145.796" size="1.778" layer="96" rot="R270"/>
+<attribute name="LCSC_PART" x="39.37" y="146.05" size="1.27" layer="96" rot="R270"/>
+</instance>
+<instance part="C20" gate="G$1" x="27.94" y="147.32" smashed="yes">
+<attribute name="NAME" x="29.464" y="150.241" size="1.778" layer="95"/>
+<attribute name="VALUE" x="24.511" y="144.526" size="1.778" layer="96" rot="R270"/>
+<attribute name="LCSC_PART" x="22.86" y="144.78" size="1.27" layer="96" rot="R270"/>
 </instance>
 <instance part="C21" gate="G$1" x="142.24" y="175.26" smashed="yes" rot="R270">
 <attribute name="NAME" x="146.304" y="175.641" size="1.778" layer="95"/>
 <attribute name="VALUE" x="140.716" y="177.419" size="1.778" layer="96" rot="R180"/>
-<attribute name="LCSC_PART" x="132.08" y="175.26" size="1.27" layer="96" rot="R180" display="both"/>
+<attribute name="LCSC_PART" x="146.05" y="172.72" size="1.27" layer="96"/>
 </instance>
 <instance part="V16" gate="GND" x="134.62" y="172.72" rot="MR0"/>
 <instance part="C22" gate="G$1" x="60.96" y="35.56" smashed="yes">
 <attribute name="NAME" x="57.404" y="38.481" size="1.778" layer="95"/>
 <attribute name="VALUE" x="58.801" y="34.036" size="1.778" layer="96" rot="R270"/>
-<attribute name="LCSC_PART" x="58.42" y="12.7" size="1.27" layer="96" rot="R90" display="both"/>
+<attribute name="LCSC_PART" x="57.15" y="34.29" size="1.27" layer="96" rot="R270"/>
 </instance>
 <instance part="TP3" gate="G$1" x="40.64" y="58.42"/>
 <instance part="V18" gate="GND" x="40.64" y="53.34" rot="MR0"/>
 <instance part="TP4" gate="G$1" x="33.02" y="58.42"/>
 <instance part="J2" gate="G$1" x="236.22" y="167.64">
-<attribute name="LCSC_PART" x="246.38" y="154.94" size="1.27" layer="96" rot="R180" display="both"/>
+<attribute name="LCSC_PART" x="229.87" y="152.4" size="1.27" layer="96"/>
 </instance>
-<instance part="R10" gate="G$1" x="215.9" y="162.56" rot="R270">
-<attribute name="LCSC_PART" x="210.82" y="165.1" size="1.27" layer="96" rot="R270" display="both"/>
+<instance part="R10" gate="G$1" x="215.9" y="162.56" smashed="yes" rot="R270">
+<attribute name="LCSC_PART" x="214.63" y="163.83" size="1.27" layer="96" rot="R180"/>
+<attribute name="NAME" x="214.63" y="166.1414" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="214.63" y="162.052" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="R11" gate="G$1" x="208.28" y="170.18" rot="R270">
-<attribute name="LCSC_PART" x="203.2" y="172.72" size="1.27" layer="96" rot="R270" display="both"/>
+<instance part="R11" gate="G$1" x="205.74" y="170.18" smashed="yes" rot="R270">
+<attribute name="LCSC_PART" x="204.47" y="171.45" size="1.27" layer="96" rot="R180"/>
+<attribute name="NAME" x="204.47" y="173.7614" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="199.39" y="168.148" size="1.778" layer="96"/>
 </instance>
 <instance part="V29" gate="GND" x="220.98" y="154.94" rot="MR0"/>
 <instance part="V36" gate="GND" x="134.62" y="152.4" rot="MR0"/>
-<instance part="R12" gate="G$1" x="91.44" y="167.64" rot="R180">
-<attribute name="LCSC_PART" x="99.06" y="172.72" size="1.27" layer="96" rot="R180" display="both"/>
+<instance part="R12" gate="G$1" x="91.44" y="165.1" smashed="yes" rot="R180">
+<attribute name="LCSC_PART" x="95.25" y="167.64" size="1.27" layer="96" rot="R180"/>
+<attribute name="NAME" x="93.98" y="169.9514" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="93.98" y="163.322" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="+3V10" gate="G$1" x="81.28" y="167.64" rot="R90"/>
+<instance part="+3V10" gate="G$1" x="83.82" y="170.18"/>
 <instance part="SUPPLY1" gate="G$1" x="162.56" y="177.8"/>
 <instance part="S1" gate="G$1" x="86.36" y="177.8"/>
 <instance part="R13" gate="G$1" x="71.12" y="177.8" smashed="yes" rot="R180">
-<attribute name="NAME" x="74.93" y="176.3014" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="80.01" y="181.102" size="1.778" layer="96" rot="R180"/>
-<attribute name="LCSC_PART" x="81.28" y="182.88" size="1.27" layer="96" rot="R180" display="both"/>
+<attribute name="NAME" x="73.66" y="182.6514" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="72.39" y="176.022" size="1.778" layer="96" rot="R180"/>
+<attribute name="LCSC_PART" x="74.93" y="180.34" size="1.27" layer="96" rot="R180"/>
 </instance>
 <instance part="V2" gate="GND" x="60.96" y="175.26" rot="MR0"/>
-<instance part="U5" gate="G$1" x="68.58" y="157.48" smashed="yes" rot="MR0">
-<attribute name="LCSC_PART" x="60.96" y="147.32" size="1.27" layer="96" rot="MR180" display="both"/>
-<attribute name="NAME" x="81.28" y="162.814" size="1.778" layer="95" rot="MR0"/>
-<attribute name="VALUE" x="86.36" y="149.606" size="1.778" layer="96" rot="MR0" align="top-left"/>
+<instance part="U5" gate="G$1" x="68.58" y="154.94" smashed="yes" rot="MR0">
+<attribute name="LCSC_PART" x="55.88" y="144.78" size="1.27" layer="96" rot="MR180"/>
+<attribute name="NAME" x="81.28" y="160.274" size="1.778" layer="95" rot="MR0"/>
+<attribute name="VALUE" x="55.88" y="145.034" size="1.778" layer="96" rot="MR180" align="top-left"/>
 </instance>
-<instance part="V39" gate="GND" x="88.9" y="152.4" rot="MR270"/>
+<instance part="V39" gate="GND" x="88.9" y="149.86" rot="MR270"/>
 <instance part="TP2" gate="G$1" x="111.76" y="35.56" smashed="yes" rot="R90">
 <attribute name="NAME" x="112.522" y="39.116" size="1.778" layer="95" font="vector" rot="R90"/>
 <attribute name="VALUE" x="114.3" y="33.02" size="1.778" layer="96" font="vector" rot="R90"/>
@@ -8447,11 +8561,15 @@ but can be reset by the Pico W if desired.</text>
 <instance part="+3V7" gate="G$1" x="35.56" y="111.76" smashed="yes">
 <attribute name="VALUE" x="33.02" y="111.76" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="R5" gate="G$1" x="35.56" y="101.6" rot="R90">
-<attribute name="LCSC_PART" x="40.64" y="93.98" size="1.27" layer="96" rot="R90" display="both"/>
+<instance part="R5" gate="G$1" x="35.56" y="101.6" smashed="yes" rot="R90">
+<attribute name="LCSC_PART" x="34.29" y="101.6" size="1.27" layer="96" rot="R180"/>
+<attribute name="NAME" x="34.29" y="103.9114" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="38.1" y="100.838" size="1.778" layer="96"/>
 </instance>
-<instance part="Q2" gate="G$1" x="27.94" y="88.9" rot="MR0">
-<attribute name="LCSC_PART" x="22.86" y="83.82" size="1.27" layer="96" rot="MR0" display="both"/>
+<instance part="Q2" gate="G$1" x="27.94" y="88.9" smashed="yes" rot="MR0">
+<attribute name="LCSC_PART" x="25.4" y="87.63" size="1.27" layer="96" rot="MR0"/>
+<attribute name="NAME" x="29.21" y="91.44" size="1.778" layer="95" font="vector" rot="MR180"/>
+<attribute name="VALUE" x="25.4" y="89.154" size="1.778" layer="96" font="vector" rot="MR0"/>
 </instance>
 </instances>
 <busses>
@@ -8513,13 +8631,13 @@ but can be reset by the Pico W if desired.</text>
 <segment>
 <pinref part="V5" gate="GND" pin="GND"/>
 <pinref part="C20" gate="G$1" pin="2"/>
-<wire x1="33.02" y1="149.86" x2="33.02" y2="142.24" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="142.24" x2="38.1" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="144.78" x2="27.94" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="139.7" x2="35.56" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="C19" gate="G$1" pin="2"/>
-<wire x1="38.1" y1="142.24" x2="40.64" y2="142.24" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="142.24" x2="40.64" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="38.1" y1="139.7" x2="38.1" y2="142.24" width="0.1524" layer="91"/>
-<junction x="38.1" y="142.24"/>
+<wire x1="35.56" y1="139.7" x2="38.1" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="139.7" x2="38.1" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="137.16" x2="35.56" y2="139.7" width="0.1524" layer="91"/>
+<junction x="35.56" y="139.7"/>
 </segment>
 <segment>
 <pinref part="C21" gate="G$1" pin="2"/>
@@ -8557,7 +8675,7 @@ but can be reset by the Pico W if desired.</text>
 </segment>
 <segment>
 <pinref part="U5" gate="G$1" pin="GND"/>
-<wire x1="83.82" y1="152.4" x2="86.36" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="149.86" x2="86.36" y2="149.86" width="0.1524" layer="91"/>
 <pinref part="V39" gate="GND" pin="GND"/>
 </segment>
 <segment>
@@ -8600,12 +8718,13 @@ but can be reset by the Pico W if desired.</text>
 <pinref part="U4" gate="G$1" pin="GPIO29_ADC3"/>
 <pinref part="D2" gate="G$1" pin="C"/>
 <wire x1="213.36" y1="58.42" x2="220.98" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="213.36" y1="45.72" x2="213.36" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="213.36" y1="55.88" x2="213.36" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="45.72" x2="213.36" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="45.72" x2="213.36" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="53.34" x2="213.36" y2="58.42" width="0.1524" layer="91"/>
 <junction x="213.36" y="58.42"/>
 <pinref part="TP1" gate="G$1" pin="TP"/>
-<wire x1="213.36" y1="55.88" x2="215.9" y2="55.88" width="0.1524" layer="91"/>
-<junction x="213.36" y="55.88"/>
+<wire x1="213.36" y1="53.34" x2="215.9" y2="53.34" width="0.1524" layer="91"/>
+<junction x="213.36" y="53.34"/>
 </segment>
 </net>
 <net name="RP_SWCLK" class="0">
@@ -8785,16 +8904,14 @@ but can be reset by the Pico W if desired.</text>
 </net>
 <net name="EP_RUN" class="0">
 <segment>
-<wire x1="144.78" y1="76.2" x2="132.08" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="76.2" x2="132.08" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="68.58" x2="127" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="127" y1="68.58" x2="127" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="127" y1="73.66" x2="124.46" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="76.2" x2="127" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="127" y1="68.58" x2="127" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="127" y1="76.2" x2="121.92" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="127" y1="68.58" x2="121.92" y2="68.58" width="0.1524" layer="91"/>
-<junction x="127" y="68.58"/>
 <pinref part="R3" gate="G$1" pin="1"/>
 <label x="121.92" y="68.58" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="U4" gate="G$1" pin="RUN"/>
+<junction x="127" y="76.2"/>
 </segment>
 <segment>
 <wire x1="121.92" y1="22.86" x2="129.54" y2="22.86" width="0.1524" layer="91"/>
@@ -8805,8 +8922,8 @@ but can be reset by the Pico W if desired.</text>
 <net name="+3V3" class="0">
 <segment>
 <pinref part="R3" gate="G$1" pin="2"/>
-<wire x1="114.3" y1="73.66" x2="104.14" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="104.14" y1="73.66" x2="104.14" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="76.2" x2="104.14" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="76.2" x2="104.14" y2="77.47" width="0.1524" layer="91"/>
 <pinref part="+3V8" gate="G$1" pin="+3V3"/>
 </segment>
 <segment>
@@ -8878,24 +8995,26 @@ but can be reset by the Pico W if desired.</text>
 </segment>
 <segment>
 <pinref part="R7" gate="G$1" pin="1"/>
-<wire x1="241.3" y1="45.72" x2="243.84" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="241.3" y1="45.72" x2="245.11" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="245.11" y1="45.72" x2="245.11" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="+3V14" gate="G$1" pin="+3V3"/>
 </segment>
 <segment>
 <pinref part="+3V15" gate="G$1" pin="+3V3"/>
-<wire x1="40.64" y1="160.02" x2="40.64" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="157.48" x2="38.1" y2="161.29" width="0.1524" layer="91"/>
 <pinref part="C19" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="160.02" x2="40.64" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="157.48" x2="38.1" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="C20" gate="G$1" pin="1"/>
-<wire x1="40.64" y1="160.02" x2="33.02" y2="160.02" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="160.02" x2="33.02" y2="157.48" width="0.1524" layer="91"/>
-<junction x="40.64" y="160.02"/>
+<wire x1="38.1" y1="157.48" x2="27.94" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="157.48" x2="27.94" y2="152.4" width="0.1524" layer="91"/>
+<junction x="38.1" y="157.48"/>
 <pinref part="U5" gate="G$1" pin="VCC"/>
-<wire x1="53.34" y1="160.02" x2="40.64" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="157.48" x2="38.1" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R12" gate="G$1" pin="2"/>
-<wire x1="86.36" y1="167.64" x2="83.82" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="165.1" x2="83.82" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="165.1" x2="83.82" y2="167.64" width="0.1524" layer="91"/>
 <pinref part="+3V10" gate="G$1" pin="+3V3"/>
 </segment>
 <segment>
@@ -8958,7 +9077,7 @@ but can be reset by the Pico W if desired.</text>
 <net name="N$6" class="0">
 <segment>
 <pinref part="D2" gate="G$1" pin="A"/>
-<wire x1="220.98" y1="45.72" x2="231.14" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="223.52" y1="45.72" x2="231.14" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="R7" gate="G$1" pin="2"/>
 </segment>
 </net>
@@ -8966,18 +9085,18 @@ but can be reset by the Pico W if desired.</text>
 <segment>
 <pinref part="U4" gate="G$1" pin="QSPI_SS"/>
 <wire x1="144.78" y1="134.62" x2="127" y2="134.62" width="0.1524" layer="91"/>
-<wire x1="127" y1="134.62" x2="127" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="127" y1="149.86" x2="99.06" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="149.86" x2="99.06" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="127" y1="134.62" x2="127" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="127" y1="147.32" x2="99.06" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="147.32" x2="99.06" y2="157.48" width="0.1524" layer="91"/>
 <pinref part="R12" gate="G$1" pin="1"/>
-<wire x1="99.06" y1="160.02" x2="83.82" y2="160.02" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="167.64" x2="99.06" y2="167.64" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="167.64" x2="99.06" y2="160.02" width="0.1524" layer="91"/>
-<junction x="99.06" y="160.02"/>
+<wire x1="99.06" y1="157.48" x2="83.82" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="165.1" x2="99.06" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="165.1" x2="99.06" y2="157.48" width="0.1524" layer="91"/>
+<junction x="99.06" y="157.48"/>
 <pinref part="S1" gate="G$1" pin="2"/>
 <wire x1="91.44" y1="177.8" x2="99.06" y2="177.8" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="177.8" x2="99.06" y2="167.64" width="0.1524" layer="91"/>
-<junction x="99.06" y="167.64"/>
+<wire x1="99.06" y1="177.8" x2="99.06" y2="165.1" width="0.1524" layer="91"/>
+<junction x="99.06" y="165.1"/>
 <pinref part="U5" gate="G$1" pin="!CS!"/>
 </segment>
 </net>
@@ -8985,54 +9104,54 @@ but can be reset by the Pico W if desired.</text>
 <segment>
 <pinref part="U4" gate="G$1" pin="QSPI_SD0"/>
 <wire x1="144.78" y1="129.54" x2="124.46" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="124.46" y1="129.54" x2="124.46" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="129.54" x2="124.46" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="U5" gate="G$1" pin="SI(D0)"/>
-<wire x1="124.46" y1="142.24" x2="53.34" y2="142.24" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="142.24" x2="53.34" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="139.7" x2="53.34" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="139.7" x2="53.34" y2="149.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$10" class="0">
 <segment>
 <pinref part="U4" gate="G$1" pin="QSPI_SD1"/>
 <wire x1="144.78" y1="127" x2="121.92" y2="127" width="0.1524" layer="91"/>
-<wire x1="121.92" y1="127" x2="121.92" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="121.92" y1="147.32" x2="96.52" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="147.32" x2="96.52" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="127" x2="121.92" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="144.78" x2="96.52" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="144.78" x2="96.52" y2="154.94" width="0.1524" layer="91"/>
 <pinref part="U5" gate="G$1" pin="SO(D1)"/>
-<wire x1="96.52" y1="157.48" x2="83.82" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="154.94" x2="83.82" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$11" class="0">
 <segment>
 <pinref part="U4" gate="G$1" pin="QSPI_SD2"/>
 <wire x1="144.78" y1="124.46" x2="119.38" y2="124.46" width="0.1524" layer="91"/>
-<wire x1="119.38" y1="124.46" x2="119.38" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="119.38" y1="144.78" x2="93.98" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="144.78" x2="93.98" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="124.46" x2="119.38" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="142.24" x2="93.98" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="142.24" x2="93.98" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="U5" gate="G$1" pin="!WP!(D2)"/>
-<wire x1="93.98" y1="154.94" x2="83.82" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="152.4" x2="83.82" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$8" class="0">
 <segment>
 <pinref part="U4" gate="G$1" pin="QSPI_SCLK"/>
 <wire x1="144.78" y1="116.84" x2="114.3" y2="116.84" width="0.1524" layer="91"/>
-<wire x1="114.3" y1="116.84" x2="114.3" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="114.3" y1="137.16" x2="48.26" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="137.16" x2="48.26" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="116.84" x2="114.3" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="134.62" x2="48.26" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="134.62" x2="48.26" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="U5" gate="G$1" pin="SCK"/>
-<wire x1="48.26" y1="154.94" x2="53.34" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="152.4" x2="53.34" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$12" class="0">
 <segment>
 <pinref part="U4" gate="G$1" pin="QSPI_SD3"/>
 <wire x1="144.78" y1="121.92" x2="116.84" y2="121.92" width="0.1524" layer="91"/>
-<wire x1="116.84" y1="121.92" x2="116.84" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="116.84" y1="139.7" x2="50.8" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="139.7" x2="50.8" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="121.92" x2="116.84" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="137.16" x2="50.8" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="137.16" x2="50.8" y2="154.94" width="0.1524" layer="91"/>
 <pinref part="U5" gate="G$1" pin="!HOLD!(D3)"/>
-<wire x1="50.8" y1="157.48" x2="53.34" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="154.94" x2="53.34" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$13" class="0">
@@ -9042,7 +9161,9 @@ but can be reset by the Pico W if desired.</text>
 <wire x1="210.82" y1="142.24" x2="213.36" y2="142.24" width="0.1524" layer="91"/>
 <wire x1="213.36" y1="142.24" x2="213.36" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="213.36" y1="147.32" x2="208.28" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="208.28" y1="147.32" x2="208.28" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="208.28" y1="147.32" x2="208.28" y2="158.75" width="0.1524" layer="91"/>
+<wire x1="208.28" y1="158.75" x2="205.74" y2="158.75" width="0.1524" layer="91"/>
+<wire x1="205.74" y1="158.75" x2="205.74" y2="165.1" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$15" class="0">
@@ -9056,7 +9177,7 @@ but can be reset by the Pico W if desired.</text>
 <net name="N$17" class="0">
 <segment>
 <pinref part="R11" gate="G$1" pin="1"/>
-<wire x1="208.28" y1="175.26" x2="215.9" y2="175.26" width="0.1524" layer="91"/>
+<wire x1="205.74" y1="175.26" x2="215.9" y2="175.26" width="0.1524" layer="91"/>
 <wire x1="215.9" y1="175.26" x2="215.9" y2="172.72" width="0.1524" layer="91"/>
 <pinref part="J2" gate="G$1" pin="2"/>
 <wire x1="215.9" y1="172.72" x2="223.52" y2="172.72" width="0.1524" layer="91"/>
@@ -9151,7 +9272,7 @@ but can be reset by the Pico W if desired.</text>
 <text x="109.22" y="144.78" size="1.778" layer="97" rot="R180">RP2040</text>
 <text x="111.76" y="127" size="1.778" layer="97" rot="R180">SPI LCD</text>
 <text x="220.98" y="114.3" size="1.778" layer="97">MICRO SD</text>
-<text x="40.64" y="165.1" size="1.778" layer="97" rot="MR0">8-pin JST
+<text x="40.64" y="166.37" size="1.778" layer="97" rot="MR0">8-pin JST
 LCD interface</text>
 <wire x1="116.84" y1="132.08" x2="114.3" y2="132.08" width="0.1524" layer="97"/>
 <wire x1="114.3" y1="132.08" x2="114.3" y2="124.46" width="0.1524" layer="97"/>
@@ -9163,9 +9284,6 @@ LCD interface</text>
 <wire x1="215.9" y1="114.3" x2="215.9" y2="106.68" width="0.1524" layer="97"/>
 <wire x1="215.9" y1="106.68" x2="213.36" y2="106.68" width="0.1524" layer="97"/>
 <wire x1="215.9" y1="114.3" x2="218.44" y2="114.3" width="0.1524" layer="97"/>
-<text x="213.36" y="71.12" size="1.27" layer="97" rot="MR0">Power LED from VSYS so that it will
-work when the Umod4 is powered from USB
-even if the ECU is unpowered.</text>
 <text x="20.32" y="121.92" size="1.778" layer="97">The SPI TFT LCD is read-only:
 SPI1_MISO is used as LCD_RST</text>
 <text x="17.78" y="154.94" size="1.27" layer="97">LCD_SCK</text>
@@ -9189,20 +9307,26 @@ SPI1_MISO is used as LCD_RST</text>
 </instance>
 <instance part="V14" gate="GND" x="185.42" y="91.44"/>
 <instance part="M1" gate="G$1" x="162.56" y="132.08"/>
-<instance part="J5" gate="G$1" x="30.48" y="147.32" rot="MR180">
-<attribute name="LCSC_PART" x="50.8" y="160.02" size="1.27" layer="96" rot="MR0" display="both"/>
+<instance part="J5" gate="G$1" x="30.48" y="147.32" smashed="yes" rot="MR180">
+<attribute name="LCSC_PART" x="27.94" y="160.02" size="1.27" layer="96" rot="MR180"/>
+<attribute name="VALUE" x="24.13" y="162.306" size="1.778" layer="96" font="vector" rot="MR180"/>
+<attribute name="NAME" x="27.94" y="134.112" size="1.778" layer="95" font="vector" rot="MR180"/>
 </instance>
 <instance part="SUPPLY21" gate="GND" x="50.8" y="134.62" rot="MR0"/>
 <instance part="+3V19" gate="G$1" x="45.72" y="134.62" smashed="yes">
 <attribute name="VALUE" x="43.18" y="134.62" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="C26" gate="G$1" x="180.34" y="58.42" smashed="yes" rot="MR0">
-<attribute name="NAME" x="178.816" y="61.341" size="1.778" layer="95" rot="MR0"/>
-<attribute name="VALUE" x="181.864" y="63.119" size="1.778" layer="96" rot="MR180"/>
-<attribute name="LCSC_PART" x="190.5" y="60.96" size="1.27" layer="96" rot="MR180" display="both"/>
+<attribute name="NAME" x="184.404" y="61.849" size="1.778" layer="95" rot="MR180"/>
+<attribute name="VALUE" x="183.134" y="58.039" size="1.778" layer="96" rot="MR180"/>
+<attribute name="LCSC_PART" x="184.15" y="59.69" size="1.27" layer="96" rot="MR180"/>
 </instance>
 <instance part="V34" gate="GND" x="180.34" y="50.8" rot="MR0"/>
-<instance part="U8" gate="G$1" x="134.62" y="60.96"/>
+<instance part="U8" gate="G$1" x="134.62" y="60.96" smashed="yes">
+<attribute name="NAME" x="124.46" y="68.58" size="1.778" layer="95"/>
+<attribute name="VALUE" x="124.46" y="50.8" size="1.778" layer="96"/>
+<attribute name="LCSC_PART" x="124.46" y="46.99" size="1.778" layer="96"/>
+</instance>
 <instance part="V41" gate="GND" x="152.4" y="50.8"/>
 <instance part="V27" gate="GND" x="134.62" y="93.98"/>
 </instances>
@@ -9469,10 +9593,9 @@ SPI1_MISO is used as LCD_RST</text>
 <segment>
 <pinref part="C26" gate="G$1" pin="1"/>
 <wire x1="180.34" y1="63.5" x2="180.34" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="180.34" y1="66.04" x2="180.34" y2="68.58" width="0.1524" layer="91"/>
 <junction x="180.34" y="66.04"/>
-<wire x1="180.34" y1="68.58" x2="185.42" y2="68.58" width="0.1524" layer="91"/>
-<label x="185.42" y="68.58" size="1.27" layer="95" rot="MR180" xref="yes"/>
+<wire x1="180.34" y1="66.04" x2="187.96" y2="66.04" width="0.1524" layer="91"/>
+<label x="187.96" y="66.04" size="1.27" layer="95" rot="MR180" xref="yes"/>
 <pinref part="U8" gate="G$1" pin="VDD"/>
 <wire x1="180.34" y1="66.04" x2="149.86" y2="66.04" width="0.1524" layer="91"/>
 </segment>
@@ -9548,35 +9671,41 @@ SPI1_MISO is used as LCD_RST</text>
 <instance part="FRAME5" gate="G$2" x="147.32" y="0"/>
 <instance part="V9" gate="GND" x="165.1" y="88.9"/>
 <instance part="V12" gate="GND" x="157.48" y="139.7"/>
-<instance part="J1" gate="G$1" x="162.56" y="119.38"/>
-<instance part="R14" gate="G$1" x="81.28" y="104.14" rot="R180">
-<attribute name="LCSC_PART" x="83.82" y="109.22" size="1.27" layer="96" rot="R180" display="both"/>
+<instance part="J1" gate="G$1" x="162.56" y="119.38" smashed="yes"/>
+<instance part="R14" gate="G$1" x="86.36" y="104.14" smashed="yes" rot="R270">
+<attribute name="LCSC_PART" x="83.82" y="102.87" size="1.27" layer="96" rot="R180"/>
+<attribute name="NAME" x="83.82" y="106.4514" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="88.9" y="103.378" size="1.778" layer="96"/>
 </instance>
-<instance part="R15" gate="G$1" x="127" y="160.02" rot="R90">
-<attribute name="LCSC_PART" x="132.08" y="154.94" size="1.27" layer="96" rot="R90" display="both"/>
+<instance part="R15" gate="G$1" x="127" y="160.02" smashed="yes" rot="R90">
+<attribute name="LCSC_PART" x="124.46" y="158.75" size="1.27" layer="96" rot="R180"/>
+<attribute name="NAME" x="124.46" y="162.3314" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="129.54" y="159.258" size="1.778" layer="96"/>
 </instance>
-<instance part="R16" gate="G$1" x="111.76" y="160.02" rot="R90">
-<attribute name="LCSC_PART" x="116.84" y="154.94" size="1.27" layer="96" rot="R90" display="both"/>
+<instance part="R16" gate="G$1" x="106.68" y="160.02" smashed="yes" rot="R90">
+<attribute name="LCSC_PART" x="104.14" y="158.75" size="1.27" layer="96" rot="R180"/>
+<attribute name="NAME" x="104.14" y="162.3314" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="109.22" y="159.258" size="1.778" layer="96"/>
 </instance>
-<instance part="V35" gate="GND" x="71.12" y="101.6"/>
+<instance part="V35" gate="GND" x="86.36" y="92.71"/>
 <instance part="V13" gate="GND" x="129.54" y="111.76" rot="R270"/>
 <instance part="+3V6" gate="G$1" x="116.84" y="111.76" smashed="yes">
 <attribute name="VALUE" x="114.3" y="111.76" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="C14" gate="G$1" x="134.62" y="96.52" smashed="yes">
-<attribute name="NAME" x="136.144" y="99.441" size="1.778" layer="95"/>
-<attribute name="VALUE" x="130.556" y="99.949" size="1.778" layer="96" rot="R180"/>
-<attribute name="LCSC_PART" x="109.22" y="96.52" size="1.27" layer="96" display="both"/>
+<instance part="C14" gate="G$1" x="128.27" y="93.98" smashed="yes">
+<attribute name="NAME" x="131.064" y="96.901" size="1.778" layer="95"/>
+<attribute name="VALUE" x="131.064" y="94.361" size="1.778" layer="96"/>
+<attribute name="LCSC_PART" x="130.81" y="92.71" size="1.27" layer="96"/>
 </instance>
-<instance part="V11" gate="GND" x="134.62" y="86.36"/>
-<instance part="C27" gate="G$1" x="116.84" y="86.36" smashed="yes">
-<attribute name="NAME" x="118.364" y="89.281" size="1.778" layer="95"/>
-<attribute name="VALUE" x="112.776" y="89.789" size="1.778" layer="96" rot="R180"/>
-<attribute name="LCSC_PART" x="91.44" y="86.36" size="1.27" layer="96" display="both"/>
+<instance part="V11" gate="GND" x="128.27" y="85.09"/>
+<instance part="C27" gate="G$1" x="116.84" y="93.98" smashed="yes">
+<attribute name="NAME" x="114.046" y="98.679" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="114.046" y="96.139" size="1.778" layer="96" rot="R180"/>
+<attribute name="LCSC_PART" x="114.3" y="93.98" size="1.27" layer="96" rot="R180"/>
 </instance>
-<instance part="V30" gate="GND" x="116.84" y="78.74"/>
-<instance part="+3V21" gate="G$1" x="111.76" y="177.8" smashed="yes">
-<attribute name="VALUE" x="109.22" y="177.8" size="1.778" layer="96" rot="R180"/>
+<instance part="V30" gate="GND" x="116.84" y="85.09"/>
+<instance part="+3V21" gate="G$1" x="106.68" y="177.8" smashed="yes">
+<attribute name="VALUE" x="104.14" y="177.8" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -9606,7 +9735,7 @@ SPI1_MISO is used as LCD_RST</text>
 </segment>
 <segment>
 <pinref part="R14" gate="G$1" pin="2"/>
-<wire x1="76.2" y1="104.14" x2="71.12" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="99.06" x2="86.36" y2="95.25" width="0.1524" layer="91"/>
 <pinref part="V35" gate="GND" pin="GND"/>
 </segment>
 <segment>
@@ -9618,12 +9747,12 @@ SPI1_MISO is used as LCD_RST</text>
 </segment>
 <segment>
 <pinref part="C14" gate="G$1" pin="2"/>
-<wire x1="134.62" y1="93.98" x2="134.62" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="128.27" y1="91.44" x2="128.27" y2="87.63" width="0.1524" layer="91"/>
 <pinref part="V11" gate="GND" pin="GND"/>
 </segment>
 <segment>
 <pinref part="C27" gate="G$1" pin="2"/>
-<wire x1="116.84" y1="83.82" x2="116.84" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="91.44" x2="116.84" y2="87.63" width="0.1524" layer="91"/>
 <pinref part="V30" gate="GND" pin="GND"/>
 </segment>
 </net>
@@ -9663,7 +9792,7 @@ SPI1_MISO is used as LCD_RST</text>
 <label x="71.12" y="119.38" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="R14" gate="G$1" pin="1"/>
 <wire x1="86.36" y1="119.38" x2="71.12" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="86.36" y1="104.14" x2="86.36" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="109.22" x2="86.36" y2="119.38" width="0.1524" layer="91"/>
 <junction x="86.36" y="119.38"/>
 </segment>
 </net>
@@ -9679,32 +9808,32 @@ SPI1_MISO is used as LCD_RST</text>
 <segment>
 <pinref part="J1" gate="G$1" pin="DAT1"/>
 <pinref part="R16" gate="G$1" pin="1"/>
-<wire x1="139.7" y1="127" x2="111.76" y2="127" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="127" x2="111.76" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="127" x2="106.68" y2="127" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="127" x2="106.68" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="VDD"/>
-<wire x1="139.7" y1="106.68" x2="134.62" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="106.68" x2="128.27" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="+3V6" gate="G$1" pin="+3V3"/>
-<wire x1="134.62" y1="106.68" x2="116.84" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="128.27" y1="106.68" x2="116.84" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="116.84" y1="109.22" x2="116.84" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="C14" gate="G$1" pin="1"/>
-<wire x1="134.62" y1="101.6" x2="134.62" y2="106.68" width="0.1524" layer="91"/>
-<junction x="134.62" y="106.68"/>
+<wire x1="128.27" y1="99.06" x2="128.27" y2="106.68" width="0.1524" layer="91"/>
+<junction x="128.27" y="106.68"/>
 <pinref part="C27" gate="G$1" pin="1"/>
-<wire x1="116.84" y1="91.44" x2="116.84" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="99.06" x2="116.84" y2="106.68" width="0.1524" layer="91"/>
 <junction x="116.84" y="106.68"/>
 </segment>
 <segment>
 <pinref part="R15" gate="G$1" pin="2"/>
 <wire x1="127" y1="165.1" x2="127" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="R16" gate="G$1" pin="2"/>
-<wire x1="127" y1="170.18" x2="111.76" y2="170.18" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="170.18" x2="111.76" y2="165.1" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="170.18" x2="111.76" y2="175.26" width="0.1524" layer="91"/>
-<junction x="111.76" y="170.18"/>
+<wire x1="127" y1="170.18" x2="106.68" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="170.18" x2="106.68" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="170.18" x2="106.68" y2="175.26" width="0.1524" layer="91"/>
+<junction x="106.68" y="170.18"/>
 <pinref part="+3V21" gate="G$1" pin="+3V3"/>
 </segment>
 </net>
@@ -9723,8 +9852,10 @@ SPI1_MISO is used as LCD_RST</text>
 <instance part="+3V20" gate="G$1" x="93.98" y="137.16" smashed="yes">
 <attribute name="VALUE" x="91.44" y="137.16" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="R8" gate="G$1" x="93.98" y="127" rot="R90">
-<attribute name="LCSC_PART" x="99.06" y="119.38" size="1.27" layer="96" rot="R90" display="both"/>
+<instance part="R8" gate="G$1" x="93.98" y="127" smashed="yes" rot="R90">
+<attribute name="LCSC_PART" x="92.71" y="125.73" size="1.27" layer="96" rot="R180"/>
+<attribute name="NAME" x="92.71" y="129.3114" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="96.52" y="126.238" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
