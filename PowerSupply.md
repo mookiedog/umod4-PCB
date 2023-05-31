@@ -1,5 +1,25 @@
 # Umod4 Power Supply
 
+## Design Requirements
+The Umod4 power supply is designed to support a number of use cases:
+  
+  1. Software development and testing
+      1. Bench testing of a bare Umod4 PCB board, not plugged into an ECU
+          1. Power to be supplied via the PicoW USB connector
+      1. Bench testing of a Umod4 PCB installed in an ECU
+          1. Power could be supplied via PicoW USB connector
+          1. Power could be supplied via ECU +5
+              1. ECU needs +12 on its B+ pin
+  1. General usage on a motorbike
+      1. Power to be supplied via a fused, unswitched supply connected directly to the motorbike battery
+          1. If the ignition is ON, the Umod4 is always powered
+          1. If the ignition is OFF, and the Umod4 detects that the battery is on a battery charger, the Umod4 will remain powered so that it can respond to WiFi/Bluetooth control
+          1. If the ignition is OFF and the Umod4 is not on a charger, it will remain powered for as long as it takes to download ride logs to a server and then power itself off.
+
+Note1 : The system _could_ be installed on a motorbike without connecting the unswitched supply to the battery. This is **NOT** recommended. Under these circumstances, whenever the ignition is turned OFF, the Umod4 will be powered off immediately without allowing it to shut down gracefully. Abrupt shutdown events can cause corruption of the SD Flash memory.
+
+Note 2: When bench-testing in an ECU, if no USB power is supplied, the Umod4 will take its power from the ECU 5V supply. This is not a huge problem in that the ECU power supply appears to be over-designed and can handle the extra load, but to avoid stressing the ECU 5V supply in any way, a USB power supply is recommended during test and development on a bench.
+
 ## Outstanding Issues
 The real question is whether or not the TPS560430 can supply the 5V requirements of the Pico W, which is also powering the entire Umod4 board. In theory, 600 mA at 5V output is 3W available to the Pico W. If the PicoW can convert power at 90% efficiency, that would correspond to 2.7W of power at 3.3V. That is 800 mA of current at 3.3V.
 

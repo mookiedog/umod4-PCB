@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="no"/>
@@ -6958,9 +6958,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <attribute name="LCSC_PART" value="C25744"/>
 </part>
 <part name="+3V10" library="supply1" deviceset="+3V3" device=""/>
-<part name="D1" library="SparkFun-DiscreteSemi" deviceset="DIODE-SCHOTTKY" device="-SS14" value="C22452/SS54">
-<attribute name="LCSC_PART" value="C22452"/>
-</part>
 <part name="SUPPLY1" library="SparkFun-PowerSymbols" deviceset="1.0V" device=""/>
 <part name="S1" library="robins-v7" deviceset="SWITCH" device="-TAC-5.2MM"/>
 <part name="R13" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="1K">
@@ -7008,15 +7005,21 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="SUPPLY9" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY10" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY4" library="supply2" deviceset="GND" device=""/>
-<part name="L1" library="robins-v7" deviceset="INDUCTOR-PWR" device="CJAING-FHD4020" value="22uH"/>
+<part name="L1" library="robins-v7" deviceset="INDUCTOR-PWR" device="CJAING-FHD4020" value="22uH">
+<attribute name="LCSC_PART" value="C5363803"/>
+</part>
 <part name="C28" library="robins-v7" deviceset="CAP" device="-0603" value="100n/50V/X7R">
 <attribute name="LCSC_PART" value="C14663"/>
 </part>
 <part name="C29" library="robins-v7" deviceset="CAP" device="-0603" value="100n/50V/X7R">
 <attribute name="LCSC_PART" value="C14663"/>
 </part>
-<part name="C30" library="robins-v7" deviceset="CAP" device="-0805" value="10uF/10V"/>
-<part name="C31" library="robins-v7" deviceset="CAP" device="-0805" value="10uF/10V"/>
+<part name="C30" library="robins-v7" deviceset="CAP" device="-0805" value="10uF/25V/X5R">
+<attribute name="LCSC_PART" value="C15850"/>
+</part>
+<part name="C31" library="robins-v7" deviceset="CAP" device="-0805" value="10uF/25V/X5R">
+<attribute name="LCSC_PART" value="C15850"/>
+</part>
 <part name="SUPPLY3" library="supply2" deviceset="GND" device=""/>
 <part name="D3" library="SparkFun-DiscreteSemi" deviceset="DIODE-SCHOTTKY" device="-BAT20J" value="1N5819WS">
 <attribute name="LCSC_PART" value="C191023"/>
@@ -7027,8 +7030,12 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="F1" library="fuse" deviceset="FUSE" device="PICOFUSE"/>
 <part name="V13" library="supply2" deviceset="GND" device=""/>
 <part name="V27" library="supply2" deviceset="GND" device=""/>
-<part name="D5" library="SparkFun-DiscreteSemi" deviceset="DIODE-SCHOTTKY" device="-BAT20J" value="1A/23V/620mV"/>
-<part name="D6" library="SparkFun-DiscreteSemi" deviceset="DIODE-SCHOTTKY" device="-BAT20J" value="1A/23V/620mV"/>
+<part name="D5" library="SparkFun-DiscreteSemi" deviceset="DIODE-SCHOTTKY" device="-BAT20J" value="1N5819WS">
+<attribute name="LCSC_PART" value="C191023"/>
+</part>
+<part name="D6" library="SparkFun-DiscreteSemi" deviceset="DIODE-SCHOTTKY" device="-BAT20J" value="1N5819WS">
+<attribute name="LCSC_PART" value="C191023"/>
+</part>
 <part name="+3V6" library="supply1" deviceset="+3V3" device=""/>
 <part name="R20" library="varistor" deviceset="S10K40" device=""/>
 <part name="SUPPLY6" library="supply2" deviceset="GND" device=""/>
@@ -7068,6 +7075,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </part>
 <part name="R21" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="20K">
 <attribute name="LCSC_PART" value="C25765"/>
+</part>
+<part name="C13" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
+<attribute name="LCSC_PART" value="C1525"/>
+</part>
+<part name="SUPPLY12" library="supply2" deviceset="GND" device=""/>
+<part name="D1" library="SparkFun-DiscreteSemi" deviceset="DIODE-SCHOTTKY" device="-BAT20J" value="1N5819WS">
+<attribute name="LCSC_PART" value="C191023"/>
 </part>
 </parts>
 <sheets>
@@ -8188,9 +8202,6 @@ quickly. D1 provides power until Q1 is ON.
 <instance part="Q1" gate="G$1" x="187.96" y="124.46">
 <attribute name="LCSC_PART" x="187.96" y="129.54" size="1.27" layer="96" display="both"/>
 </instance>
-<instance part="D1" gate="G$1" x="187.96" y="139.7">
-<attribute name="LCSC_PART" x="187.96" y="139.7" size="1.27" layer="96" display="both"/>
-</instance>
 <instance part="JP2" gate="G$1" x="10.16" y="10.16" rot="MR0"/>
 <instance part="+3V23" gate="G$1" x="22.86" y="20.32"/>
 <instance part="V38" gate="GND" x="22.86" y="5.08" rot="MR0"/>
@@ -8203,11 +8214,12 @@ quickly. D1 provides power until Q1 is ON.
 <instance part="SUPPLY7" gate="GND" x="142.24" y="91.44"/>
 <instance part="SUPPLY5" gate="GND" x="104.14" y="111.76"/>
 <instance part="SUPPLY9" gate="GND" x="154.94" y="104.14"/>
-<instance part="SUPPLY10" gate="GND" x="170.18" y="104.14"/>
+<instance part="SUPPLY10" gate="GND" x="167.64" y="99.06"/>
 <instance part="SUPPLY4" gate="GND" x="88.9" y="114.3"/>
 <instance part="L1" gate="G$1" x="142.24" y="132.08" smashed="yes">
 <attribute name="NAME" x="144.78" y="137.16" size="1.778" layer="95"/>
 <attribute name="VALUE" x="144.78" y="127" size="1.778" layer="96"/>
+<attribute name="LCSC_PART" x="144.78" y="132.08" size="1.27" layer="96"/>
 </instance>
 <instance part="C28" gate="G$1" x="88.9" y="127" smashed="yes">
 <attribute name="NAME" x="82.804" y="127.381" size="1.778" layer="95"/>
@@ -8219,17 +8231,19 @@ quickly. D1 provides power until Q1 is ON.
 <attribute name="VALUE" x="130.556" y="141.859" size="1.778" layer="96" rot="R180"/>
 <attribute name="LCSC_PART" x="127" y="144.78" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="C30" gate="G$1" x="154.94" y="116.84" smashed="yes">
-<attribute name="NAME" x="156.464" y="117.221" size="1.778" layer="95"/>
-<attribute name="VALUE" x="156.464" y="112.141" size="1.778" layer="96"/>
+<instance part="C30" gate="G$1" x="154.94" y="119.38" smashed="yes">
+<attribute name="NAME" x="156.464" y="119.761" size="1.778" layer="95"/>
+<attribute name="VALUE" x="151.384" y="114.681" size="1.778" layer="96"/>
+<attribute name="LCSC_PART" x="157.48" y="116.84" size="1.27" layer="96"/>
 </instance>
-<instance part="C31" gate="G$1" x="170.18" y="116.84" smashed="yes">
-<attribute name="NAME" x="171.704" y="117.221" size="1.778" layer="95"/>
-<attribute name="VALUE" x="171.704" y="112.141" size="1.778" layer="96"/>
+<instance part="C31" gate="G$1" x="167.64" y="109.22" smashed="yes">
+<attribute name="NAME" x="169.164" y="109.601" size="1.778" layer="95"/>
+<attribute name="VALUE" x="164.084" y="104.521" size="1.778" layer="96"/>
+<attribute name="LCSC_PART" x="170.18" y="106.68" size="1.27" layer="96"/>
 </instance>
 <instance part="SUPPLY3" gate="GND" x="99.06" y="68.58"/>
 <instance part="D3" gate="G$1" x="81.28" y="101.6" smashed="yes">
-<attribute name="LCSC_PART" x="83.82" y="101.6" size="1.27" layer="96"/>
+<attribute name="LCSC_PART" x="83.82" y="104.14" size="1.27" layer="96"/>
 <attribute name="NAME" x="78.74" y="103.632" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="78.74" y="99.568" size="1.778" layer="96" font="vector" align="top-left"/>
 </instance>
@@ -8239,25 +8253,29 @@ quickly. D1 provides power until Q1 is ON.
 <attribute name="VALUE" x="78.74" y="84.582" size="1.778" layer="96" font="vector" rot="MR180" align="top-left"/>
 </instance>
 <instance part="F1" gate="G$1" x="27.94" y="137.16"/>
-<instance part="D5" gate="G$1" x="48.26" y="137.16"/>
-<instance part="D6" gate="G$1" x="48.26" y="149.86"/>
+<instance part="D5" gate="G$1" x="48.26" y="137.16">
+<attribute name="LCSC_PART" x="50.8" y="139.7" size="1.27" layer="96"/>
+</instance>
+<instance part="D6" gate="G$1" x="48.26" y="149.86">
+<attribute name="LCSC_PART" x="50.8" y="152.4" size="1.27" layer="96"/>
+</instance>
 <instance part="R20" gate="G$1" x="17.78" y="116.84" rot="R90"/>
 <instance part="SUPPLY6" gate="GND" x="17.78" y="106.68"/>
 <instance part="J3" gate="G$1" x="8.89" y="129.54" rot="R180"/>
-<instance part="SUPPLY8" gate="GND" x="12.7" y="39.37"/>
-<instance part="D7" gate="G$1" x="36.83" y="66.04" smashed="yes" rot="MR180">
-<attribute name="LCSC_PART" x="39.37" y="64.77" size="1.27" layer="96" rot="MR180"/>
-<attribute name="NAME" x="34.29" y="64.008" size="1.778" layer="95" font="vector" rot="MR180"/>
-<attribute name="VALUE" x="34.29" y="68.072" size="1.778" layer="96" font="vector" rot="MR180" align="top-left"/>
+<instance part="SUPPLY8" gate="GND" x="12.7" y="35.56"/>
+<instance part="D7" gate="G$1" x="36.83" y="73.66" smashed="yes" rot="MR180">
+<attribute name="LCSC_PART" x="39.37" y="72.39" size="1.27" layer="96" rot="MR180"/>
+<attribute name="NAME" x="34.29" y="71.628" size="1.778" layer="95" font="vector" rot="MR180"/>
+<attribute name="VALUE" x="34.29" y="75.692" size="1.778" layer="96" font="vector" rot="MR180" align="top-left"/>
 </instance>
-<instance part="+3V22" gate="G$1" x="50.8" y="73.66" smashed="yes">
-<attribute name="VALUE" x="49.53" y="74.93" size="1.778" layer="96"/>
+<instance part="+3V22" gate="G$1" x="50.8" y="78.74" smashed="yes">
+<attribute name="VALUE" x="49.53" y="80.01" size="1.778" layer="96"/>
 </instance>
-<instance part="SUPPLY11" gate="GND" x="30.48" y="39.37"/>
-<instance part="C33" gate="G$1" x="30.48" y="48.26" smashed="yes">
-<attribute name="NAME" x="32.004" y="51.181" size="1.778" layer="95"/>
-<attribute name="VALUE" x="32.004" y="46.101" size="1.778" layer="96"/>
-<attribute name="LCSC_PART" x="34.29" y="49.53" size="1.27" layer="96"/>
+<instance part="SUPPLY11" gate="GND" x="30.48" y="35.56"/>
+<instance part="C33" gate="G$1" x="30.48" y="45.72" smashed="yes">
+<attribute name="NAME" x="32.004" y="48.641" size="1.778" layer="95"/>
+<attribute name="VALUE" x="32.004" y="43.561" size="1.778" layer="96"/>
+<attribute name="LCSC_PART" x="34.29" y="46.99" size="1.27" layer="96"/>
 </instance>
 <instance part="C32" gate="G$1" x="60.96" y="124.46" smashed="yes">
 <attribute name="LCSC_PART" x="58.42" y="127" size="1.778" layer="96" rot="R180"/>
@@ -8279,15 +8297,24 @@ quickly. D1 provides power until Q1 is ON.
 <attribute name="VALUE" x="144.78" y="116.078" size="1.778" layer="96"/>
 <attribute name="LCSC_PART" x="139.7" y="115.57" size="1.27" layer="96" rot="R180"/>
 </instance>
-<instance part="R22" gate="G$1" x="12.7" y="50.8" smashed="yes" rot="R270">
-<attribute name="NAME" x="10.16" y="53.1114" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="15.24" y="50.038" size="1.778" layer="96"/>
-<attribute name="LCSC_PART" x="10.16" y="49.53" size="1.27" layer="96" rot="R180"/>
+<instance part="R22" gate="G$1" x="12.7" y="45.72" smashed="yes" rot="R270">
+<attribute name="NAME" x="10.16" y="48.0314" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="15.24" y="44.958" size="1.778" layer="96"/>
+<attribute name="LCSC_PART" x="10.16" y="44.45" size="1.27" layer="96" rot="R180"/>
 </instance>
 <instance part="R21" gate="G$1" x="12.7" y="68.58" smashed="yes" rot="R270">
 <attribute name="NAME" x="10.16" y="70.8914" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="15.24" y="67.818" size="1.778" layer="96"/>
 <attribute name="LCSC_PART" x="10.16" y="67.31" size="1.27" layer="96" rot="R180"/>
+</instance>
+<instance part="C13" gate="G$1" x="50.8" y="68.58" smashed="yes">
+<attribute name="NAME" x="52.324" y="71.501" size="1.778" layer="95"/>
+<attribute name="VALUE" x="52.324" y="66.421" size="1.778" layer="96"/>
+<attribute name="LCSC_PART" x="54.61" y="69.85" size="1.27" layer="96"/>
+</instance>
+<instance part="SUPPLY12" gate="GND" x="50.8" y="60.96"/>
+<instance part="D1" gate="G$1" x="187.96" y="139.7">
+<attribute name="LCSC_PART" x="190.5" y="142.24" size="1.27" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -8333,15 +8360,16 @@ quickly. D1 provides power until Q1 is ON.
 <segment>
 <pinref part="SUPPLY7" gate="GND" pin="GND"/>
 <wire x1="142.24" y1="93.98" x2="142.24" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="R19" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="SUPPLY9" gate="GND" pin="GND"/>
-<wire x1="154.94" y1="106.68" x2="154.94" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="106.68" x2="154.94" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="C30" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="SUPPLY10" gate="GND" pin="GND"/>
-<wire x1="170.18" y1="106.68" x2="170.18" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="101.6" x2="167.64" y2="104.14" width="0.1524" layer="91"/>
 <pinref part="C31" gate="G$1" pin="2"/>
 </segment>
 <segment>
@@ -8352,6 +8380,7 @@ quickly. D1 provides power until Q1 is ON.
 <segment>
 <pinref part="SUPPLY3" gate="GND" pin="GND"/>
 <wire x1="99.06" y1="71.12" x2="99.06" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="R17" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="R20" gate="G$1" pin="1"/>
@@ -8360,12 +8389,18 @@ quickly. D1 provides power until Q1 is ON.
 </segment>
 <segment>
 <pinref part="SUPPLY8" gate="GND" pin="GND"/>
-<wire x1="12.7" y1="45.72" x2="12.7" y2="41.91" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="40.64" x2="12.7" y2="38.1" width="0.1524" layer="91"/>
+<pinref part="R22" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<wire x1="30.48" y1="45.72" x2="30.48" y2="41.91" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="43.18" x2="30.48" y2="38.1" width="0.1524" layer="91"/>
 <pinref part="SUPPLY11" gate="GND" pin="GND"/>
 <pinref part="C33" gate="G$1" pin="2"/>
+</segment>
+<segment>
+<pinref part="SUPPLY12" gate="GND" pin="GND"/>
+<pinref part="C13" gate="G$1" pin="2"/>
+<wire x1="50.8" y1="63.5" x2="50.8" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -8377,9 +8412,11 @@ quickly. D1 provides power until Q1 is ON.
 </segment>
 <segment>
 <pinref part="D7" gate="G$1" pin="C"/>
-<wire x1="39.37" y1="66.04" x2="50.8" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="66.04" x2="50.8" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="39.37" y1="73.66" x2="50.8" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="73.66" x2="50.8" y2="76.2" width="0.1524" layer="91"/>
 <pinref part="+3V22" gate="G$1" pin="+3V3"/>
+<pinref part="C13" gate="G$1" pin="1"/>
+<junction x="50.8" y="73.66"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -8406,26 +8443,27 @@ quickly. D1 provides power until Q1 is ON.
 <net name="VSYS_1" class="0">
 <segment>
 <wire x1="142.24" y1="124.46" x2="154.94" y2="124.46" width="0.1524" layer="91"/>
-<wire x1="154.94" y1="124.46" x2="154.94" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="154.94" y1="124.46" x2="170.18" y2="124.46" width="0.1524" layer="91"/>
-<wire x1="170.18" y1="124.46" x2="170.18" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="124.46" x2="154.94" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="124.46" x2="167.64" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="124.46" x2="167.64" y2="111.76" width="0.1524" layer="91"/>
 <junction x="154.94" y="124.46"/>
 <wire x1="142.24" y1="121.92" x2="142.24" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="L1" gate="G$1" pin="2"/>
 <junction x="142.24" y="124.46"/>
 <pinref part="C30" gate="G$1" pin="1"/>
 <pinref part="C31" gate="G$1" pin="1"/>
-<junction x="170.18" y="124.46"/>
+<junction x="167.64" y="124.46"/>
 <pinref part="Q1" gate="G$1" pin="D"/>
 <wire x1="182.88" y1="124.46" x2="175.26" y2="124.46" width="0.1524" layer="91"/>
 <wire x1="175.26" y1="124.46" x2="175.26" y2="139.7" width="0.1524" layer="91"/>
-<pinref part="D1" gate="G$1" pin="A"/>
 <wire x1="175.26" y1="139.7" x2="185.42" y2="139.7" width="0.1524" layer="91"/>
 <junction x="175.26" y="124.46"/>
-<wire x1="170.18" y1="124.46" x2="175.26" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="124.46" x2="175.26" y2="124.46" width="0.1524" layer="91"/>
 <wire x1="154.94" y1="124.46" x2="154.94" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="154.94" y1="129.54" x2="157.48" y2="129.54" width="0.1524" layer="91"/>
 <label x="157.48" y="129.54" size="1.27" layer="95" xref="yes"/>
+<pinref part="R9" gate="G$1" pin="1"/>
+<pinref part="D1" gate="G$1" pin="A"/>
 </segment>
 </net>
 <net name="N$16" class="0">
@@ -8437,9 +8475,11 @@ quickly. D1 provides power until Q1 is ON.
 <junction x="142.24" y="109.22"/>
 <pinref part="U9" gate="G$1" pin="FB"/>
 <wire x1="132.08" y1="119.38" x2="129.54" y2="119.38" width="0.1524" layer="91"/>
+<pinref part="R19" gate="G$1" pin="1"/>
+<pinref part="R9" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="N$23" class="0">
+<net name="EN" class="0">
 <segment>
 <pinref part="U9" gate="G$1" pin="EN"/>
 <wire x1="104.14" y1="124.46" x2="99.06" y2="124.46" width="0.1524" layer="91"/>
@@ -8452,6 +8492,7 @@ quickly. D1 provides power until Q1 is ON.
 <junction x="99.06" y="101.6"/>
 <wire x1="83.82" y1="88.9" x2="99.06" y2="88.9" width="0.1524" layer="91"/>
 <junction x="99.06" y="88.9"/>
+<pinref part="R17" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="KEEP_ALIVE" class="0">
@@ -8526,19 +8567,20 @@ quickly. D1 provides power until Q1 is ON.
 </net>
 <net name="VIN_MEAS" class="0">
 <segment>
-<wire x1="12.7" y1="58.42" x2="12.7" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="12.7" y1="58.42" x2="30.48" y2="58.42" width="0.1524" layer="91"/>
-<label x="45.72" y="58.42" size="1.27" layer="95" xref="yes"/>
-<wire x1="30.48" y1="58.42" x2="45.72" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="58.42" x2="30.48" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="66.04" x2="34.29" y2="66.04" width="0.1524" layer="91"/>
-<junction x="30.48" y="58.42"/>
+<wire x1="12.7" y1="55.88" x2="12.7" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="55.88" x2="30.48" y2="55.88" width="0.1524" layer="91"/>
+<label x="45.72" y="55.88" size="1.27" layer="95" xref="yes"/>
+<wire x1="30.48" y1="55.88" x2="45.72" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="55.88" x2="30.48" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="73.66" x2="34.29" y2="73.66" width="0.1524" layer="91"/>
+<junction x="30.48" y="55.88"/>
 <pinref part="D7" gate="G$1" pin="A"/>
-<wire x1="30.48" y1="53.34" x2="30.48" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="50.8" x2="30.48" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="C33" gate="G$1" pin="1"/>
 <pinref part="R21" gate="G$1" pin="2"/>
-<wire x1="12.7" y1="58.42" x2="12.7" y2="63.5" width="0.1524" layer="91"/>
-<junction x="12.7" y="58.42"/>
+<wire x1="12.7" y1="55.88" x2="12.7" y2="63.5" width="0.1524" layer="91"/>
+<junction x="12.7" y="55.88"/>
+<pinref part="R22" gate="G$1" pin="1"/>
 </segment>
 </net>
 </nets>
@@ -9580,11 +9622,9 @@ SPI1_MISO is used as LCD_RST</text>
 </net>
 <net name="EP_RUN" class="0">
 <segment>
-<label x="195.58" y="139.7" size="1.27" layer="95" xref="yes"/>
-<wire x1="180.34" y1="137.16" x2="187.96" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="137.16" x2="187.96" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="139.7" x2="195.58" y2="139.7" width="0.1524" layer="91"/>
-<pinref part="M1" gate="G$1" pin="GP27"/>
+<label x="195.58" y="124.46" size="1.27" layer="95" xref="yes"/>
+<pinref part="M1" gate="G$1" pin="GP21"/>
+<wire x1="180.34" y1="124.46" x2="195.58" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PICOW_U1_TX" class="0">
@@ -9646,11 +9686,13 @@ SPI1_MISO is used as LCD_RST</text>
 </net>
 <net name="GPS_PPS" class="0">
 <segment>
-<wire x1="180.34" y1="142.24" x2="187.96" y2="142.24" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="142.24" x2="187.96" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="144.78" x2="195.58" y2="144.78" width="0.1524" layer="91"/>
-<label x="195.58" y="144.78" size="1.27" layer="95" rot="MR180" xref="yes"/>
-<pinref part="M1" gate="G$1" pin="GP28"/>
+<wire x1="132.08" y1="137.16" x2="129.54" y2="137.16" width="0.1524" layer="91"/>
+<label x="129.54" y="137.16" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="132.08" y1="137.16" x2="132.08" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="139.7" x2="139.7" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="139.7" x2="139.7" y2="129.54" width="0.1524" layer="91"/>
+<pinref part="M1" gate="G$1" pin="GP9"/>
+<wire x1="139.7" y1="129.54" x2="144.78" y2="129.54" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SPI0_CS" class="0">
@@ -9780,24 +9822,6 @@ SPI1_MISO is used as LCD_RST</text>
 <label x="195.58" y="129.54" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="SPARE0" class="0">
-<segment>
-<pinref part="M1" gate="G$1" pin="GP26"/>
-<wire x1="180.34" y1="134.62" x2="195.58" y2="134.62" width="0.1524" layer="91"/>
-<label x="195.58" y="134.62" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="SPARE1" class="0">
-<segment>
-<pinref part="M1" gate="G$1" pin="GP9"/>
-<wire x1="144.78" y1="129.54" x2="142.24" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="129.54" x2="142.24" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="139.7" x2="132.08" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="139.7" x2="132.08" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="137.16" x2="129.54" y2="137.16" width="0.1524" layer="91"/>
-<label x="129.54" y="137.16" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
 <net name="WS2812_DO" class="0">
 <segment>
 <label x="157.48" y="60.96" size="1.27" layer="95" xref="yes"/>
@@ -9805,7 +9829,14 @@ SPI1_MISO is used as LCD_RST</text>
 <wire x1="149.86" y1="60.96" x2="157.48" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SPARE2" class="0">
+<net name="WP_RUN" class="0">
+<segment>
+<pinref part="M1" gate="G$1" pin="RUN"/>
+<wire x1="180.34" y1="154.94" x2="195.58" y2="154.94" width="0.1524" layer="91"/>
+<label x="195.58" y="154.94" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="KEEP_ALIVE" class="0">
 <segment>
 <pinref part="M1" gate="G$1" pin="GP8"/>
 <wire x1="144.78" y1="132.08" x2="132.08" y2="132.08" width="0.1524" layer="91"/>
@@ -9814,18 +9845,18 @@ SPI1_MISO is used as LCD_RST</text>
 <label x="129.54" y="134.62" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="SPARE3" class="0">
+<net name="VIN_MEAS" class="0">
 <segment>
-<pinref part="M1" gate="G$1" pin="GP21"/>
-<wire x1="180.34" y1="124.46" x2="195.58" y2="124.46" width="0.1524" layer="91"/>
-<label x="195.58" y="124.46" size="1.27" layer="95" xref="yes"/>
+<pinref part="M1" gate="G$1" pin="GP27"/>
+<wire x1="180.34" y1="137.16" x2="195.58" y2="137.16" width="0.1524" layer="91"/>
+<label x="195.58" y="137.16" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="WP_RUN" class="0">
+<net name="SPARE0" class="0">
 <segment>
-<pinref part="M1" gate="G$1" pin="RUN"/>
-<wire x1="180.34" y1="154.94" x2="195.58" y2="154.94" width="0.1524" layer="91"/>
-<label x="195.58" y="154.94" size="1.27" layer="95" xref="yes"/>
+<pinref part="M1" gate="G$1" pin="GP28"/>
+<wire x1="180.34" y1="142.24" x2="195.58" y2="142.24" width="0.1524" layer="91"/>
+<label x="195.58" y="142.24" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>
