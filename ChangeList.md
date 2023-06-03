@@ -49,53 +49,8 @@ The following issues were detected and resolved during bringup:
 1) __GPS would disable UART during debug sessions__ Fixed by adding a pullup resistor to the PicoW GPS TX pin to hold the TX pin high by default after RESET. See below for more details.
 
 ## V4.1 Proposed Changes & Enhancements
-1) __Broken Power Supply Plan__ I think the power supply plan is broken. The requirements are:
-    1) Bench testing:
-        1) Everything on Umod4 board should be powered whenever USB power is plugged into the PicoW, regardless of presence of +12 unswitched or ECU 5V
-    2) In system:
-        1) When +12 unswitched is present, the board can decide if it wants to be powered or not
-            1) it should stay powered if it has work to do, like transfer a file via wifi or finish writing data to SD card
-        1) If the voltage level on +12 unswitched indicates that it is on a battery charger, then the system could decide to remain powered indefintely so that firmware updates could be pushed at anytime via wifi without having to walk out to the garage and turn the ignition on or something like that
 
-        1) if +5_ECU is present, the ignition is on and the system must remain powered Because keep_alive is driven through a diode, there is no way for the WP to screw up and drive keep_alive low when +5_ECU is present. The WP can't accidentally turn the power off. 
-            1) during bench testing, if the ECU is powered via +12V switched (the normal 12V input wiring into the ECU), it's as though the ignition key is ON because +5_ECU will be present due.
-
-        1) If +5_ECU is NOT present, as might happen if a bare Umod4 board was powered on a bench, not in an ECU, we would still like the system to run. This could be accomplished via a diode from VSYS
-
-1) __Add ability to measure +12 Unswitched voltage__ Note: The Pico only has 4 A/D inputs located on GPIOs [26..29].
-    1) This will require moving the pushbutton off GPIO26(currently SPARE1)
-    1) Should consider moving some of the other signals to different GPIOs so that the analog pins remain free
-        1) GPS_PPS
-        1) EP_RUN
-        1) SPARE0
-        1) GPIO29 cannot be used by Umod4: it is used by PICO_W to measure VSYS and does not have a wiring connection off the PicoW PCB
-1) __Add ability to measure SD Card Current Draw__
-1) __Add ability to measure total 3V3 consumption__
-1) __Add ability to measure VSYS current__
-1) __Add the ability to power-control the SD card__ During testing, I have seen cards that fail spectacularly after bad commands to the point that they need a power-cycle to continue. It would also make the whole hot-plug thing a bit safer because the hotPlug manager would keep power off while a socket was empty, only powering it up after a card had been inserted for some amount of time. It should only need a logic-level PFET to implement it.
-    1) There are lots of commodity USB power switch controllers that would do perfectly. They are logic-level controlled, have ESD protection, surge management, etc and cost 10 cents at LCSC.
-1) __Add decoupling capacitance to the SD card power__ Meed the spec as defined in the SD card spec specification 3.01, section E.2. Basically, use a 47 uF cap on the unswitched (incoming power) side of the PFET and a 4.7uF cap followed by a 0.1 uF cap on the switched side of the PFET.
-7)	__A little more clearance is needed for the mainboard capacitor near the silkscreen “od 4V”__
-8)	__More clearance for mainboard capacitor by the GND test point near JP4__
-11)	__Consider adding a Power Supply__
-    1. Power the PW from unswitched +12
-        1. PW needs to be able to remain powered after ignition is switched off
-        1. PW needs to be able to switch itself off when desired
-        1. PW should always switch itself ON when the ECU gets powered
-    1.	RP2040 should be powered from diode-combined ECU +5 or PW 3.3V
-        1. With bike off, the RP2040 needs to be powered so that the PW can reflash it
-        1. When ECU +5 is present, the FE should be powered even if the PW has no power for some reason
-    1.	This would require a 5V to 3.3V converter, perhaps with a diode combiner on the +5 source
-
-13)	__Add a WS2812 to the EP RP2040__ Use color patterns to indicate things like boot/run/flash-in-progress/ECU-heartbeat.
-    1. This is slightly troublesome:
-        1. The WS2812 needs to be on a regular GPIO so that it can be driven by PIO. It would either require sharing a pin for DBG_BSY and WS2812 DI, or I would need to move DBG_BSY to a QSPI pin like SCK.
-        1. The WS2812 needs a +5V supply, which is nowhere near the RP2040
-15)	__Consider moving the parts from under the Pico W so it could be mounted directly to the board without the socket or pins__
-    1. would reduce the height of the board, although it appears to not be a problem at the moment
-
-1) __Replace the MicroSD socket with something from LCSC__
-    1. The current version was used because I had some in stock and could hand solder it after getting the board back from JLCPCB. The old one is perfectly functional, it's just that if I get something from LCSC, it will be cheaper and JLCPCB will be able to include it in their assembly process
+Nothing left in the 4V1 pipeline.
 
 ## V4.1 Implemented Changes, So Far
 
@@ -147,6 +102,52 @@ The following issues were detected and resolved during bringup:
 1) __Delete S2__
     1. Never used. Since it is an analog pin, it is better served for a different purpose
 
+1) __Flipped JST Socket J5 (The auxiliary SPI port)__
+    1. This makes it way easier to hand solder if anyone wants to add it.
+
+1) __New Power Supply from +12 Unswitched__
+    1. A detailed discussion can be found in [PowerSupply.md](./PowerSupply.md). The short story is that the power supply is designed to allow the Umod4 to remain powered under software control after the ignition is shut off. The Umod4 is forced to have its power on whenever the ECU is powered.
+
+1) __Add ability to measure +12 Unswitched voltage__ This required relocating a number of pins. Note: The Pico only has 4 A/D inputs located on GPIOs [26..29]. GPIO 29 is not available off-board since it is used by PicoW itself.
+    1) Moved EP_RUN off GPIO27 (A/D input) to GPIO21 (digital only)
+        1) This allowed VIN_MEAS to use GPIO27 as an analog input
+    1) Moved GPS_PPS off its GPIO28 A/D input to GPIO9 (was SPARE1, digital only)
+        1) Reassigned SPARE0 to GPIO28 (A/D capable)
+    1) Added KEEP_ALIVE to GPIO8 (was SPARE2, digital only)
+    1) Deleted the tac switch to free up GPIO26. Can't see a use case for a single button on the PCB.
+        1) SPARE1 is now reassigned to GPIO26 (A/D capable)
+
+1) __Make decoupling capacitance match SD card spec__ As defined in the SD card spec specification 3.01, section E.2: use a 4.7uF cap followed by a 0.1 uF cap.
+
+1)	__Moved HC11 reset control parts from under the Pico W__
+    1. This allows the module to be soldered down without a socket, if desired
+    1. Reduces the overall height of the board, although the height appears to not be a problem, even when SWD right angle pins are soldered to the module.
+
+1)	__More clearance for mainboard capacitor by the GND test point near JP4__
+    1. Made a small notch in the side to allow for the capacitor a bit of extra room.
+
+1) __Improve AVDD decoupling__ Now that analog measurements are part of the system, AVDD needs its own decoupling 0.1uF cap.
+
+
+## Deferred Changes
+
+These changes might be reconsidered in the future, but are not going to be included on the next revision.
+
+1) __Replace the MicroSD socket with something from LCSC__
+    1. The current version was used because I had some in stock and could hand solder it after getting the board back from JLCPCB. The old one is perfectly functional, it's just that if I get something from LCSC, it will be cheaper and JLCPCB will be able to include it in their assembly process. I will keep using mine until I run out of them.
+
+1) __Add the ability to power-control the SD card__ During testing, I have seen cards that fail spectacularly after bad commands to the point that they need a power-cycle to continue. It would also make the whole hot-plug thing a bit safer because the hotPlug manager would keep power off while a socket was empty, only powering it up after a card had been inserted for some amount of time. It should only need a logic-level PFET to implement it.
+    1) There are lots of commodity USB power switch controllers that would do perfectly. They are logic-level controlled, have ESD protection, surge management, etc and cost 10 cents at LCSC.
+
+1)	__Add A little more clearance for the mainboard capacitor near the silkscreen “od 4V”__
+    1. There seems to be enough room, but I'll keep this item around in case things change.
+
+1)	__Add a WS2812 to the EP RP2040__ Use color patterns to indicate things like boot/run/flash-in-progress/ECU-heartbeat.
+    1. This is slightly troublesome:
+        1. The WS2812 needs to be on a regular GPIO so that it can be driven by PIO. It would either require sharing a pin for DBG_BSY and WS2812 DI, or I would need to move DBG_BSY to a QSPI pin like SCK.
+        1. The WS2812 needs a +5V supply, which is nowhere near the RP2040
+
+
 ## Discarded Changes
 
 The following changes were under consideration, but discarded for various reasons.
@@ -157,3 +158,10 @@ The following changes were under consideration, but discarded for various reason
 
 2) __Add 10-pin debug header for WP__
     1) Determination: just use the squid pins built right on top of the PicoW where they can be accessed with right angle header pins.
+
+1) __Power Measurements__
+    1) __Add ability to measure SD Card Current Draw__
+    1) __Add ability to measure total 3V3 consumption__
+    1) __Add ability to measure VSYS current__
+    
+    My take is that I can't measure 3.3V accurately anyway because it will not reflect the 3.3V consumed by the PicoW itself. I already know that modern SD cards consume almost nothing at idle. The GPS power is interesting, but I can easily get just that because it is on a connector. It might be nice to measure VSYS, but I can pretty much calculate it from the input supply and assume an 80% to 90% efficient power conversion process.
