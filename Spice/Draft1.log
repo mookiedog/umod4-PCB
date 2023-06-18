@@ -1,0 +1,21 @@
+Circuit: * C:\Users\robin\OneDrive\Documents\FunProjects\Eagle\Projects\Umod4PCB\Spice\Draft1.asc
+
+Direct Newton iteration for .op point succeeded.
+
+Date: Sat Jun 10 10:38:10 2023
+Total elapsed time: 0.100 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 2129
+traniter = 2122
+tranpoints = 1059
+accept = 1055
+rejected = 4
+matrix size = 8
+fillins = 0
+solver = Normal
+Matrix Compiler1: 478 bytes object code size  0.2/0.1/[0.1]
+Matrix Compiler2: 642 bytes object code size  0.1/0.1/[0.1]
+

@@ -50,7 +50,8 @@ The following issues were detected and resolved during bringup:
 
 ## V4.1 Proposed Changes & Enhancements
 
-Nothing left in the 4V1 pipeline.
+1) __Overvoltage Protection__
+    1. Using an MOV and a fuse means that an overvoltage situation blows a fuse and makes the bike unridable after that. It also implies that the GND connection needs to beefed up to handle the short circuit current when the MOV triggers. This is a problem since GND on the Umod4 board is only connected using the three IC socket pins. They would get overloaded during a high current dump. It seems that a better option would be to disconnect the +12 during an overvoltage situation.  No big currents flow in that case.
 
 ## V4.1 Implemented Changes, So Far
 
