@@ -1,6 +1,6 @@
 # Umod4PCB
 
-The  (A.K.A umod4) project is a real-tinme datalogger for Aprila Gen 1 ECUs. It replaces the EPROM in an Aprila Gen 1 ECU with a circuit board that combines realtime ECU datalogging with GPS position and location. The complete project is made up of:
+The  (A.K.A umod4) project is a real-time datalogger for Aprila Gen 1 ECUs. It replaces the EPROM in an Aprila Gen 1 ECU with a circuit board that combines realtime ECU datalogging with GPS position and location. The complete project is made up of:
 
 * umod4-PCB: this repository, containing the PCB design files
 * [umod4](https://github.com/mookiedog/umod4): the repository containing all the software that runs on the umod4-PCB
