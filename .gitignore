@@ -23,4 +23,7 @@ doc/
 *.gpi
 *.dri
 
+# In case Eagle has locks active
+*.lck
+
 smt_files/
