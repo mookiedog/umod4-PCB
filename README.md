@@ -1,22 +1,35 @@
-# Umod4PCB
+# umod4-PCB
 
-The  (A.K.A umod4) project is a real-time datalogger for Aprila Gen 1 ECUs. It replaces the EPROM in an Aprila Gen 1 ECU with a circuit board that combines realtime ECU datalogging with GPS position and location. The complete project is made up of:
+The Ultramod4 (A.K.A [umod4](https://github.com/mookiedog/umod4)) project is a real-time datalogger for Aprila Gen 1 ECUs.
+It replaces the EPROM in an Aprila Gen 1 ECU with a circuit board that replaces the EPROM with a fast CPU that emulates an EPROM.
+The EPROM emulation CPU's flash contains a special data logging firmware that the ECU will run.
+The data-logging firmware is modified to send a real-time stream of ECU data to an interface on the umod4-PCB.
+Software running in a daughterboard on the umod4-PCB combines the incoming ECU data stream with real-time GPS location and velocity information.
+The combined data stream gets written to a logfile on a micro SD card.
 
-* umod4-PCB: this repository, containing the PCB design files
+The complete project is made up of:
+
 * [umod4](https://github.com/mookiedog/umod4): the repository containing all the software that runs on the umod4-PCB
 * UM4: a special data logging firmware that runs inside the Gen1 ECU, currently a sub-project of the umod4 repository
+* umod4-PCB: this repository, containing the PCB design files
 
 
-This view shows a top view of the 4V0b PCB which is the first version to be fabricated so far:
+The view below shows a top view of the 4V0b PCB which is the first/only version to be fabricated so far.
+The board's strange shape and cutout are mostly required to access ECU mounting points while avoiding interference with tall components on the ECU itself.
 ![Ultramod 4V0b PCB layout](images/pcb_image_4V0b.jpg)
 
 ### Status
 
 The first version of the board (marked '4V0b' on its silkscreen) has been fabricated at JCLPCB and tested.
-It is functional, with the required workarounds identified [here](ChangeList.md/#v40b-resolved-problems).
-The next version of the PCB (tentatively named 4V1) will incorporate
-all of the known 4V0b workarounds, plus a number of changes and improvements that have been identified since the 4V0b bring-up process.
-I am letting the changes stack up until such time as either some as-yet undiscovered hardware issue with 4V0b forces a new board revision, or I just feel that it is time for a new version to get access to subsequent changes/improvements.
+It is functional, after applying the required workarounds identified [here](ChangeList.md/#v40b-resolved-problems).
+The next version of the PCB (tentatively named 4V1) will incorporate all the 4V0b workarounds,
+plus add a number of changes and improvements that have been identified since the 4V0b bring-up process.
+
+At the moment, I am letting the 4V1 changes stack up until such time as either some as-yet undiscovered hardware issue with 4V0b forces a new board revision.
+If 4V0b testing completes without needing a board spin, then at some point, I will fab 4V1 just to get access to its subsequent changes & improvements.
+
+At the moment, the big 4V1 holdup is deciding how I want its power supply to work.
+
 See the file [ChangeList.md](ChangeList.md) for the current set of changes planned for the next PCB revision.
 
 ## Goals
@@ -31,7 +44,7 @@ The initial version of the design (4V0b) has proven it can go end-to-end through
 
 ### Accessibility
 
-I am not interested in make this project into a product that I would sell and support.
+I am not interested in making this project into a product that I would sell and support.
 That said, it may be interesting enough for other Aprilia owners out there who have software and/or hardware skills that they might want to replicate the project for their own bike.
 I would not recommend building a 4V0b board at this point, just to avoid the workarounds that are already resolved in the next version.
 When the next revision of the PCB is sent for manufacture, the required design files will be packaged up into a zip file along with a set of ordering instructions.
