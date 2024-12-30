@@ -34,14 +34,14 @@ The following issues were detected and resolved during bringup:
     1. Workaround: Remove R9.
     1. The HC11_RESET_IN feature is not usable, had minimal usefulness in the first place, and will be removed in the next version.
 2)	__ECU can’t operate without SW running on a PicoW to enable the bus buffers__ This was annoying during early development, and adds another point of failure if the WP/PicoW were to fail during operation.
-    1. Workaround: Remove R17 and ground the resistor pad closest to the ‘7’ of the silkscreen ‘R17’. This permanently enables the bus driver instead of requiring that the PicoW must enable the bus buffers via software. 
+    1. Workaround: Remove R17 and ground the resistor pad closest to the ‘7’ of the silkscreen ‘R17’. This permanently enables the bus driver instead of requiring that the PicoW must enable the bus buffers via software.
     1. The bus buffers should be enabled whenever the ECU +5V is present.
 3)	__EP RP2040 does not boot reliably__
     1. Issue: The specific crystal spec'd on the BOM does not start up as fast as the Pico bootrom expects. See [here](https://forums.raspberrypi.com/viewtopic.php?t=334143) for more information on the topic
     1. Fix: No PCB fix is required. The umod4.h board file needs to define the following symbol:
 
             #define PICO_XOSC_STARTUP_DELAY_MULTIPLIER 64
-            
+
 4)	__EP SWD Debugging does not work__
     1. Issue: The SWD CLK and DAT silkscreen was correct, but the wiring to the pins was swapped.
     1. Workaround: When attaching a debugger, swap the squid connections for SWD CLK and SWD DAT
@@ -68,16 +68,32 @@ The following issues were detected and resolved during bringup:
 
 1) __GPS Disables UART During Debug Sessions__
     1) It turns out that a NEO-8 GPS will disable its UART interface if it sees too many framing errors on its RX pin within 1 second. This can happen if the RX pin is held to '0' for some reason. This should not be a problem in a real system, but while debugging, when the system is stopped at the initial breakpoint in main(), the RX pin will be at '0' until the system boots enough to init the serial interface to its idle state of '1'.
-    1) Fix: Added a 10K pullup to the UART0_TX signal that drives the GPS RX pin. 
+    1) Fix: Added a 10K pullup to the UART0_TX signal that drives the GPS RX pin.
 
 ### V4.1 Enhancements
 
-1)	__RP2040: Made HC11 RESET Control Permanent__  The RP2040 should be the only thing controlling HC11 RESET.
+1)	__RP2040: Made HC11 RESET Control Permanent__
+
+    Under normal circumstances, the RP2040 should be the only thing controlling HC11 RESET.
+    This has the benefit that an ECU with a malfunctioning Pico W would still be rideable as long as the RP2040 was able to boot.
+
+    Note that the HC11 RESET signal *can* still be controlled by PicoW software, but it is expected that the PicoW would only do that under exceptional circumstances.
+    For example, if the PicoW was to use the SWD debug interface to reflash the RP2040, the PicoW would want to assert HC11 RESET before taking control of the RP2040 via the debug unit.
+
     1. Get rid of the solder jumper option
     1. Moved the GND test point to where the old SPARE testpoint was located
 
-1) __Replaced J3 & J4 with a 10-pin 0.050 SWD Header__
-    1. Do not stuff squid pins or 10-pin header pins - for SW developers only!
+1) __Deleted SWD debug access via J3 & J4__
+
+    J3 and J4 were 4-pin JST connectors that connected to RP2040 and PicoW debug ports.
+    A decision was made that squid pins are fine, especially in conjunction with the Raspberry Pi debugger unit.
+
+    1. Do not stuff squid pins during assembly - they can easily be added after the fact. Normal users will not need them, only SW developers.
+
+1) __Added a Real Footprint for EP SWD Squid Pins__
+
+    The original squid pin connections were just vias on the board, carefully named & placed.
+    They are now a real 1x3 pinheader.
 
 1)	__Changed the WS2812 package from 5050 to 2020__
     1. See WS2812C-2020
@@ -129,6 +145,10 @@ The following issues were detected and resolved during bringup:
 
 1) __Improve AVDD decoupling__ Now that analog measurements are part of the system, AVDD needs its own decoupling 0.1uF cap.
 
+1) __Added TP2 GND Testpoint__
+
+   Somehow, TP2 GND testpoint got left off the original PCB.
+   Bringup confirmed that it would be handy to have one on the lower right for attaching scope probes.
 
 ## Deferred Changes
 
@@ -164,5 +184,5 @@ The following changes were under consideration, but discarded for various reason
     1) __Add ability to measure SD Card Current Draw__
     1) __Add ability to measure total 3V3 consumption__
     1) __Add ability to measure VSYS current__
-    
+
     My take is that I can't measure 3.3V accurately anyway because it will not reflect the 3.3V consumed by the PicoW itself. I already know that modern SD cards consume almost nothing at idle. The GPS power is interesting, but I can easily get just that because it is on a connector. It might be nice to measure VSYS, but I can pretty much calculate it from the input supply and assume an 80% to 90% efficient power conversion process.
