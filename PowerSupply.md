@@ -1,8 +1,47 @@
 # Umod4 Power Supply
 
+This doc is for capturing thoughts about how the umod4 should be powered.
+
+In the big picture, there are really just two situations:
+
+1) Normal operation: ECU and umod4 both power on and off with the key
+
+2) Data transfer mode: key off, but umod4 gets powered while ECU remains unpowered
+
+The point of data transfer mode is to allow the umod4 board wifi access with the bike turned off and parked. This mode allows logs to be uploaded or OTA firmware updates to be performed.
+
+The simplest way to do this is to attach a USB power cable to the PicoW VBUS pin and snake it out
+of the ECU to a location where a rider could plug in a USB charger, much as they might also connect
+a battery charger after a ride.
+
+The more complicated solution adds a power supply to the umod4 that is connected to the motorbike
+battery. The umod4 could detect when the engine stops and remain powered for a while, or perhaps
+even remain powered for as long as it detects a charger connected to the battery.
+
+## Outstanding Questions
+
+1. How much current can a JST connector take?
+
+   Answer: the SR/SZ 1mm pitch JST connectors are rated at 700 mA.
+
+It would be simplest if the USB power connector used a 2-pin JST connector like LiIon batteries use.
+That connector should be able to fit through one of the 4 holes already present in the ECU lid.
+
+## Current Plan
+
+The simplest solution would be to just add a USB power port on an extension cable soldered to the umod4 board.
+It is not a big hardship to attach USB power to the bike after parking.
+
+As of now, I have a power supply designed and in place, but I don't need to stuff it with parts.
+I could just add a could of pads that would allow me to attach a USB cable to the PCB.
+It would probably be best to cut the umod4 end of the cable off and just solder the wires to the PCB.
+
+Getting the wire out of the ECU will be an issue in either case.
+
+
 ## Design Requirements
 The Umod4 power supply is designed to support a number of use cases:
-  
+
   1. Software development and testing
       1. Bench testing of a bare Umod4 PCB board, not plugged into an ECU
           1. Power to be supplied via the PicoW USB connector
@@ -21,7 +60,7 @@ Note1 : The system _could_ be installed on a motorbike without connecting the un
 Note 2: When bench-testing in an ECU, if no USB power is supplied, the Umod4 will take its power from the ECU 5V supply. This is not a huge problem in that the ECU power supply appears to be over-designed and can handle the extra load, but to avoid stressing the ECU 5V supply in any way, a USB power supply is recommended during test and development on a bench.
 
 ## Outstanding Issues
-The real question is whether or not the TPS560430 can supply the 5V requirements of the Pico W, which is also powering the entire Umod4 board. In theory, 600 mA at 5V output is 3W available to the Pico W. If the PicoW can convert power at 90% efficiency, that would correspond to 2.7W of power at 3.3V. That is 800 mA of current at 3.3V.
+The real question is whether or not the selected voltage regulator can supply the 5V requirements of the Pico W, which is also powering the entire Umod4 board. In theory, 600 mA at 5V output is 3W available to the Pico W. If the PicoW can convert power at 90% efficiency, that would correspond to 2.7W of power at 3.3V. That is 800 mA of current at 3.3V.
 
 With my current setup (GPS, flash card idling, LEDs on, PicoW not doing any wireless activity), plugging in the USB power reduces power supply current to the ECU by less than 90 mA. Since the ECU is a linear supply, it means that the Umod4 must be drawing no more than 90 mA.
 

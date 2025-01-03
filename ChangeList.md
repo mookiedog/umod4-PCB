@@ -53,6 +53,22 @@ The following issues were detected and resolved during bringup:
 1) __Overvoltage Protection__
     1. Using an MOV and a fuse means that an overvoltage situation blows a fuse and makes the bike unridable after that. It also implies that the GND connection needs to beefed up to handle the short circuit current when the MOV triggers. This is a problem since GND on the Umod4 board is only connected using the three IC socket pins. They would get overloaded during a high current dump. It seems that a better option would be to disconnect the +12 during an overvoltage situation.  No big currents flow in that case.
 
+1) __Move WS2823 to Front Edge of PCB__
+
+    Goal: make it easier to see, and get it out of the way so I can potentially add pads to power via USB cable (see below)
+
+1) __Add Pads for Standby USB Power__
+
+    Goal: Provide a simple mechanism to power the umod4 when the ECU is off and the bike is parked.
+    This would allow WiFi communication with the umod4 for OTA updates or uploading data logs
+    as long as the bike is connected to a USB charger while parked in the garage.
+
+    To recap:
+
+    * VBUS is 5V that comes from the Pico W USB connector
+    * VSYS is 5V that feeds the Pico W DC-DC converter
+    * Additional power sources need to be diode-OR'd into VSYS
+
 ## V4.1 Implemented Changes, So Far
 
 ### Critical Changes
