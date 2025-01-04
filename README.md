@@ -22,15 +22,11 @@ The board's strange shape and cutout are mostly required to access ECU mounting 
 
 The first version of the board (marked '4V0b' on its silkscreen) has been fabricated at JCLPCB and tested.
 It is functional, after applying the required workarounds identified [here](ChangeList.md/#v40b-resolved-problems).
-The next version of the PCB (tentatively named 4V1) will incorporate all the 4V0b workarounds,
+The next version of the PCB (4V1) will incorporate all the 4V0b workarounds,
 plus add a number of changes and improvements that have been identified since the 4V0b bring-up process.
 
-At the moment, I am letting the 4V1 changes stack up until such time as either some as-yet undiscovered hardware issue with 4V0b forces a new board revision.
-If 4V0b testing completes without needing a board spin, then at some point, I will fab 4V1 just to get access to its subsequent changes & improvements.
-
-At the moment, the big 4V1 holdup is deciding how I want its power supply to work.
-
-See the file [ChangeList.md](ChangeList.md) for the current set of changes planned for the next PCB revision.
+As of Jan 2025, version 4V1 is solidifying, getting ready for fabrication.
+See the file [ChangeList.md](ChangeList.md) for the current set of changes planned for 4V1.
 
 ## Goals
 
