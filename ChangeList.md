@@ -2,42 +2,31 @@
 
 Captures problems and workarounds with the existing 4V0b PCB revisions. Identifies potential improvements for future revisions.
 
-## Power Supply Changes
+## Note: Power Supply Simplification
 
-At the moment, the Umod4 is powered from the PicoW, indirectly powered by switched +5V. When the key switches off, the PicoW loses power, meaning that the EP RP2040 loses power too.
-
-Proposal
-
-1) Add a new power supply with an active high enable, which is quite common.
-1) The regulator is always powered by unswitched +12V coming in through a fuse, probably with some noise-reduction circuitry too
-1) The enable signal will be powered by switched +5V arriving through a diode, then a pulldown resistor to the enable pin.
-1) When the key is switched ON, the +5V signal will override the pulldown, the regulator will start, and the WP and EP will boot.
-1) As each of the EP and WP boot, they will configure an IO pin that drives a shared KEEP_ALIVE signal through a diode that is wired to the pulldown resistor. By driving KEEP_ALIVE to 3.3V, the power supply remains enabled, even if +5V goes away.
-    1) if +5V fails before the processor has booted to the point of configuring KEEP_ALIVE, then the umod4 power will fail. This is not a problem because the system will not yet be in a state where the power loss will harm anything.
-1) When +5V fails, the WP will notice.
-    1) The EP can continue to do what it wants, or it could shut down to save a few mA.
-    1) when the WP decides that it has nothing to do, it programs the KEEP_ALIVE GPIO driver to be disconnected. The pulldown on KEEP_ALIVE will disable the regulator.
-    1) Reasons to stay powered up:
-        1) Timeout-related: like "stay alive for 5 mins in case the user connects via bluetooth to do something"
-        1) stay alive if the board detects that it is home by being able to connect to the home wifi network
-        1) check and see if there is anything to do because it is 'home', like check for software updates
-        1) unload log data from SD card to a data log server via the home network
-    1) Once everything is taken care of, it might wait for an additional 5 mins and then shut down.
-    1) Another possibility would be to stay powered as long as the unswitched +12 supply showed indications of being connected to a charger, or at least to stay powered longer before shutting down due to inactivity
-
+The power supply changes from the previous checking have been deleted.
+To get umod4 power and the resulting wifi connection, it turns out that a much simpler solution is to just use a USB extension cable that plugs into the Pico W.
+If the extension cable gets plugged into a USB charger while parked, the umod4 will be active.
 
 ## V4.0b Resolved Problems
 
 The following issues were detected and resolved during bringup:
+
 1)	__HC11_RESET_IN circuitry is not permitting HC11 to run__
     1. Issue: ECU uses a pullup on HC11_RESET, but the voltage divider formed by R8/R9 is too much of a load to let HC11_RESET to go high enough to let the ECU run
     1. Workaround: Remove R9.
     1. The HC11_RESET_IN feature is not usable, had minimal usefulness in the first place, and will be removed in the next version.
-2)	__ECU can’t operate without SW running on a PicoW to enable the bus buffers__ This was annoying during early development, and adds another point of failure if the WP/PicoW were to fail during operation.
-    1. Workaround: Remove R17 and ground the resistor pad closest to the ‘7’ of the silkscreen ‘R17’. This permanently enables the bus driver instead of requiring that the PicoW must enable the bus buffers via software.
-    1. The bus buffers should be enabled whenever the ECU +5V is present.
+
+2)	__ECU can’t operate without SW running on a PicoW to enable the bus buffers via ADDR_EN____
+
+    This was annoying during early development, and adds another point of failure if the WP/PicoW were to fail during operation.
+    1. Workaround: Remove R17 and ground the resistor pad closest to the ‘7’ of the silkscreen ‘R17’.
+    This permanently enables the bus driver instead of requiring that the PicoW must enable the bus buffers via software.
+    1. The bus buffers will be enabled whenever the ECU +5V is present.
+
 3)	__EP RP2040 does not boot reliably__
-    1. Issue: The specific crystal spec'd on the BOM does not start up as fast as the Pico bootrom expects. See [here](https://forums.raspberrypi.com/viewtopic.php?t=334143) for more information on the topic
+    1. Issue: The specific crystal spec'd on the BOM does not start up as fast as the Pico bootrom expects.
+    See [here](https://forums.raspberrypi.com/viewtopic.php?t=334143) for more information on the topic.
     1. Fix: No PCB fix is required. The umod4.h board file needs to define the following symbol:
 
             #define PICO_XOSC_STARTUP_DELAY_MULTIPLIER 64
@@ -46,47 +35,71 @@ The following issues were detected and resolved during bringup:
     1. Issue: The SWD CLK and DAT silkscreen was correct, but the wiring to the pins was swapped.
     1. Workaround: When attaching a debugger, swap the squid connections for SWD CLK and SWD DAT
 
-1) __GPS would disable UART during debug sessions__ Fixed by adding a pullup resistor to the PicoW GPS TX pin to hold the TX pin high by default after RESET. See below for more details.
+1) __GPS would disable UART during debug sessions__ Fixed by adding a pullup resistor to the PicoW GPS TX pin to hold the TX pin high by default after RESET.
+See below for more details.
 
 ## V4.1 Proposed Changes & Enhancements
-
-1) __Overvoltage Protection__
-    1. Using an MOV and a fuse means that an overvoltage situation blows a fuse and makes the bike unridable after that. It also implies that the GND connection needs to beefed up to handle the short circuit current when the MOV triggers. This is a problem since GND on the Umod4 board is only connected using the three IC socket pins. They would get overloaded during a high current dump. It seems that a better option would be to disconnect the +12 during an overvoltage situation.  No big currents flow in that case.
-
-1) __Move WS2823 to Front Edge of PCB__
-
-    Goal: make it easier to see, and get it out of the way so I can potentially add pads to power via USB cable (see below)
-
-1) __Add Pads for Standby USB Power__
-
-    Goal: Provide a simple mechanism to power the umod4 when the ECU is off and the bike is parked.
-    This would allow WiFi communication with the umod4 for OTA updates or uploading data logs
-    as long as the bike is connected to a USB charger while parked in the garage.
-
-    To recap:
-
-    * VBUS is 5V that comes from the Pico W USB connector
-    * VSYS is 5V that feeds the Pico W DC-DC converter
-    * Additional power sources need to be diode-OR'd into VSYS
 
 ## V4.1 Implemented Changes, So Far
 
 ### Critical Changes
 1)	__Delete RESET_HC11_IN__
-    1.	The signal is not not necessary: the WP knows when EP is running because the EP will tell it so.
-    1.	Deleted the signal along with R8 and R9. That frees up two more GPIOs for the WP.
+
+    The signal is not not necessary: the WP knows when EP is running because the EP will tell it so.
+
+    Fix: Deleted the signal along with R8 and R9
+
+    Note: That frees up two more GPIOs for the WP.
+
 1)	__Fix wiring connections on SWD squid pins__: CLK and DIO were swapped but the silkscreen was correct
-    1. Verify that the pins are wired as desired to the other connectors, too!
-    1. Moved the silkscreen up a bit to be more visible
+
+    Fix: Fix silksreen, also moved the silkscreen up a bit to be more visible
+
 3)	__ADDR_EN should not be driven by PicoW__
-    1. Bike should run even if PicoW is dead or missing
-    1. R17 has been removed and the ADDR_EN signal permanently grounded.
+
+    Reasoning: Bike should run even if PicoW is dead or missing.
+
+    Fix: R17 has been removed and the ADDR_EN signal permanently grounded
 
 1) __GPS Disables UART During Debug Sessions__
-    1) It turns out that a NEO-8 GPS will disable its UART interface if it sees too many framing errors on its RX pin within 1 second. This can happen if the RX pin is held to '0' for some reason. This should not be a problem in a real system, but while debugging, when the system is stopped at the initial breakpoint in main(), the RX pin will be at '0' until the system boots enough to init the serial interface to its idle state of '1'.
-    1) Fix: Added a 10K pullup to the UART0_TX signal that drives the GPS RX pin.
 
-### V4.1 Enhancements
+    It turns out that a NEO-8 GPS will disable its UART interface if it sees too many framing errors on its RX pin within 1 second.
+    This can happen if the RX pin is held to '0' for some reason.
+    This should not be a problem in a real system, but while debugging, when the system is stopped at the initial breakpoint in main(), the RX pin will be at '0' until the system boots enough to init the serial interface to its idle state of '1'.
+
+    Fix: Added a 10K pullup to the UART0_TX signal that drives the GPS RX pin
+
+### V4.1 Changes and Enhancements
+
+1) __Changed C27 Part Number__
+
+    The previous part number C368809 is a JCLPCB extended part.
+    The new part number C23733 is still a Samsung capacitor 4.7 uF, 10V, X5R but is available as a JCLPCB basic part.
+
+1) __Changed DBG_BSY LED Package__
+
+    The package for the LED connected to DBG_BSY was changed from 0603 to 0805.
+    The original 0603 LED is not available anymore.
+    The selection of basic LED parts is quite limited.
+    The only emerald green LED available as a basic part comes in an 0805 package: [C2297](https://jlcpcb.com/partdetail/Hubei_KentoElec-KT0805G/C2297).
+
+1) __Swapped Pico W End-for-End__
+
+    This change allows a mini USB cable be plugged into the Pico W even with the ECU lid attached.
+    The other end of the USB cable can be plugged into a standard 5V USB charger while the bike is parked.
+    When connected to a charger, the Pico W and its WiFi connection will be active even when the key is off.
+
+    This had the happy side effect of making the wiring flow much simpler by getting the LCD and SD Card closer to SPI pins after swapping their SPI units.
+    The LCD is now driven by SPI0 and the SD Card by SPI1.
+    It also made sense to swap the GPS Uart and the RP2040 Uart connections at the same time, for the same reasons.
+    The GPS now uses UART 1, and the RP2040 serial connection uses UART 0.
+
+    Other connections got moved around.
+    The umod4 software will need to be updated for the pin changes.
+
+1) __RP_RUN signal was renamed EP_RUN__
+
+    This happened at some point in the past, just documenting the change here.
 
 1)	__RP2040: Made HC11 RESET Control Permanent__
 
@@ -104,7 +117,8 @@ The following issues were detected and resolved during bringup:
     J3 and J4 were 4-pin JST connectors that connected to RP2040 and PicoW debug ports.
     A decision was made that squid pins are fine, especially in conjunction with the Raspberry Pi debugger unit.
 
-    1. Do not stuff squid pins during assembly - they can easily be added after the fact. Normal users will not need them, only SW developers.
+    1. Do not stuff squid pins during assembly - they can easily be added after the fact.
+    Normal users will not need them, only SW developers.
 
 1) __Added a Real Footprint for EP SWD Squid Pins__
 
@@ -112,54 +126,63 @@ The following issues were detected and resolved during bringup:
     They are now a real 1x3 pinheader.
 
 1)	__Changed the WS2812 package from 5050 to 2020__
-    1. See WS2812C-2020
+
+    Also moved the package to the front edge of the PCB for better visibility.
+
+    See datasheet WS2812C-2020.
 
 1) __Add squid pins for J3/WP for use with PicoProbe__
 
 1)	__Add a test point to scope the buffered E signal__
-    1. scoping this signal was beneficial during bringup
-    1. Added a 0.028 via as a test point. The size 0.028 matches the DIP socket and is large enought to not be tented.
+
+    Scoping this signal was beneficial during bringup so a testpoint would make it easier.
+
+    1. Added a 0.028 via as a test point.
+    The size 0.028 matches the DIP socket and is large enought to not be tented.
 
 1)	__Add a test point for EP GPIO24/TX so that it can be used to measure RP2040 CLKOUT__
-    1. Useful during bringup
+
+    Having access to CLKOUT was useful during bringup.
+
     1. Used a 0.028 via so it would not be tented. Also made the corresponding RX uart signal the same drill size so both signals could be scoped at these test points
     1. I'm not bothering with adding a test pad for the PicoW because a scope can attach directly to the GPIO24 pin if desired.
 
 1)	__HC11 XTAL hole needs to move to the left and be as tall as possible__
+
+    The crystal is not in a particularly fixed location according to my collection of ECUs.
+    There is benefit in making the XTAL hole a bit bigger to tolerate placement issues.
+
     1. Moved the left side of the hole to add an additional 0.050 inch.
     1. Increased the hole size by 0.010 on top and bottom
 
 9)	__GPS mounting hole does not line up very well__
-    1. The problem was the drawing did not spec the distance between the solder holes and the mounting hole. Measuring the real parts added about 0.7mm to the distance from the original footprint. Note that fixing this required extending the board upwards by 0.050 to get enough clearance between the mounting hole and the edge of the board.
+
+    The problem was the drawing did not spec the distance between the solder holes and the mounting hole.
+    Measuring the real parts added about 0.7mm to the distance from the original footprint.
+    Note that fixing this required rotating the board so that the cable heads off towards
+    the ignition transistors.
+    It was either that, or make the board slightly taller.
 
 1) __Delete S2__
-    1. Never used. Since it is an analog pin, it is better served for a different purpose
 
-1) __Flipped JST Socket J5 (The auxiliary SPI port)__
-    1. This makes it way easier to hand solder if anyone wants to add it.
+    Never used. Since it is an analog pin, it is probably better reserved for future use.
 
-1) __New Power Supply from +12 Unswitched__
-    1. A detailed discussion can be found in [PowerSupply.md](./PowerSupply.md). The short story is that the power supply is designed to allow the Umod4 to remain powered under software control after the ignition is shut off. The Umod4 is forced to have its power on whenever the ECU is powered.
+1) __Flipped JST Socket J5 (The auxiliary/LCD SPI port)__
 
-1) __Add ability to measure +12 Unswitched voltage__ This required relocating a number of pins. Note: The Pico only has 4 A/D inputs located on GPIOs [26..29]. GPIO 29 is not available off-board since it is used by PicoW itself.
-    1) Moved EP_RUN off GPIO27 (A/D input) to GPIO21 (digital only)
-        1) This allowed VIN_MEAS to use GPIO27 as an analog input
-    1) Moved GPS_PPS off its GPIO28 A/D input to GPIO9 (was SPARE1, digital only)
-        1) Reassigned SPARE0 to GPIO28 (A/D capable)
-    1) Added KEEP_ALIVE to GPIO8 (was SPARE2, digital only)
-    1) Deleted the tac switch to free up GPIO26. Can't see a use case for a single button on the PCB.
-        1) SPARE1 is now reassigned to GPIO26 (A/D capable)
+    This makes it way easier to hand solder if anyone wants to add it.
 
-1) __Make decoupling capacitance match SD card spec__ As defined in the SD card spec specification 3.01, section E.2: use a 4.7uF cap followed by a 0.1 uF cap.
+1) __Make decoupling capacitance match SD card spec__
+
+    As defined in the SD card spec specification 3.01, section E.2: use a 4.7uF cap followed by a 0.1 uF cap.
 
 1)	__Moved HC11 reset control parts from under the Pico W__
-    1. This allows the module to be soldered down without a socket, if desired
-    1. Reduces the overall height of the board, although the height appears to not be a problem, even when SWD right angle pins are soldered to the module.
+
+    This allows the module to be soldered down without a socket, although it seems unlikely that this would happen.
+    For example, the Pico W could be replaced with a Pico 2 W (or whatever comes after that) if the module is socketed.
 
 1)	__More clearance for mainboard capacitor by the GND test point near JP4__
-    1. Made a small notch in the side to allow for the capacitor a bit of extra room.
 
-1) __Improve AVDD decoupling__ Now that analog measurements are part of the system, AVDD needs its own decoupling 0.1uF cap.
+    Made a small notch in the side to allow for the capacitor a bit of extra room.
 
 1) __Added TP2 GND Testpoint__
 
@@ -170,35 +193,54 @@ The following issues were detected and resolved during bringup:
 
 These changes might be reconsidered in the future, but are not going to be included on the next revision.
 
-1) __Replace the MicroSD socket with something from LCSC__
-    1. The current version was used because I had some in stock and could hand solder it after getting the board back from JLCPCB. The old one is perfectly functional, it's just that if I get something from LCSC, it will be cheaper and JLCPCB will be able to include it in their assembly process. I will keep using mine until I run out of them.
+1) __Replace the MicroSD socket with something more modern from LCSC__
 
-1) __Add the ability to power-control the SD card__ During testing, I have seen cards that fail spectacularly after bad commands to the point that they need a power-cycle to continue. It would also make the whole hot-plug thing a bit safer because the hotPlug manager would keep power off while a socket was empty, only powering it up after a card had been inserted for some amount of time. It should only need a logic-level PFET to implement it.
+    The current Hirose DM3AT-SF-PEJ was used because I had some in stock and could hand solder it after getting the board back from JLCPCB.
+    That Hisrose part is just barely available from LCSC, but it is available from Digikey in great quantity.
+    If JLCPCB runs out of them, I can always get them from Digikey and then hand solder them.
+
+    The main issue with designing in a new part is that the footprints are all unique, complicated, and weird.
+    My Hirose footprint is a known quantity and works great.
+
+1) __Add the ability to power-control the SD card__
+
+    During testing, I have seen cards that fail spectacularly after bad commands to the point that they need a power-cycle to continue. It would also make the whole hot-plug thing a bit safer because the hotPlug manager would keep power off while a socket was empty, only powering it up after a card had been inserted for some amount of time. It should only need a logic-level PFET to implement it.
+
     1) There are lots of commodity USB power switch controllers that would do perfectly. They are logic-level controlled, have ESD protection, surge management, etc and cost 10 cents at LCSC.
 
-1)	__Add A little more clearance for the mainboard capacitor near the silkscreen “od 4V”__
-    1. There seems to be enough room, but I'll keep this item around in case things change.
+1)	__Add a WS2812 to the EP RP2040__
 
-1)	__Add a WS2812 to the EP RP2040__ Use color patterns to indicate things like boot/run/flash-in-progress/ECU-heartbeat.
-    1. This is slightly troublesome:
-        1. The WS2812 needs to be on a regular GPIO so that it can be driven by PIO. It would either require sharing a pin for DBG_BSY and WS2812 DI, or I would need to move DBG_BSY to a QSPI pin like SCK.
-        1. The WS2812 needs a +5V supply, which is nowhere near the RP2040
+    Use color patterns to indicate things like boot/run/flash-in-progress/ECU-heartbeat.
 
+    This might be handy, but is slightly troublesome:
+
+    1. The WS2812 needs to be on a regular GPIO so that it can be driven by PIO.
+    It would either require sharing a pin for DBG_BSY and WS2812 DI, or I would need to move DBG_BSY to a QSPI pin like SCK.
 
 ## Discarded Changes
 
 The following changes were under consideration, but discarded for various reasons.
 
 1)	__Series termination resistor on E is not required__
-    1. It makes the signal a bit cleaner, but the ADDR signals are not much worse.
-    1. Determination: The resistor is essentially free and everything works, so I'm leaving it alone.
+
+    It makes the signal a bit cleaner, but the ADDR signals are not much worse.
+
+    Determination: The resistor is essentially free and everything works, so I'm leaving it alone.
 
 2) __Add 10-pin debug header for WP__
-    1) Determination: just use the squid pins built right on top of the PicoW where they can be accessed with right angle header pins.
+
+    Determination: Not required.
+
+    Use a cheap, standard Raspberry Pi debug unit and attach it using the squid pins built right on top of the PicoW.
+
+    The 10-pin connector was convenient if using a Segger J-Link debug unit, but the RPi debugger is cheaper and much easier to source.
 
 1) __Power Measurements__
     1) __Add ability to measure SD Card Current Draw__
     1) __Add ability to measure total 3V3 consumption__
     1) __Add ability to measure VSYS current__
 
-    My take is that I can't measure 3.3V accurately anyway because it will not reflect the 3.3V consumed by the PicoW itself. I already know that modern SD cards consume almost nothing at idle. The GPS power is interesting, but I can easily get just that because it is on a connector. It might be nice to measure VSYS, but I can pretty much calculate it from the input supply and assume an 80% to 90% efficient power conversion process.
+    Determination: I can't measure 3.3V accurately anyway because it will not reflect the 3.3V consumed by the PicoW itself.
+    I already know that modern SD cards consume almost nothing at idle.
+    The GPS power is interesting, but I can easily get just that because it is on a connector.
+    It might be nice to measure VSYS, but I can pretty much calculate it from the input supply and assume an 80% to 90% efficient power conversion process.
