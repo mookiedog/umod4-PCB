@@ -4,62 +4,80 @@ Captures problems and workarounds with the existing 4V0b PCB revisions. Identifi
 
 ## Note: Power Supply Simplification
 
-The power supply changes from the previous checking have been deleted.
+The power supply changes from the previous interim checkin have been deleted.
 To get umod4 power and the resulting wifi connection, it turns out that a much simpler solution is to just use a USB extension cable that plugs into the Pico W.
-If the extension cable gets plugged into a USB charger while parked, the umod4 will be active.
+If the extension cable gets plugged into a USB charger while parked, the umod4 will be active
+while the rest of the ECU remains powered off.
 
 ## V4.0b Resolved Problems
 
 The following issues were detected and resolved during bringup:
 
-1)	__HC11_RESET_IN circuitry is not permitting HC11 to run__
-    1. Issue: ECU uses a pullup on HC11_RESET, but the voltage divider formed by R8/R9 is too much of a load to let HC11_RESET to go high enough to let the ECU run
-    1. Workaround: Remove R9.
-    1. The HC11_RESET_IN feature is not usable, had minimal usefulness in the first place, and will be removed in the next version.
+1) __HC11_RESET_IN circuitry is not permitting HC11 to run__
 
-2)	__ECU can’t operate without SW running on a PicoW to enable the bus buffers via ADDR_EN____
+    Issue: ECU uses a pullup on HC11_RESET, but the voltage divider formed by R8/R9 is too much of a load to let HC11_RESET to go high enough to let the ECU run
+    The HC11_RESET_IN feature is not usable, had minimal usefulness in the first place, and will be removed in the next version.
+
+    Workaround: Remove R9.
+
+1) __ECU can’t operate without SW running on a PicoW to enable the bus buffers via ADDR_EN__
 
     This was annoying during early development, and adds another point of failure if the WP/PicoW were to fail during operation.
-    1. Workaround: Remove R17 and ground the resistor pad closest to the ‘7’ of the silkscreen ‘R17’.
-    This permanently enables the bus driver instead of requiring that the PicoW must enable the bus buffers via software.
-    1. The bus buffers will be enabled whenever the ECU +5V is present.
 
-3)	__EP RP2040 does not boot reliably__
-    1. Issue: The specific crystal spec'd on the BOM does not start up as fast as the Pico bootrom expects.
+    Workaround: Remove R17 and ground the resistor pad closest to the ‘7’ of the silkscreen ‘R17’.
+    This permanently enables the bus driver instead of requiring that the PicoW must enable the bus buffers via software.
+
+    The bus buffers will be enabled whenever the ECU +5V is present.
+
+1) __EP RP2040 does not boot reliably__
+
+    Issue: The specific crystal spec'd on the BOM does not start up as fast as the Pico bootrom expects.
     See [here](https://forums.raspberrypi.com/viewtopic.php?t=334143) for more information on the topic.
-    1. Fix: No PCB fix is required. The umod4.h board file needs to define the following symbol:
+
+    Fix: No PCB fix is required. The umod4.h board file needs to define the following symbol:
 
             #define PICO_XOSC_STARTUP_DELAY_MULTIPLIER 64
 
-4)	__EP SWD Debugging does not work__
-    1. Issue: The SWD CLK and DAT silkscreen was correct, but the wiring to the pins was swapped.
-    1. Workaround: When attaching a debugger, swap the squid connections for SWD CLK and SWD DAT
+1) __EP SWD Debugging does not work__
 
-1) __GPS would disable UART during debug sessions__ Fixed by adding a pullup resistor to the PicoW GPS TX pin to hold the TX pin high by default after RESET.
-See below for more details.
+    Issue: The SWD CLK and DAT silkscreen was correct, but the wiring to the pins was swapped.
+
+    Workaround: When attaching a debugger, swap the squid connections for SWD CLK and SWD DAT.
+
+1) __GPS would disable UART during debug sessions__
+
+    Fixed by adding a pullup resistor to the PicoW GPS TX pin to hold the TX pin high by default after RESET.
+    A GPIO pullup controlled by firmware is not suitable because the debugger will not let firmware run after RESET.
+
+    See below for more details.
 
 ## V4.1 Proposed Changes & Enhancements
+
+    Nothing pending
 
 ## V4.1 Implemented Changes, So Far
 
 ### Critical Changes
-1)	__Delete RESET_HC11_IN__
+
+1) __Delete RESET_HC11_IN__
 
     The signal is not not necessary: the WP knows when EP is running because the EP will tell it so.
 
-    Fix: Deleted the signal along with R8 and R9
+    Fix: Deleted the signal along with R8 and R9.
 
-    Note: That frees up two more GPIOs for the WP.
+    Note: This fix frees up two more GPIOs for the WP.
 
-1)	__Fix wiring connections on SWD squid pins__: CLK and DIO were swapped but the silkscreen was correct
+1) __Fix wiring connections on SWD squid pins__
 
-    Fix: Fix silksreen, also moved the silkscreen up a bit to be more visible
+    CLK and DIO were swapped but the silkscreen was correct.
 
-3)	__ADDR_EN should not be driven by PicoW__
+    Fix: Fix silksreen, also moved the silkscreen up a bit to be more visible.
+
+1) __ADDR_EN should not be driven by PicoW__
 
     Reasoning: Bike should run even if PicoW is dead or missing.
 
-    Fix: R17 has been removed and the ADDR_EN signal permanently grounded
+    Fix: R17 has been removed and the ADDR_EN signal permanently grounded.
 
 1) __GPS Disables UART During Debug Sessions__
 
@@ -89,7 +107,7 @@ See below for more details.
     The other end of the USB cable can be plugged into a standard 5V USB charger while the bike is parked.
     When connected to a charger, the Pico W and its WiFi connection will be active even when the key is off.
 
-    This had the happy side effect of making the wiring flow much simpler by getting the LCD and SD Card closer to SPI pins after swapping their SPI units.
+    This change had the happy side effect of making the wiring flow much simpler by getting the LCD and SD Card closer to SPI pins after swapping their SPI units.
     The LCD is now driven by SPI0 and the SD Card by SPI1.
     It also made sense to swap the GPS Uart and the RP2040 Uart connections at the same time, for the same reasons.
     The GPS now uses UART 1, and the RP2040 serial connection uses UART 0.
@@ -101,7 +119,7 @@ See below for more details.
 
     This happened at some point in the past, just documenting the change here.
 
-1)	__RP2040: Made HC11 RESET Control Permanent__
+1) __RP2040: Made HC11 RESET Control Permanent__
 
     Under normal circumstances, the RP2040 should be the only thing controlling HC11 RESET.
     This has the benefit that an ECU with a malfunctioning Pico W would still be rideable as long as the RP2040 was able to boot.
@@ -125,7 +143,7 @@ See below for more details.
     The original squid pin connections were just vias on the board, carefully named & placed.
     They are now a real 1x3 pinheader.
 
-1)	__Changed the WS2812 package from 5050 to 2020__
+1) __Changed the WS2812 package from 5050 to 2020__
 
     Also moved the package to the front edge of the PCB for better visibility.
 
@@ -133,21 +151,21 @@ See below for more details.
 
 1) __Add squid pins for J3/WP for use with PicoProbe__
 
-1)	__Add a test point to scope the buffered E signal__
+1) __Add a test point to scope the buffered E signal__
 
     Scoping this signal was beneficial during bringup so a testpoint would make it easier.
 
     1. Added a 0.028 via as a test point.
     The size 0.028 matches the DIP socket and is large enought to not be tented.
 
-1)	__Add a test point for EP GPIO24/TX so that it can be used to measure RP2040 CLKOUT__
+1) __Add a test point for EP GPIO24/TX so that it can be used to measure RP2040 CLKOUT__
 
     Having access to CLKOUT was useful during bringup.
 
     1. Used a 0.028 via so it would not be tented. Also made the corresponding RX uart signal the same drill size so both signals could be scoped at these test points
     1. I'm not bothering with adding a test pad for the PicoW because a scope can attach directly to the GPIO24 pin if desired.
 
-1)	__HC11 XTAL hole needs to move to the left and be as tall as possible__
+1) __HC11 XTAL hole needs to move to the left and be as tall as possible__
 
     The crystal is not in a particularly fixed location according to my collection of ECUs.
     There is benefit in making the XTAL hole a bit bigger to tolerate placement issues.
@@ -155,7 +173,7 @@ See below for more details.
     1. Moved the left side of the hole to add an additional 0.050 inch.
     1. Increased the hole size by 0.010 on top and bottom
 
-9)	__GPS mounting hole does not line up very well__
+1) __GPS mounting hole does not line up very well__
 
     The problem was the drawing did not spec the distance between the solder holes and the mounting hole.
     Measuring the real parts added about 0.7mm to the distance from the original footprint.
@@ -175,12 +193,12 @@ See below for more details.
 
     As defined in the SD card spec specification 3.01, section E.2: use a 4.7uF cap followed by a 0.1 uF cap.
 
-1)	__Moved HC11 reset control parts from under the Pico W__
+1) __Moved HC11 reset control parts from under the Pico W__
 
     This allows the module to be soldered down without a socket, although it seems unlikely that this would happen.
     For example, the Pico W could be replaced with a Pico 2 W (or whatever comes after that) if the module is socketed.
 
-1)	__More clearance for mainboard capacitor by the GND test point near JP4__
+1) __More clearance for mainboard capacitor by the GND test point near JP4__
 
     Made a small notch in the side to allow for the capacitor a bit of extra room.
 
@@ -208,7 +226,7 @@ These changes might be reconsidered in the future, but are not going to be inclu
 
     1) There are lots of commodity USB power switch controllers that would do perfectly. They are logic-level controlled, have ESD protection, surge management, etc and cost 10 cents at LCSC.
 
-1)	__Add a WS2812 to the EP RP2040__
+1) __Add a WS2812 to the EP RP2040__
 
     Use color patterns to indicate things like boot/run/flash-in-progress/ECU-heartbeat.
 
@@ -221,13 +239,13 @@ These changes might be reconsidered in the future, but are not going to be inclu
 
 The following changes were under consideration, but discarded for various reasons.
 
-1)	__Series termination resistor on E is not required__
+1) __Series termination resistor on E is not required__
 
     It makes the signal a bit cleaner, but the ADDR signals are not much worse.
 
     Determination: The resistor is essentially free and everything works, so I'm leaving it alone.
 
-2) __Add 10-pin debug header for WP__
+1) __Add 10-pin debug header for WP__
 
     Determination: Not required.
 

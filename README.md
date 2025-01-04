@@ -13,12 +13,11 @@ The complete project is made up of:
 * UM4: a special data logging firmware that runs inside the Gen1 ECU, currently a sub-project of the umod4 repository
 * umod4-PCB: this repository, containing the PCB design files
 
-
 The view below shows a top view of the 4V0b PCB which is the first/only version to be fabricated so far.
 The board's strange shape and cutout are mostly required to access ECU mounting points while avoiding interference with tall components on the ECU itself.
 ![Ultramod 4V0b PCB layout](images/pcb_image_4V0b.jpg)
 
-### Status
+## Status
 
 The first version of the board (marked '4V0b' on its silkscreen) has been fabricated at JCLPCB and tested.
 It is functional, after applying the required workarounds identified [here](ChangeList.md/#v40b-resolved-problems).
@@ -32,7 +31,11 @@ See the file [ChangeList.md](ChangeList.md) for the current set of changes plann
 
 ### Design For Manufacture
 
-This project uses a bare RP2040 chip to emulate the EPROM in a Gen 1 ECU. The chip is too difficult for me to place by hand for reflowing the board using my [home-brew reflow](https://github.com/mookiedog/Reflow) process. Instead, this PCB is designed for fabrication at JLCPCB.com. Where possible, the BOM parts were chosen from JLCPCB's "basic" component list to avoid the fee for using an "extended" component. Even so, stocks of "basic" parts fluctuate and components become obsolete, so the BOM might change with time.
+This project uses a bare RP2040 chip to emulate the EPROM in a Gen 1 ECU.
+The chip is too difficult for me to place by hand for reflowing the board using my [home-brew reflow](https://github.com/mookiedog/Reflow) process.
+Instead, this PCB is designed for fabrication at JLCPCB.com.
+Where possible, the BOM parts were chosen from JLCPCB's "basic" component list to avoid the fee for using an "extended" component.
+Even so, stocks of "basic" parts fluctuate and components become obsolete, so the BOM might change with time to accomodate those changes.
 
 Once any requirement for hand assembly was eliminated, the door was open to use smaller 0402 components on the PCB.
 
@@ -48,7 +51,12 @@ The goal would be to enable anyone to order their own manufactured boards direct
 
 ## Design Tool Choice
 
-Tthe project is currently developed using Cadsoft Eagle.  It's because I've used Eagle for the last bazillion years. I am still using an old version of Eagle (V7.6) that I own outright. These days, you are forced to forced to buy new versions of Eagle on a monthly subscription basis. That doesn't work for me, because I make no money off this stuff and can't afford the subscription fees.  Too bad, I like Eagle.
+Tthe project is currently developed using Cadsoft Eagle.
+It's because I've used Eagle for the last bazillion years.
+I am still using an old version of Eagle (V7.6) that I own outright.
+These days, you are forced to forced to buy new versions of Eagle on a monthly subscription basis.
+That doesn't work for me, because I make no money off this stuff and can't afford the subscription fees.
+Too bad, I like Eagle.
 
 I realize that at some point it would be worth switching the design over to something like KiCad to make it more accessible to the open source community.
 
