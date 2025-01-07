@@ -1,4 +1,25 @@
-# Changelist
+# Changelist for 4V1
+
+## Version 4V1a PCB is Being Fabricated
+
+The final 4V1a changes:
+
+* Added an indicator LED to show when +5_ECU was present
+* Added indicator marks for the LEDs on the board to aid in parts placement at JLCPCB
+* Changed the WS2812 LED from a 2020 package back to the 5050 package.
+JLCPCB said that the 2020 package was "difficult" for them to manage.
+In contrast, the 5050 package is easy to hand solder.
+
+As far as fabrication goes, the following parts will get hand soldered after receiving the boards:
+* WS2812-5050
+* Hirose SD Card holder
+
+The SD card holders were out of stock.
+The WS2812 5050 cannot be installed using the PCBA economic process because they need to be baked before installation.
+Since both parts are JLCPCB extended parts, leaving them off saves $6 in extended parts fees.
+The total cost at JCLPCB was just over $10 per board, including parts and assembly, not including shipping.
+
+
 
 Captures problems and workarounds with the existing 4V0b PCB revisions. Identifies potential improvements for future revisions.
 
@@ -53,7 +74,7 @@ The following issues were detected and resolved during bringup:
 
 ## V4.1 Proposed Changes & Enhancements
 
-    Nothing pending
+Closed.
 
 ## V4.1 Implemented Changes, So Far
 
@@ -88,6 +109,36 @@ The following issues were detected and resolved during bringup:
     Fix: Added a 10K pullup to the UART0_TX signal that drives the GPS RX pin
 
 ### V4.1 Changes and Enhancements
+
+1) __Added Indicator LED for +5_ECU__
+
+    An indicator light was added to show when +5 ECU power is present.
+    This light would be off when the umod4 is powered from a USB cable attached to the Pico board and it would be on whenever the ignition key is on.
+
+1) __Allow For SD Card Access Using 4-bit SPI Mode__
+
+    The 4V0 PCB accessed the SD card using the 1-bit SPI mode subset built into all SD cards.
+    The 4V0 wiring scheme used the R2040 SPI1 silicon unit to perform SPI transfers.
+    It could have also used a PIO program to perform the transfers, but using the silicon block works just fine.
+
+    The 4V1 board adds additional wiring to allow for 4-bit IO to the SD Card using PIO libraries that can be found on the web.
+    The 4-bit mode should greatly increase the transfer rate from the SD card when uploading log files via WiFi.
+
+    The wiring has been added in a fashion that allows the SD card to be accessed via 1-bit mode and using silicon SPI unit #1, or in 4-bit mode via PIO.
+    A requirement of the PIO code is that DAT0 through DAT3 must occupy 4 consecutive GP pins where DAT0 is the lowest numbered GP pin of the four.
+
+    If for some reason, the 4-bit PIO code cannot be made to work, 1-bit SPI mode will work as before.
+
+    The table below shows how the wiring will be done so that the SD card can be accessed via RP2040 hardware SPI unit #1, as well as a PIO implementation of 4-bit mode:
+
+| GP | SPI Unit 1 | SD Card in 1-Bit SPI Mode | SD Card in 4-Bit Mode |
+|--|--|--|--|
+| GP10 | SCK | CLK | CLK |
+| GP11 | TX | CMD/MOSI | CMD |
+| GP12 | RX | MISO | DAT0 |
+| GP13 | N/A | N/A | DAT1 |
+| GP14 | N/A | N/A | DAT2 |
+| GP15 | N/A | CS | DAT3 |
 
 1) __Changed C27 Part Number__
 
@@ -143,11 +194,12 @@ The following issues were detected and resolved during bringup:
     The original squid pin connections were just vias on the board, carefully named & placed.
     They are now a real 1x3 pinheader.
 
-1) __Changed the WS2812 package from 5050 to 2020__
+1) __WS2812 Moved for Better Visibility__
 
-    Also moved the package to the front edge of the PCB for better visibility.
-
-    See datasheet WS2812C-2020.
+    Moved the package to the front edge of the PCB for better visibility.
+    As mentioned earlier, the 5050 package is still being used because JCLPCB says that the 2020 package is 'difficult' for them.
+    The 5050 package cannot be sent through the economic PCB assembly service because it needs to be baked.
+    These LEDs will be hand soldered.
 
 1) __Add squid pins for J3/WP for use with PicoProbe__
 
