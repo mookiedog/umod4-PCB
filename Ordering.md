@@ -157,3 +157,48 @@ Verify:
 * Gold fingers: no
 * Castellated holes: no
 * Edge plating: no
+
+...and so on.
+
+## Parts Placement Issues
+
+As part of the assembly purchase process, you need to upload your BOM and CPL files.
+As soon as you have done that, a file viewer pops up that shows you how your parts will mount on the board.
+In theory, all the parts should be drawn exactly where you wanted them, all with the proper rotations.
+In practice, this viewer never, *ever* works right for me.
+My 4V1 board showed every single part offset by about a quarter of an inch to the left.
+In addition, the part rotations were wrong for a significant number of my parts.
+It is disconcerting, but the key to success is to check the box that says you want to verify the parts placement before going into production.
+With that box checked, keep going through the purchase process.
+Another weird thing is that you have to OK the PCB for fabrication before you get a chance to OK the parts placement.
+This means that your PCB is in their production queue before the parts placement gets worked out, which could get problematic if there were an issue with the PCB.
+
+But maybe an hour after you OK the PCB and it is in process, you will get another note from a JCLPCB engineer.
+You need to back to your order page and click some buttons to see what is going on.
+The engineer will have manually checked everything to see how the parts should go on the board.
+They will send you two pictures.
+One picture shows the 'original' parts placement, before they make any changes.
+The second picture shows the changes they have manually made to come up with what they think is the corrected parts placement.
+You need to carefully examine the pictures and verify that the results are what you want.
+
+Below, are are the before and after pictures I got from them regarding my 4V1 board.
+
+Interestingly, the 'before' picture (immediately below) is not showing the horizonal offset for all the components like it did on the order webpage.
+But clearly, you can see that the orientations are messed up on a few components:
+![Ultramod 4V1a PCB layout (before)](images/4v1_original.png)
+
+The red dots mark where JCLPCB believes pin 1 to be located.
+Y1, U1, U3, U6, U7, Q1, and Q2 have improper orientations.
+
+Here is the showing the parts placement after being processed by the engineer:
+![Ultramod 4V1a PCB layout (corrected)](images/4v1_corrected.png)
+
+Now all the red dots line up with my white pin 1 indicators on the board's silkscreen.
+The last thing is to make sure that polarized parts like the LEDs have their + and - connections to the proper ends.
+In this case, everything looked fine so I told them to go ahead with production.
+
+It has been my experience that the JCLPCB engineers do a good job at getting the placement correct for production.
+I have not had to correct anything after they got through with it.
+In fact, there was a time when they found an error on my board where I used the wrong package footprint for one of my parts.
+They cancelled the job, I fixed the footprint, resubmitted and everything was fine the second time around.
+But is sure is disconcerting to submit payment for boards that look so messed up at the time you order them.
