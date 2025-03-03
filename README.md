@@ -9,8 +9,8 @@ The combined data stream gets written to a logfile on a micro SD card.
 
 The complete project is made up of:
 
-* [umod4](https://github.com/mookiedog/umod4): the repository containing all the software that runs on the umod4-PCB. The repository is currently private, but it will be going public in spring 2025.
-* UM4: a special data logging firmware that runs inside the Gen1 ECU, currently a sub-project of the umod4 repository
+* [umod4](https://github.com/mookiedog/umod4): the repository containing all the software that runs on the umod4-PCB.
+* [UM4](https://github.com/mookiedog/umod4/tree/main/ecu/src): a special data logging firmware that runs inside the Gen1 ECU, currently resides inside the umod4 repository
 * umod4-PCB: this repository, containing the PCB design files
 
 The view below shows a top view of the 4V1a PCB, currently the most recent design.
@@ -20,9 +20,12 @@ The board's strange shape and cutout are mostly required to access ECU mounting 
 ## PCB Status
 
 The first version of the board (marked '4V0b' on its silkscreen) was fabricated at JCLPCB in 2022 and tested.
-As of January 2025, the 4V1a board is in production at JLCPCB.
+The second revision, the 4V1a board, was produced by JLCPCB in Jan 2025.
 It incorporates all the workarounds from 4V0b, plus a number of changes and enhancements discovered over the last 18 months.
 See the file [ChangeList.md](ChangeList.md) for the complete set of changes incorporated by 4V1.
+
+The 4V1 version PCB has passed all its tests so far.
+The only outstanding 4V1 feature that has not been tested is the new ability to access the micro SD card using 4-bit mode mode.
 
 ## Goals
 
