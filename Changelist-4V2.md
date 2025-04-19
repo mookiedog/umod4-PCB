@@ -33,12 +33,24 @@ None so far.
 
     Spare1 and Spare2 pads should get moved out from underneath the Pico module to be colocated with the Spare0 pad.
 
-1) __Add a Plain LED to SpareX Pad__
+1) __Add a Plain LED to a SpareX Pad__
 
     Add a normal LED (i.e. not a WS2812) to one of the SpareX pads.
     The built-in LED controlled by the WiFi module takes a considerable amount of time and CPU effort before it can be used.
     It defeats the purpose of being an early indication of life.
+    Could also use that LED to indicate when the flash file system is busy.
 
     Add an LED with current-limiting resistor operating in pulldown mode (GPIO output of 0 means 'on').
     Place the LED beside the WS2812 to make it more visible under the motorbike seat.
     Leave the SpareX pad in place even with the LED added.
+
+1) __Add Another WS2812__
+
+    Daisy chain at least one more WS2812 RGB LED.
+    It would be useful to have an LED devoted to the state of the SD card, and another devoted to the logger.
+    Maybe even one for GPS status.
+
+1) __Consider Using 2mm WS2812C Parts__
+
+    Last time I looked, JLCPCB was not real happy if I spec'd the smaller parts.
+    Maybe things have changed.
