@@ -112,3 +112,24 @@ The smaller capacity should not be a huge problem.
 
     If the GPIO unit controls the DBG_BSY pad, then it will show code timing info.
     If the PIO unit controls the DBG_BSY pad, then it will show WS2812 status info.
+
+1) __Add the ability to power-control the SD card__
+
+    During testing, I have seen cards that fail spectacularly after bad commands to the point that they need a power-cycle to continue.
+    It would also make the whole hot-plug thing a bit safer because the hotPlug manager would keep power off until card was physically present for some amount of time, as opposed to powering it up while it is being inserted if the socket is always hot.
+
+    There are lots of commodity USB power switch controllers that would do perfectly. They are logic-level controlled, have ESD protection, surge management, etc and cost 10 cents at LCSC.
+
+    Here are some possibilities:
+
+    * [SY6280](https://www.lcsc.com/product-detail/Power-Distribution-Switches_Silergy-Corp-SY6280AAC_C55136.html?s_z=s_Power%2520Management%2520%28PMIC%29%257CPower%2520Distribution%2520Switches)
+    * [TPS22918](https://www.lcsc.com/product-detail/Power-Distribution-Switches_Texas-Instruments-TPS22918DBVR_C131941.html?s_z=s_Power%2520Management%2520%28PMIC%29%257CPower%2520Distribution%2520Switches)
+    * [MT9700](https://www.lcsc.com/product-detail/Power-Distribution-Switches_XI-AN-Aerosemi-Tech-MT9700-N_C42441843.html?s_z=s_Power%2520Management%2520%28PMIC%29%257CPower%2520Distribution%2520Switches)
+
+    There are lots more, but this gives the flavor of what is out there.
+
+1) __Add Test Points for EP/WP Comms__
+
+    Add test points for the serial link between WP and EP.
+    Vias would be good enough as long as a scope probe tip can fit in them.
+
