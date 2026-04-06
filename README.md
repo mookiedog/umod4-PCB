@@ -25,7 +25,6 @@ It incorporates all the workarounds from 4V0b, plus a number of changes and enha
 See the file [ChangeList.md](ChangeList.md) for the complete set of changes incorporated by 4V1.
 
 The 4V1 version PCB has passed all its tests so far.
-The only outstanding 4V1 feature that has not been tested is the new ability to access the micro SD card using 4-bit mode mode.
 
 ## Goals
 
