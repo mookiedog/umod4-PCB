@@ -38,15 +38,16 @@ Tuono using new firmware that uses PIO to always disable bus writes:
     If the power failed during the write, the backup source would ensure that the write completed.
     After completing and disabling the backup power, the system power would fail immediately but the filesystem would not be corrupted.
 
-  1) LiPo battery backup
 
-    The little RC quadcoptor 50 mAH LiPo batteries should work fine to power the PicoW while it is doing a write operation for 1 second or so.
+    * LiPo battery backup
 
-    Note: These connectors are advertised on Aliexpress and ebay as JST 1.25, but they are __not__ JST connectors, they are Molex Picoblade.
+        The little RC quadcoptor 50 mAH LiPo batteries should work fine to power the PicoW while it is doing a write operation for 1 second or so.
 
-    Mating through-hole socket is part number 5304702XX, where XX=60 means gold plated.
+        Note: These connectors are advertised on Aliexpress and ebay as JST 1.25, but they are __not__ JST connectors, they are Molex Picoblade.
 
-    See [molex catalog](https://www.molex.com/content/dam/molex/molex-dot-com/en_us/pdf/datasheets/987651-3691.pdf?inline) for more info on Picoblade series.
+        Mating through-hole socket is part number 5304702XX, where XX=60 means gold plated.
+
+        See [molex catalog](https://www.molex.com/content/dam/molex/molex-dot-com/en_us/pdf/datasheets/987651-3691.pdf?inline) for more info on Picoblade series.
 
 1) __Add Pullups/downs to SWD Bus__
 
