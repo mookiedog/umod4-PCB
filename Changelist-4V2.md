@@ -1,24 +1,82 @@
 # Changelist Tracker for 4V2 PCB
 
-## Critical Changes for 4V2
+## Dicking With Parts due to LCSC Supply Issues
 
-None so far.
+* Changed the 100R resistors protecting SWD signals to be 0603 for availablity reasons
+* Changed the E series resistor to be 100R/0603 to take advantage of above. AI indicates that 100R will be overdamped, but will be to my benefit at a slow 2 MHz clock.
+* The 1K 0402 resistors R1, R4, R10 will be a minimum charge of $9. Changing the package does not help, and R1 needs to be 0402 anyway.
+* The 470R resistors (R7,R11,R20,R21) can all be 0402 C25117 as per the 4V1
+* The 4K7 R26 (SWD pullup) is converted to 0603
+* Oddly, the GRN C2297 and YEL C2296 LEDs are basic parts, but the RED C2295 is an extended part. I think I will have the 470R resistors added for the SPARE3/4 LEDs, but the LEDs themselves left unstuffed.
 
 ## Outstanding 4V1a Issues
 
-None.
+All known 4V1 issues have been resolved as below.
 
-## Resolved 4V1a Issues
+## GPIO Assignment Changes from 4V1 to 4V2
 
-### Issue: Excessive Power Draw from WP USB when ECU is Powered Off
+The SPARE1 and SPARE2 signals were used by the 4V1 software for various purposes.
+The usage for these pins becomes official on the 4V2 PCB.
 
-Resolved: fixed in firmware. The EP was depending on falling-E to disable the HC11 bus drivers. When power is lost, there may be a situation where the final bus cycle looks like a read so the drivers are enabled, but there is no subsequent bus cycle to disable the drivers. The drivers continue to back-power the now-unpowered bus transceiver causing excessive current consumption.
+The LCD connector has been retired with 4V2 and the connector pins are assigned new functionality with 4V2.
 
-Fix: add a PIO state machine to handle driving read data to the transceiver. On an HC11 read operation, instead of writing the read data directly to the GPIO output drivers, the firmware now puts the read data in a PIO FIFO. A PIO SM wakes up, puts the data on the bus, and starts a bus timer. The timeout value is chosen so that the data is only driven until such time as we satisfy the data hold time after the E clock falls. At that point, the bus drivers are unconditionally disabled. This prevents driving IO pins into an unpowered bus transceiver.
+| GP | 4V1 PCB Name | 4V2 PCB Name | Function |
+| -- | ------------ | ------------ | -------- |
+| GP27 | SPARE0 | SPARE0_ADC | spare, renamed to reflect ADC capability |
+| GP26 | SPARE1 | DISK_BSY | SD card disk activity and "hello" notification |
+| GP5  | SPARE2 | EP_SWD_DIS | Disable WP control of EP SWD |
+| GP16 | SPI0_MISO | SPARE3 | spare (footprint for LED exists) |
+| GP17 | SPI0_CS   | SPARE4 | spare (footprint for LED exists) |
+| GP18 | SPI0_SCK  | SPARE5 | spare |
+| GP19 | SPI0_MOSI | EN_VDD_SD | Enable SD card power |
+| GP20 | SPI0_DC   | VCCB_PWR | test if VCCB is present |
+| GP21 | SPI0_BKLT | EP_BOOTSEL | can drive EP_BOOTSEL to '0' during EP RESET |
+
+All other signals and their GPIO assignments remain the same:
+
+* RP2040 U0_TX, U0_RX
+* RP_SWCLK, RP_SWD
+* EP_RUN
+* GPS: PPS, TX, RX
+* SD Card: !CARD, SCK, MOSI, MISO, DAT1, DAT2, CS
+* WS2812: DI
+
+## Changes Completed for 4V2
+
+### Resolve Excessive Power Draw At ECU Power-Off
+
+__Problem:__ The 4V1 board draws excessive current if the ECU is powered off while the umod4 remains powered from a USB supply. It would appear that the bus buffer behaves badly when VCCB is present without VCCA, in spite of what the Nexperia data sheet says. The RP2040 can end up driving the HC11 data bus into the bus transceiver, backpowering it.
+
+__Change:__ There were 2 changes made to resolve this issue.
+
+The first was a firmware change. Existing firmware would disable the read-cycle bus drivers at the start of the next E cycle. When power failed, the 'next' E cycle would never come, and drivers (if enabled) would remain enabled. To fix this, a PIO state machine was added to drive the read data. A failsafe PIO timer mechanism would unconditionally disable the bus drivers if the firmware failed to do so because the next E clock never came.
+
+The PIO mechanism resolved the issue for 4V1 PCBs. For 4V2, an additional change has been made. The 4V1 required using a Nexperia 74LVC4245 because it purported to deal with the issues that arise when one bus was powered, but the other was not. However, it would appear that there were perhaps more subtleties resulting in the excessive current draw. To fully resolve the issue and allow other manufacturer's versions of the 74LVC4245 which were stated as being fussier with power sequencing, a new power supply was added so that the +5 and +3.3V supplies to the bus transceiver would both be derived from +5 ECU supply.
+
+A [TLV757P](https://www.lcsc.com/product-detail/C485517.html) linear regulator was added to power all voltage translation ICs:
+
+* Two 8-bit address buffers (U1, U3)
+* 8-bit bidirectional data bus buffer (U2)
+* U6 dual inverter
+
+These ICs are now completely unpowered when +5_ECU is absent (ignition OFF). The supply is named VCCB, per the 74LVC4245 naming convention.
+
+This is safe because:
+
+* Address buffers and E signal are always inputs to the RP2040, with pulldowns activated. Losing power causes no issues.
+* Inverted HC11 bus signals (W/!R and CE) are also input only to the RP2040, with pulldowns activated.
+* The 74LVC4245 spec requires VCCB to be applied at the same time or after VCCA. Since the regulator creates VCCB from VCCA, the soft-start delay guarantees this ordering.
+* EP firmware uses a failsafe PIO timer to stop driving the bus if VCCB power fails mid-cycle.
+
+The TLV757P features active output discharge when not enabled, making VCCB_PWR detection reliable.
+
+__Verification:__ With USB power only (no ECU), confirm VCCB is 0V and current draw matches pre-4V1 baseline (~130-160 mA). With ECU powered, confirm VCCB is 3.3V and VCCB_PWR GPIO reads '1'. Turn ECU off and confirm VCCB discharges quickly and VCCB_PWR reads '0'.
 
 #### Testing on 2026-04-04
 
-Tuono using old firmware that exhibits the issue:
+The PIO timer-based read cycle failsafe drive disable has been verified.
+
+On the motorbike using old firmware that exhibits the issue:
 
 1) power ECU via USB: current 130-160mA
 2) ignition on: USB power drops to 40 mA
@@ -29,342 +87,228 @@ Tuono using new firmware that uses PIO to always disable bus writes:
 2) ignition on: USB power drops to 40 mA
 3) ignition off: USB power drops back to same current as before
 
-## Proposed Enhancements and Changes for 4V2
+### Delete U7 & 4V1 ECU Power Present Signal
 
-1) Backup Power
-    LitteFS has some issues regarding the time to perform a write/sync operation as the SD card fills. One possible way to deal with that is to use something like FAT FS instead. However, FAT FS has its own terrible problems that random power cuts can destroy the integrity of the file system. But if LittleFS proves troublesome enough, it might be a consideratation to move to FAT FS, but with a backup power system to guard against data corruption issues.
+__Problem:__ U7 (dual inverter used as +5V ECU power detector) is no longer needed now that the VCCB regulator provides a simpler way to detect ECU power.
 
-    One possible method of dealing with unexpected power cuts (ignition key off events) would be to enable some sort of short-term power backup option before beginning a SD Card write, then turning the backup power off after the write completes.
-    If the power failed during the write, the backup source would ensure that the write completed.
-    After completing and disabling the backup power, the system power would fail immediately but the filesystem would not be corrupted.
+__Change:__ Deleted U7. The WP now monitors ECU power via GPIO VCCB_PWR, a pullup direct to the VCCB regulator output. A logic '1' means the regulator is powered and operating. The active discharge feature ensures the signal drops to GND quickly when power is removed. This simplifies the board and frees up area.
 
+__Verification:__ Covered by VCCB regulator verification above.
 
-    * LiPo battery backup
+### Add Pullups to EP TX/RX Lines
 
-        The little RC quadcoptor 50 mAH LiPo batteries should work fine to power the PicoW while it is doing a write operation for 1 second or so.
+__Problem:__ The EP TX line to the WP can float during reset or before UART initialization, potentially causing framing errors.
 
-        Note: These connectors are advertised on Aliexpress and ebay as JST 1.25, but they are __not__ JST connectors, they are Molex Picoblade.
+__Change:__ Added pullups to both the EP TX and RX lines to hold them at idle state.
 
-        Mating through-hole socket is part number 5304702XX, where XX=60 means gold plated.
+__Verification:__ After EP reset, confirm TX and RX lines are at logic '1' before UART initialization. Confirm UART communication works normally after boot.
 
-        See [molex catalog](https://www.molex.com/content/dam/molex/molex-dot-com/en_us/pdf/datasheets/987651-3691.pdf?inline) for more info on Picoblade series.
+### Move Reset Control Circuitry
 
-1) __Add Pullups/downs to SWD Bus__
+__Problem:__ The reset control components occupied space needed for indicator LEDs at the rear edge of the board where they are more easily visible under the rear seat.
 
-    The EP-reflash via SWD has shown that the SWD data needs a pullup of 4.7K.
-    Without it, the loading of a scope probe was enough that SWD operation became unreliable.
-    The internal pullup is not good enough.
-    A 10K was reliable, but the 4K7 is a lot faster and would potentially allow for faster SWD bus operation.
-    Web advice recomments a 10K pulldown on SWDCK just so that noise does not cause false clock edges.
+__Change:__ Relocated the reset control circuitry to free up rear card edge space for LEDs.
 
-1) __Add Series Resistors to SWD CK and IO__
+__Verification:__ Visual inspection of layout. Confirm HC11 reset behavior is unchanged.
 
-    Hmmm. This is pretty much in opposition to 1, above. Figure this out.
+### Upgrade SPAREn Accessibility
 
+__Problem:__ The SPARE0/1/2 pads were in locations that were difficult to access for probing or attaching jumper wires.
 
-1) __Add pullups to SD Card Signals__
+__Change:__ Moved SPAREn pads to be accessible from the card edges. Added test points for every SPAREn signal to make wire attachment easier.
 
-    DAT1 and DAT2 have pullups already.
-    The SD card needs pullup resistors added to:
+__Verification:__ Visual inspection that pads are accessible from card edges. Confirm continuity from test points to their respective GPIOs.
 
-    * DAT0/MISO This one is probably harmless since it is master input, but resistors are cheap
-    * DAT3/CS This one is critical! If not pulled high, the card will go into SPI mode. SPI mode can only be exited via power-cycle.
+### Add Monocolor LEDs to Some Spare Signals
 
-1) __Decide on Removing FET Q1__
+__Problem:__ During development, it would be useful to have visual indicators on spare GPIO lines, but the 4V1 board had none.
 
-    It gets rid of the Schottkey diode drop on D1 if VBUS is not applied (the normal case).
-    It saves a small amount of power on the ECU power supply.
-    This might be important for a battery-powered device, but the ECU is not.
+__Change:__ Added LEDs to spare signals. This is trivial to do, costs basically nothing, and has proven useful in the past.
 
-1) __POWER_GOOD on VCCB Regulator__
+__Verification:__ Toggle spare GPIOs in firmware and confirm corresponding LEDs illuminate.
 
-    The VCCB regulator should have a POWER_GOOD output.
-    The WP should monitor POWER_GOOD so it knows if the ECU is powered or not.
-    If POWER_GOOD is false:
+### Daisy Chain 1 More WS2812 LED for WP
 
-    * should the WP assert HC11_RESET? Or disable EP_RUN and reboot the EP?
-    * If USB VBUS power is present and ECU_5V (or VCCB 3.3V) is not present, the WP should turn on WiFi module and enable WiFi control mode for downloading logs or performing OTA updates.
+__Problem:__ A single WS2812 LED limits the WP's ability to indicate multiple statuses (e.g., SD activity, EP status) simultaneously.
 
-    1) __Add an ECU_PWR_GOOD signal into the WP__
+__Change:__ Added a second WS2812 in a daisy chain for the WP to drive. The LEDs are separated by a good distance to make them easy to distinguish at a glance. Usage (SD status, EP status, etc.) is yet to be determined.
 
-        The original ECU_PWR signal was used to control an !OE on the 4245 bus tranceiver.
-        It was never driven into the WP.
-        Since then, the need for detecting the ECU power state has become clearer as part of WP WiFi operation, among other things.
-        If this feature is not added via a VCCB regulator "power good" feature (as described above), it should be added via a simple voltage divider into a WP GPIO.
+__Verification:__ Drive both WS2812 LEDs with different colors from WP firmware and confirm both are independently controllable.
 
-1) __Power Switch for SD Card__
+### Add Test Points for EP/WP Comms
 
-    It is clear that SD cards can get into states where they need a power-cycle to recover.
-    The current 4-bit driver seems very reliable, but adding a power switch would take care of the issue completely.
+__Problem:__ The existing test points up by the RP2040 had holes and spacing too small for general use with standard probes or jumper wires.
 
-1) __Identify LEDs for SPARE0/1__
+__Change:__ Added a new 0.1 inch pinheader to provide easier access to EP/WP communication signals.
 
-    Need colors, LCSC part numbers, resistor values.
-    Should also mark PCB silkscreen for SPARE1 as being a disk activity light (see below)
+__Verification:__ Confirm 0.1" header pins fit and signals are accessible with standard probes.
 
-1) __Rework GND Plane For Separate GND Regimes__
+### Add a Test Pad for CPU DVDD 1.1V Supply
 
-    It might be beneficial to separate the one giant GND plane on the back into a couple of GND planes.
-    Perhaps one for the EPROM and voltage conversion, one for GPS/SD, one for CPU.
-    These would connect in a star fashion down at the SIP connector.
+__Problem:__ No easy way to probe the RP2040 core voltage during bringup or debugging.
 
+__Change:__ Added a test pad and silkscreen label near C15 for the CPU DVDD 1.1V supply.
 
-1) __Add Backup Power To Guarantee Completion of Disk IO__
+__Verification:__ Measure DVDD at the test pad and confirm it reads ~1.1V when the RP2040 is powered and running.
 
-    _What is the goal here?
-    One possibility is that disk write operation is not permitted to begin if the WP is on backup power.
-    Another possibility is that the WP could enable backup power before starting a disk operation and disable it after completion.
-    If power died while the write was happening, the WP would power-fail immediately after completing the write operation.
-    This approach would not require a special power control for GPS._
+### Add Power Control IC for SD Card
 
+__Problem:__ SD cards can get into states where they need a power-cycle to recover. The 4V1 board has no way to cycle SD card power without removing the card.
 
-    The Aprilia ECU is not designed to avoid uncontrolled power shutdown.
-    When the ignition key turns off, power vanishes.
+__Change:__ Added a SY6280 high-side power switch (SOT23-5) controlled by EN_VDD_SD (GP19). The SY6280 actively discharges the load when disabled, ensuring a clean power cycle. The SOT23-5 package/pinout is shared by many alternative switches in case a replacement for the SY6280 is ever needed.
 
-    LittleFS is tolerant of these situations, and in theory, avoids filesystem corruption due to uncontrolled power loss, though not data data loss from those same events.
-    Unfortunatly, LittleFS has its own problems in that can be __extremely__ slow to perform writes to a SD card containing large filesets.
-    Slow, like on the order of minutes to perform a single write of a small 512-ish bytes.
-    In contrast, filesystems like ExFat are much higher performance, at the cost not not being at all tolerant of interrupted write operations.
-    It is very easy for ExFat to end up in an inconsistent state if power is lost during some disk IO operation.
+__Verification:__ Toggle EN_VDD_SD from WP firmware. Confirm SD card power drops to 0V when disabled (measure at card socket VDD). Confirm active discharge brings voltage down quickly. Confirm SD card initializes correctly after power is re-enabled.
 
-    If it is determined that the larger problem is the lack of performance from LittleFS, then using ExFat only makes sense if the umod4 board can guarantee that it can always complete an exfat operation.
-    One possibility would be to add a backup power supply of sufficient capability that ExFat disk operations can be guaranteed to complete once begun.
-    The backup supply probably only needs to guarantee that the WP continues to operate for maybe a couple of seconds after the ignition turns off.
-    This means that the backup power could possibly be based on a supercap instead of a battery.
-    Both supercaps and batteries need charging circuits, but a supercap can probably be charged using a resistor instead of a specialty IC.
+### Add GPS Module Designator to Silkscreen
 
-    Once the WP completes any disk operation in flight after power was lost, it might also be useful if the WP was able to disable the backup power immediately.
-    The point would be that supercap power would not be enabled until such time as a disk operation began.
-    Once completed, the WP could power itself down cleanly if it noticed that ECU power had disappeared during the disk operation.
+__Problem:__ The GPS module had no silkscreen marking on the 4V1 board, making it harder to identify during assembly or debugging.
 
+__Change:__ Added GPS module designator to the silkscreen layer.
 
-1) __Need Bigger Drill for Keystone 4952 test points__
+__Verification:__ Visual inspection of silkscreen.
 
-    The Keystone 1035 test points fit OK with their current drill size.
-    The Keystone 4952 test points need a bigger hole than the 1035.
-    Check if the 4952 test point has the right size drill in the library.
+### Make FET Q1 a "No Stuff"
 
-1) __Verify GPS Hole Spacing__
+__Problem:__ Q1 bypasses the Schottky diode drop on D1 when VBUS is absent, saving a small amount of power on the ECU supply. This optimization is not meaningful for a non-battery-powered device like the ECU.
 
-    I'm not sure that the hole spacing is quite right.
-    It is close enough to force things to work, but it could be better.
+__Change:__ Left the footprint for Q1 but marked it as "no stuff" in the BOM. If Q1 is ever needed, the FET can be hand-soldered after the fact.
+
+__Verification:__ Confirm the board operates correctly with Q1 unpopulated. Measure voltage drop across D1 and confirm it is within acceptable limits for the ECU power budget.
+
+### Add WP Control of EP BOOTSEL
+
+__Problem:__ If the EP goes fully rogue, the WP has no way to force it into BOOTSEL mode for recovery without physical intervention.
+
+__Change:__ Added an EP_BOOTSEL signal driven by the WP through a 1K series resistor. Combined with the existing 10K pullup, this forms a divider that pulls QSPI_SS to ~0.3V, well below the 0.8V logic '0' threshold. A testpoint via is also provided to allow a jumper wire to GND BOOTSEL through a 1K resistor as a last-resort manual override.
+
+__Verification:__ With EP running normally, confirm QSPI_SS is high. Assert EP_BOOTSEL from WP while holding EP in reset, then release reset and confirm EP enters BOOTSEL mode. Also verify the testpoint via can force BOOTSEL with a jumper wire.
+
+### Add Pullups/Pulldowns to EP SWD Bus
+
+__Problem:__ EP reflash via SWD showed that the internal pullup on SWD data is insufficient. A scope probe's loading alone was enough to make SWD operation unreliable. Additionally, an undriven SWDCLK line can pick up noise and cause false clock edges.
+
+__Change:__ Added a 4.7K pullup on SWD data (stronger than 10K, allows faster SWD bus operation). Added a 10K pulldown on SWDCLK per standard recommendations to prevent noise-induced false clocking.
+
+__Verification:__ Perform EP SWD reflash via WP and confirm reliable operation. Attach a scope probe to SWD data and confirm operation remains stable. Confirm SWDCLK is low when idle.
+
+### Add Series Resistors to EP SWD CK and IO
+
+__Problem:__ The EP SWD pins are exposed when attaching an external debugger. The RPi documentation recommends series protection resistors.
+
+__Change:__ Added 100R series resistors on the external debugger path only. The WP-to-EP SWD wiring remains a direct connection so that the WP can reflash the EP without the resistors degrading signal integrity.
+
+__Verification:__ Attach an external SWD debugger to the EP (with EP_SWD_DIS grounded) and confirm reliable debug operation through the 100R resistors.
+
+### Add Pullups to SD Card MISO and DAT3 Signals
+
+__Problem:__ DAT1 and DAT2 already have pullups, but DAT0/MISO and DAT3/CS do not. The DAT3/CS pullup is critical: if DAT3 is not pulled high at power-up, the SD card will enter SPI mode, which can only be exited via power-cycle.
+
+Note that this issue became a non-issue with the addition of power control of the SD card. By leaving the card powered off, it would give the WP time to drive appropriate GPIO pullup/pulldowns on the signals. That said, 10K resistors are essentially free, so this hardware solution has been added.
+
+__Change:__ Added pullup resistors to:
+
+* DAT0/MISO — probably harmless since it is master input, but resistors are cheap insurance
+* DAT3/CS — critical pullup to prevent unintended SPI mode entry
+
+__Verification:__ Power-cycle the SD card (via SY6280) and confirm the card initializes in 4-bit SD mode, not SPI mode. Measure DAT3 at power-up and confirm it is pulled high before the WP drives it.
+
+### Add a 0.1" Jumper for EP_SWD_DIS
+
+__Problem:__ The WP controls the EP SWD bus for reflashing. When an external debugger is attached to the EP, the WP must be prevented from driving the SWD lines or it will conflict with the debugger.
+
+__Change:__ Added a 0.1" jumper header on EP_SWD_DIS (GP5). Installing a shorting plug or jumper wire to ground tells the WP that it must not drive the SWD connection to the EP.
+
+__WARNING: EP_SWD_DIS must be grounded before connecting an external SWD debugger to the EP!__
+
+__Verification:__ With jumper installed, confirm WP does not drive EP SWD lines. With jumper removed, confirm WP can reflash EP via SWD normally.
+
+### Delete WP Ability to Drive HC11 RESET
+
+__Problem:__ The original board design allowed either the WP or EP to assert HC11 RESET signal. This has been determined to be both not useful, and potentially problematic. The EP should be the ONLY device that controls HC11 RESET. A malfunctioning WP should not be able to accidentally assert HC11 RESET, preventing a rider from getting home home.
 
 ## Deferred from 4V2
 
 The following features were considered, but deferred from the 4V2 implementation.
 
-1) __Replace RP2040 with RP2354A__
+### Replace RP2040 with RP2354A
 
-    One problem that has been annoying to this point is that I would have really liked to add a WS2812 LED for status reporting, but there is no spare GPIO on the standard package.
-    The RP2350 is available in a larger package with more GPIO.
+One problem that has been annoying to this point is that I would have really liked to add a WS2812 LED for status reporting, but there is no spare GPIO on the standard package.
+The RP2350 is available in a larger package with more GPIO.
 
-    Upsides:
+Upsides:
 
-    * The Hazard RISC-V core has 16 registers available for the fake EPROM code.
-        Essentially doubling the number of general purpose CPU registers compared to the Cortex should make it easier to write more complicated versions of the fake EPROM, should additional features be required.
-    * The RP2354A has 2 megabytes of flash built into it.
-        This wold allow me to delete my own 16 megabyte SPI flash and decoupling cap.
-        The smaller capacity should not be a huge problem.
+* The Hazard RISC-V core has 16 registers available for the fake EPROM code.
+    Essentially doubling the number of general purpose CPU registers compared to the Cortex should make it easier to write more complicated versions of the fake EPROM, should additional features be required.
+* The RP2354A has 2 megabytes of flash built into it.
+    This would allow me to delete my own 16 megabyte SPI flash and decoupling cap.
+    The smaller capacity should not be a huge problem.
 
-    Downsides:
+Downsides:
 
-    * Swapping the package represents a very big change to hardware and software:
-      * Rewriting the fake EPROM code in RISC-V would take some effort.
-      The Cortex M33 is not really suitable for use in a cycle-counting firmware.
-      * There is not a lot of spare real estate in that location on the PCB for a larger package.
+* Swapping the package represents a very big change to hardware and software:
+    * Rewriting the fake EPROM code in RISC-V would take some effort.
+    The Cortex M33 is not really suitable for use in a cycle-counting firmware.
+    * There is not a lot of spare real estate in that location on the PCB for a larger package.
 
-    Ultimately, it seems like way too much work to get a status LED.
-    The simpler solution might be to parallel the original DBG_BSY LED with a WS2812 and accept that both features will not be available at the same time.
-    See "Consider Adding WWS2812 LED", below.
+Ultimately, it seems like way too much work to get a status LED.
+The simpler solution might be to parallel the original DBG_BSY LED with a WS2812 and accept that both features will not be available at the same time.
+See "Consider Adding WS2812 LED", below.
 
-    At the moment, the RP2040 is totally capable of doing everything it needs to do.
-    If future features require a faster processor, the RP2040 could be up-clocked from its current 125 MHz to as much as 200 MHz.
-    If the future required more RAM, then an RP2350 becomes more viable, at least in its small package.
+At the moment, the RP2040 is totally capable of doing everything it needs to do.
+If future features require a faster processor, the RP2040 could be up-clocked from its current 125 MHz to as much as 200 MHz.
+If the future required more RAM, then an RP2350 becomes more viable, at least in its small package.
 
-    At the moment, this feature seems unlikely to survive the cut.
+At the moment, this feature seems unlikely to survive the cut.
 
-1) __Consider Using 2mm WS2812C Parts__
+### Consider Using 2mm WS2812C Parts
 
-    _I am going to skip this, at least this time.
-    The 5050 parts are easy to solder after the fact, and now there is room for 3 of them on the back edge with the revised layout.
-    If 2020 LED get too close together, they become hard to distinguish._
+_I am going to skip this, at least this time.
+The 5050 parts are easy to solder after the fact, and now there is room for 3 of them on the back edge with the revised layout.
+If 2020 LED get too close together, they become hard to distinguish._
 
-    Last time I looked, JLCPCB was not real happy if I spec'd the smaller parts.
-    I believe the issue was that they felt they needed to bake the parts before soldering them, which I'm sure would be an annoying manual problem for them.
-    Since then: it appears that JLCPCB also wants to bake the 5050 parts.
-    This means that any WS2818 parts regardless of package need to be manually soldered after receiving assembled boards from JLCPCB.
-    If that's the case, there is no benefit in spec'ing 5050 parts.
-    The only remaining issue is whether or not the 2020 parts can be hand-soldered.
-    The 5050 parts are easy to hand solder.
-    The 2020 parts look more difficult to place, but given that the pads are castelleated and have only 2 pads per side, it should be doable.
+Last time I looked, JLCPCB was not real happy if I spec'd the smaller parts.
+I believe the issue was that they felt they needed to bake the parts before soldering them, which I'm sure would be an annoying manual problem for them.
+Since then: it appears that JLCPCB also wants to bake the 5050 parts.
+This means that any WS2812 parts regardless of package need to be manually soldered after receiving assembled boards from JLCPCB.
+If that's the case, there is no benefit in spec'ing 5050 parts.
+The only remaining issue is whether or not the 2020 parts can be hand-soldered.
+The 5050 parts are easy to hand solder.
+The 2020 parts look more difficult to place, but given that the pads are castellated and have only 2 pads per side, it should be doable.
 
+### Add EP-driven WS2812 for EP Status
 
-## Changes Completed for 4.2
+Now that the WP can forward the EP RTT output all the way to a phone, the RTT output serves as a much better indication of problems than a status LED.
 
-### 1. Add +3V3 VCCB Regulator for Voltage Conversion ICs
+### Backup Power To Guarantee Completion of SD Writes
 
-The 4V1 board has issues where the board would draw excessive current if the ECU was powered off while the umod4 remained powered from a USB supply.
-That specific issue was due in part to the RP2040 driving the HC11 data bus into the bus transceiver although it seemed like the transceiver should have handled that OK with VCCB being present.
-Regardless: it appears that the bus buffer is behaving badly when VCCB is present without VCCA, in spite of what the Nexperia data sheet says.
+_The backup power issue has been resolved due to the addition of the LogStore class to drive LittleFS.
+The LogStore write performance improvements have made the proposal to support FAT for performance reasons a complete non-issue._
 
-The solution is to make sure that none of the ICs involved with address translation are powered at all if the ECU +5V is not present.
-Those ICs are:
+LittleFS has some issues regarding the time to perform a write/sync operation as the SD card fills. One possible way to deal with that is to use something like FAT FS instead. However, FAT FS has its own terrible problems that random power cuts can destroy the integrity of the file system. But if LittleFS proves troublesome enough, it might be a consideration to move to FAT FS, but with a backup power system to guard against data corruption issues.
 
-* Two 8-bit address buffers
-* 8-bit Bidirectional data bus buffer
-* U6 dual inverter
+One possible method of dealing with unexpected power cuts (ignition key off events) would be to enable some sort of short-term power backup option before beginning a SD Card write, then turning the backup power off after the write completes.
+If the power failed during the write, the backup source would ensure that the write completed.
+After completing and disabling the backup power, the system power would fail immediately but the filesystem would not be corrupted.
 
-If we add a linear regulator powered off +5_ECU which outputs 3.3V, then use this specific supply to power the voltage translation ASICs, then they will only be powered when +5_ECU is present (ignition ON).
+* LiPo battery backup
 
-This new 3V3 supply is named VCCB, as per the naming convention of the 74LVC4245.
+    The little RC quadcoptor 50 mAH LiPo batteries should work fine to power the PicoW while it is doing a write operation for 1 second or so.
 
-Having those ASICs be unpowered should not be an issue:
+    Note: These connectors are advertised on Aliexpress and ebay as JST 1.25, but they are __not__ JST connectors, they are Molex Picoblade.
 
-* The address buffers (and E signal) drivers are always inputs to the RP2040, with pulldowns activated.
-Losing power causes no issues at all.
-* The inverted versions of the HC11 bus signals (W/!R and CE) arriving at the RP2040 are also input only
-to the RP2040, with pulldowns activated.
-Losing power causes no problems.
-* The data bus transceiver has two supplies.
-The spec for the chip indicates that VCCB (+3V3) should be applied either at the same time, or after VCCA.
-Since the new linear regulator creates VCCB from VCCA, VCCB will be generated slightly after VCCA appears due to the delay in recognizing the regulator 'enable' signal and then the soft-start after 'enable' is recognized.
+    Mating through-hole socket is part number 5304702XX, where XX=60 means gold plated.
 
-The EP firmware has been modified so that if the RP2040 ever sees what it thinks is a read cycle begin just as VCCB power fails, the RP2040 is guaranteed to stop driving the bus via a failsafe time delay. This gets rid of all problems where the RP2040 might backpower the bus buffer.
+    See [molex catalog](https://www.molex.com/content/dam/molex/molex-dot-com/en_us/pdf/datasheets/987651-3691.pdf?inline) for more info on Picoblade series.
 
-### 2. Delete ECU Power Present Signal
+### Need Bigger Drill for Keystone 4952 test points
 
-Discuss why this signal is not needed anymore.
+Don't bother changing anything: just use the 1035 test points.
 
-Getting rid of this signal allows us to delete U7.
-U7 only used one of its two inverters.
-By deleting the ECU power present signal from U6, we can move the remaining signal from U7 to U6 and delete U7.
+The Keystone 1035 test points fit OK with their current drill size.
+The Keystone 4952 test points need a bigger hole than the 1035.
+Check if the 4952 test point has the right size drill in the library.
 
-### 3. Add 100R Protection Resistors for DBG Signals
+### Verify GPS Hole Spacing
 
-The Pi documentation suggests putting 100R resistors in series with SWD clk and SWD data.
-This serves as protection for various situations, including ESD events.
-Having blown up a Pi Pico board set up as a debugger, this would appear to be a real situation.
-
-Series resistors have been added.
-
-### 4. Add Pullups to EP TX/RX Lines
-
-The TX line that the EP uses to send to the WP should have a pullup on it.
-I believe that this is causing a false 0 byte to be received when the WP boots.
-
-Pullups have been added to both RX and TX lines.
-
-### 5. Delete U7 (!ECU_PWR Signal)
-
-Inverter U7 was fed with a signal derived from a voltage divided and filtered version of +5_ECU.
-The output of this signal was used to drive one of the !OE signals on the 4245 data bus tranceiver.
-The other half of U7 was unused.
-
-U7 has been deleted, and that !OE signal is not tied to GND.
-Given that the 4245 tranceiver is now powered by VCCB, there is no need for an !OE driven by the presence of +5_ECU.
-
-### 8. Move Reset Control Circuitry
-
-Goal: leave more room for adding 3 more indicater LEDs and access to the SPAREx pads at the edge of the board.
-
-### 9. Move Spare0/1/2 To Card Edge
-
-The three SPARE0/1/2 pads got moved to be accessable on the rear card edge.
-
-### 10. Add Official Test Point for SPARE2
-
-Added a real testpoint instead of a via.
-
-Spare2 currently is used to tell the WP that it is NOT allowed to use SWD to talk to the EP. Spare2 must be grounded whenever a debugger is connected to the EP or else the WP and the debugger will fight over the SWD pins.
-
-### 11. Add Simple LEDs to Spare0 and Spare1
-
-Reasoning: The built-in LED controlled by the WiFi module takes a considerable amount of time and CPU effort before it can be used.
-It defeats the purpose of being an early indication of life.
-
-Having LEDs is fine, even if the signals end up being used for something else, like a scope trigger.
-The signals will default to '1' due to the pullup resistor.
-LEDs will turn on via active low GPIO.
-
-NOTE: Current firmware has redefined SPARE1 as a "disk activity" indicator light. The LED is lit while LittleFS accesses the file system for reads or writes.
-
-SPARE0 is still 'spare'.
-
-### 12. Daisy Chain 1 more WS2812 LED for WP
-
-An extra WS2812 has been added in a daisy chain for WP use.
-Conceivably, the existing LED could continue to be used for SD Card status.
-The new LED could display some other form or status, yet to be determined.
-
-### 13. Added 0.1 Spacing Test Points for EP/WP Comms
-
-The holes and spacing of the pins up by the RP2040 are too small for general use.
-A new pinheader was added over by the WP.
-
-### 14. Add a Test Pad For CPU DVDD 1.1V Supply
-
-There is plenty of room by C15 to add a test pad and silkscreen for the CPU DVDD 1.1V supply.
-
-### 15. Add WS2812 Status LED For EP
-
-In normal use on the bike, the DBG_BSY LED has two purposes:
-* to flicker a 'hello' indication at boot time to prove to a human being that the EP is alive
-* to drive the memory cycle timing information so an o'scope can see it
-
-I would really like to give the EP a mechanism to display some basic status information using an RGB LED:
-
-* EP Booting
-* Loading EPROM image
-* HC11 out of RESET
-* HC11 operating properly
-* panic situation
-
-Given that the EP has no spare GPIOs, the simplest solution is to wire a WS2812 in parallel with the DBG_BSY LED.
-Code would be set up with a build-time flag so that it uses SIO to drive DBG_BSY for scope timing verification, or it uses a PIO engine to drive the same GPIO with WS2812 status color info.
-
-Both WS2812 and DBG_BSY timing code would drive the LED constantly, with knowledge of each other.
-At boot time, the 'hello' blink of the DBG_BSY LED would still occur.
-
-After the hello blink, the softare would be built to do one of two things:
-
-* Assign control of the DBG_BSY GPIO to the PIO for status info.
-* Leave control with SIO for DBG_BSY timing tests.
-    While being used for timing tests, the WS2812 lighting colors will go crazy from the data stream on DBG_BSY
-
-It would be possible to write software for certain status indications like panic() to force control of the WS2812 to the PIO, even if the software was built for timing tests.
-That way, panic situations would be obvious even when set up for timing tests.
-
-### 16. Add FET Power Control for SD Card
-
-Add a control mechanism so that the WP can power cycle the SD Card.
-
-At reset, the SD Card is powered OFF by default.
-The WP must drive the 3V3_SD_EN signal to '1' to power the SD Card.
-
-During testing, I have seen SD cards that fail spectacularly after bad commands were issued to them.
-In particular, if you asked to read 1 block off the end of the card, some cards would hang to the point that they needed a power-cycle to recover.
-
-Having power control would also make the whole hot-plug thing a bit safer because the hotPlug manager would keep power off until card was physically present for some amount of time, as opposed to powering it up while it is being inserted if the socket is always hot.
-
-There are lots of commodity USB power switch controllers, but I decided to go with a simple PFET solution.
-
-If that decision needs to be revisited, here are some power switch ICs available at LCSC:
-
-* SY6280
-* TPS22918
-* MT9700
-
-There are lots more, but this gives the flavor of what is out there.
-
-
-### 17. Add FET Power Control for GPS
-
-In case the board ever gets a supercap backup, it would be advantageous to disable power to the GPS if it was determined that the WP was running on supercap backup power.
-
-At reset, the default is that the GPS is powered ON by default.
-If desired, the WP can disable power to the GPS by driving the 3V3_GPS_EN signal to '0'.
-
-### 18. Add GPS Module Designator to Silkscreen
-
-The GPS has now been marked on the silkscreen layer.
-
+I'm not sure that the hole spacing is quite right.
+It is close enough to force things to work, but it could be better.

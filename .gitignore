@@ -26,5 +26,8 @@ doc/
 # In case Eagle has locks active
 *.lck
 
-# Ignore everything in the output directory
-output/
+# Ignore everything in the build directory except the cam/ anchor
+build/*
+!build/cam/
+build/cam/*
+!build/cam/.gitkeep
