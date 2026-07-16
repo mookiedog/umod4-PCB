@@ -198,7 +198,10 @@ The last thing is to make sure that polarized parts like the LEDs have their + a
 In this case, everything looked fine so I told them to go ahead with production.
 
 It has been my experience that the JCLPCB engineers do a good job at getting the placement correct for production.
-I have not had to correct anything after they got through with it.
-In fact, there was a time when they found an error on my board where I used the wrong package footprint for one of my parts.
+The only problems I have had is with orientation of WS2812 LEDs.
+The WS2812's manufacturer made an extremely unfortunate choice to mark pin 3 on their part with a triangle instead of pin 1 like basically everything else in the entire universe.
+Next time, I will try marking VCC with a '+' and GND with a '-' on the silkscreen to see if that helps.
+
+One other time, the JLCPCB engineer found an error on my board where I used the wrong package footprint for one of my parts.
 They cancelled the job, I fixed the footprint, resubmitted and everything was fine the second time around.
 But is sure is disconcerting to submit payment for boards that look so messed up at the time you order them.
