@@ -6532,13 +6532,13 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="C20" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C23" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="1u/25V/X5R">
+<part name="C23" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="1u/25V/X5R">
 <attribute name="LCSC_PART" value="C52923"/>
 </part>
 <part name="C22" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C21" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="1u/25V/X5R">
+<part name="C21" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="1u/25V/X5R">
 <attribute name="LCSC_PART" value="C52923"/>
 </part>
 <part name="V22" library="supply2" deviceset="GND" device=""/>
@@ -7445,20 +7445,20 @@ VCCB is the 3.3V side and will drive its outputs to VCCB</text>
 <attribute name="VALUE" x="53.086" y="141.859" size="1.778" layer="96" rot="R180"/>
 <attribute name="LCSC_PART" x="52.07" y="143.51" size="1.27" layer="96" rot="R180"/>
 </instance>
-<instance part="C23" gate="G$1" x="63.5" y="142.24" smashed="yes">
-<attribute name="NAME" x="66.294" y="143.891" size="1.778" layer="95"/>
-<attribute name="VALUE" x="66.294" y="140.081" size="1.778" layer="96"/>
-<attribute name="LCSC_PART" x="67.31" y="142.24" size="1.27" layer="96"/>
+<instance part="C23" gate="G$1" x="63.5" y="144.78" smashed="yes">
+<attribute name="NAME" x="66.294" y="146.431" size="1.778" layer="95"/>
+<attribute name="VALUE" x="66.294" y="142.621" size="1.778" layer="96"/>
+<attribute name="LCSC_PART" x="67.31" y="144.78" size="1.27" layer="96"/>
 </instance>
 <instance part="C22" gate="G$1" x="60.96" y="35.56" smashed="yes">
 <attribute name="NAME" x="58.166" y="40.259" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="58.166" y="36.449" size="1.778" layer="96" rot="R180"/>
 <attribute name="LCSC_PART" x="57.15" y="38.1" size="1.27" layer="96" rot="R180"/>
 </instance>
-<instance part="C21" gate="G$1" x="71.12" y="35.56" smashed="yes">
-<attribute name="NAME" x="73.914" y="38.481" size="1.778" layer="95"/>
-<attribute name="VALUE" x="73.914" y="34.671" size="1.778" layer="96"/>
-<attribute name="LCSC_PART" x="74.93" y="36.83" size="1.27" layer="96"/>
+<instance part="C21" gate="G$1" x="71.12" y="38.1" smashed="yes">
+<attribute name="NAME" x="73.914" y="41.021" size="1.778" layer="95"/>
+<attribute name="VALUE" x="73.914" y="37.211" size="1.778" layer="96"/>
+<attribute name="LCSC_PART" x="74.93" y="39.37" size="1.27" layer="96"/>
 </instance>
 <instance part="V22" gate="GND" x="59.69" y="137.16" rot="MR0"/>
 <instance part="V25" gate="GND" x="66.04" y="30.48" rot="MR0"/>
