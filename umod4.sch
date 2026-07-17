@@ -6958,7 +6958,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <attribute name="LCSC_PART" value="C25744"/>
 </part>
 <part name="V2" library="supply2" deviceset="GND" device=""/>
-<part name="R4" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0603-RES" value="4K7">
+<part name="R4" library="robins-v7" deviceset="RES" device="-0603-NOM" value="4K7">
 <attribute name="LCSC_PART" value="C23162"/>
 </part>
 <part name="+3V18" library="supply1" deviceset="+3V3" device=""/>
