@@ -2495,203 +2495,6 @@ is attached to pins soldered to the Pico itself and not connecting down to the m
 </deviceset>
 </devicesets>
 </library>
-<library name="SparkFun-03-01-2010">
-<description>Spark Fun Electronics' preferred foot prints. &lt;b&gt;Not to be used for commercial purposes.&lt;/b&gt; We've spent an enormous amount of time creating and checking these footprints and parts. If you enjoy using this library, please buy one of our products at www.sparkfun.com.</description>
-<packages>
-<package name="CAP-PTH-SMALL">
-<wire x1="1.27" y1="0.635" x2="1.27" y2="-0.635" width="0.2032" layer="21"/>
-<pad name="1" x="0" y="0" drill="0.7" diameter="1.651"/>
-<pad name="2" x="2.54" y="0" drill="0.7" diameter="1.651"/>
-<text x="0.508" y="1.27" size="0.4064" layer="25">&gt;Name</text>
-<text x="0.254" y="-1.524" size="0.4064" layer="27">&gt;Value</text>
-</package>
-<package name="CAP-PTH-SMALL2">
-<wire x1="1.27" y1="0.635" x2="1.27" y2="-0.635" width="0.2032" layer="21"/>
-<wire x1="-1.27" y1="1.27" x2="3.81" y2="1.27" width="0.2032" layer="21"/>
-<wire x1="3.81" y1="1.27" x2="3.81" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="3.81" y1="-1.27" x2="-1.27" y2="-1.27" width="0.2032" layer="21"/>
-<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="1.27" width="0.2032" layer="21"/>
-<pad name="1" x="0" y="0" drill="0.7" diameter="1.651"/>
-<pad name="2" x="2.54" y="0" drill="0.7" diameter="1.651"/>
-<text x="-1.27" y="1.905" size="0.6096" layer="25">&gt;Name</text>
-<text x="-1.27" y="-2.54" size="0.6096" layer="27">&gt;Value</text>
-</package>
-<package name="0805">
-<wire x1="-0.3" y1="0.6" x2="0.3" y2="0.6" width="0.1524" layer="21"/>
-<wire x1="-0.3" y1="-0.6" x2="0.3" y2="-0.6" width="0.1524" layer="21"/>
-<smd name="1" x="-0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<smd name="2" x="0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<text x="-0.762" y="0.8255" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.016" y="-1.397" size="0.4064" layer="27">&gt;VALUE</text>
-</package>
-<package name="CAP-PTH-LARGE">
-<wire x1="0" y1="0.635" x2="0" y2="0" width="0.2032" layer="21"/>
-<wire x1="0" y1="0" x2="0" y2="-0.635" width="0.2032" layer="21"/>
-<wire x1="0" y1="0" x2="-2.54" y2="0" width="0.2032" layer="21"/>
-<wire x1="0" y1="0" x2="2.54" y2="0" width="0.2032" layer="21"/>
-<pad name="1" x="-4.826" y="0" drill="0.7" diameter="1.651"/>
-<pad name="2" x="4.572" y="0" drill="0.7" diameter="1.651"/>
-<text x="-0.762" y="1.27" size="0.4064" layer="25">&gt;Name</text>
-<text x="-1.016" y="-1.524" size="0.4064" layer="27">&gt;Value</text>
-</package>
-<package name="GRM43D">
-<wire x1="2.25" y1="1.6" x2="1.1" y2="1.6" width="0.127" layer="51"/>
-<wire x1="1.1" y1="1.6" x2="-1.1" y2="1.6" width="0.127" layer="51"/>
-<wire x1="-1.1" y1="1.6" x2="-2.25" y2="1.6" width="0.127" layer="51"/>
-<wire x1="-2.25" y1="1.6" x2="-2.25" y2="-1.6" width="0.127" layer="51"/>
-<wire x1="-2.25" y1="-1.6" x2="-1.1" y2="-1.6" width="0.127" layer="51"/>
-<wire x1="-1.1" y1="-1.6" x2="1.1" y2="-1.6" width="0.127" layer="51"/>
-<wire x1="1.1" y1="-1.6" x2="2.25" y2="-1.6" width="0.127" layer="51"/>
-<wire x1="2.25" y1="-1.6" x2="2.25" y2="1.6" width="0.127" layer="51"/>
-<wire x1="1.1" y1="1.6" x2="1.1" y2="-1.6" width="0.127" layer="51"/>
-<wire x1="-1.1" y1="1.6" x2="-1.1" y2="-1.6" width="0.127" layer="51"/>
-<wire x1="-2.3" y1="1.8" x2="2.3" y2="1.8" width="0.127" layer="21"/>
-<wire x1="-2.3" y1="-1.8" x2="2.3" y2="-1.8" width="0.127" layer="21"/>
-<smd name="A" x="1.927" y="0" dx="3.2" dy="1.65" layer="1" rot="R90"/>
-<smd name="C" x="-1.927" y="0" dx="3.2" dy="1.65" layer="1" rot="R90"/>
-<text x="-2" y="2" size="0.4064" layer="25">&gt;NAME</text>
-<text x="0" y="-2" size="0.4064" layer="27" rot="R180">&gt;VALUE</text>
-<rectangle x1="-2.2" y1="-1.6" x2="-1.1" y2="1.6" layer="51"/>
-<rectangle x1="1.1" y1="-1.6" x2="2.2" y2="1.6" layer="51"/>
-</package>
-<package name="0603-CAP">
-<wire x1="-1.473" y1="0.983" x2="1.473" y2="0.983" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="0.983" x2="1.473" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="-0.983" x2="-1.473" y2="-0.983" width="0.0508" layer="39"/>
-<wire x1="-1.473" y1="-0.983" x2="-1.473" y2="0.983" width="0.0508" layer="39"/>
-<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
-<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
-<wire x1="0" y1="0.0305" x2="0" y2="-0.0305" width="0.5588" layer="21"/>
-<smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
-<text x="-0.889" y="0.762" size="0.4064" layer="25" font="vector">&gt;NAME</text>
-<text x="-1.016" y="-1.143" size="0.4064" layer="27" font="vector">&gt;VALUE</text>
-<rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
-<rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
-</package>
-<package name="0402-CAP">
-<description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
-chip</description>
-<wire x1="-0.245" y1="0.224" x2="0.245" y2="0.224" width="0.1524" layer="51"/>
-<wire x1="0.245" y1="-0.224" x2="-0.245" y2="-0.224" width="0.1524" layer="51"/>
-<wire x1="-1.473" y1="0.483" x2="1.473" y2="0.483" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="0.483" x2="1.473" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="1.473" y1="-0.483" x2="-1.473" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="-1.473" y1="-0.483" x2="-1.473" y2="0.483" width="0.0508" layer="39"/>
-<wire x1="0" y1="0.0305" x2="0" y2="-0.0305" width="0.4064" layer="21"/>
-<smd name="1" x="-0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
-<smd name="2" x="0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
-<text x="-0.889" y="0.6985" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.0795" y="-1.143" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.554" y1="-0.3048" x2="-0.254" y2="0.2951" layer="51"/>
-<rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
-</package>
-<package name="CAP-PTH-5MM">
-<wire x1="0" y1="0.635" x2="0" y2="-0.635" width="0.2032" layer="21"/>
-<pad name="1" x="-2.5" y="0" drill="0.7" diameter="1.651"/>
-<pad name="2" x="2.5" y="0" drill="0.7" diameter="1.651"/>
-<text x="-0.762" y="1.27" size="0.4064" layer="25">&gt;Name</text>
-<text x="-1.016" y="-1.524" size="0.4064" layer="27">&gt;Value</text>
-</package>
-</packages>
-<symbols>
-<symbol name="CAP">
-<wire x1="0" y1="2.54" x2="0" y2="2.032" width="0.1524" layer="94"/>
-<wire x1="0" y1="0" x2="0" y2="0.508" width="0.1524" layer="94"/>
-<text x="1.524" y="2.921" size="1.778" layer="95">&gt;NAME</text>
-<text x="1.524" y="-2.159" size="1.778" layer="96">&gt;VALUE</text>
-<rectangle x1="-2.032" y1="0.508" x2="2.032" y2="1.016" layer="94"/>
-<rectangle x1="-2.032" y1="1.524" x2="2.032" y2="2.032" layer="94"/>
-<pin name="1" x="0" y="5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
-<pin name="2" x="0" y="-2.54" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="CAP" prefix="C" uservalue="yes">
-<description>&lt;b&gt;Capacitor&lt;/b&gt;
-Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
-<gates>
-<gate name="G$1" symbol="CAP" x="0" y="0"/>
-</gates>
-<devices>
-<device name="PTH" package="CAP-PTH-SMALL">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="PTH2" package="CAP-PTH-SMALL2">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="0805" package="0805">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="PTH3" package="CAP-PTH-LARGE">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="SMD" package="GRM43D">
-<connects>
-<connect gate="G$1" pin="1" pad="A"/>
-<connect gate="G$1" pin="2" pad="C"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="0603-CAP" package="0603-CAP">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="0402-CAP" package="0402-CAP">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="PTH1" package="CAP-PTH-5MM">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SparkFun-Clocks">
 <description>&lt;h3&gt;SparkFun Clocks, Oscillators and Resonators&lt;/h3&gt;
 This library contains the real-time clocks, oscillators, resonators, and crystals we use. 
@@ -6529,13 +6332,13 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="U5" library="robins-v7" deviceset="74XX541" device="-TSSOP20" value="74LVC541">
 <attribute name="LCSC_PART" value="C113281"/>
 </part>
-<part name="C20" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
+<part name="C20" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
 <part name="C23" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="1u/25V/X5R">
 <attribute name="LCSC_PART" value="C52923"/>
 </part>
-<part name="C22" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
+<part name="C22" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
 <part name="C21" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="1u/25V/X5R">
@@ -6551,36 +6354,36 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="U1" library="robins-v7" deviceset="RP2040" device="-QFN56" value="RP2040">
 <attribute name="LCSC_PART" value="C2040"/>
 </part>
-<part name="C25" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
+<part name="C25" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C19" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
+<part name="C19" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
 <part name="V7" library="supply2" deviceset="GND" device=""/>
 <part name="V8" library="supply2" deviceset="GND" device=""/>
-<part name="C7" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
+<part name="C7" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C15" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
+<part name="C15" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C14" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
+<part name="C14" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C8" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
+<part name="C8" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C6" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
+<part name="C6" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C5" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
+<part name="C5" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C1" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
+<part name="C1" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C2" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
+<part name="C2" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
 <part name="V10" library="supply2" deviceset="GND" device=""/>
@@ -6617,7 +6420,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="TP14" library="robins-v7" deviceset="TEST-POINT" device="-1035" value="1035"/>
 <part name="V5" library="supply2" deviceset="GND" device=""/>
 <part name="+3V15" library="supply1" deviceset="+3V3" device=""/>
-<part name="C9" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
+<part name="C9" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
 <part name="C10" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="2u2/6.3V/X5R">
@@ -6644,7 +6447,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </part>
 <part name="M1" library="robins-v7" deviceset="GPS-GENERIC-DS" device="-DBL-SIDED" value="Generic single-sided NEO-8"/>
 <part name="V33" library="supply2" deviceset="GND" device=""/>
-<part name="C27" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
+<part name="C27" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
 <part name="V34" library="supply2" deviceset="GND" device=""/>
@@ -6685,7 +6488,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </part>
 <part name="V13" library="supply2" deviceset="GND" device=""/>
 <part name="V27" library="supply2" deviceset="GND" device=""/>
-<part name="C12" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
+<part name="C12" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
 <part name="V11" library="supply2" deviceset="GND" device=""/>
@@ -6736,7 +6539,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="LED5" library="SparkFun-LED" deviceset="WS2812B" device="" value="WS2812">
 <attribute name="LCSC_PART" value="C42417498"/>
 </part>
-<part name="C28" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
+<part name="C28" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
 <part name="V26" library="supply2" deviceset="GND" device=""/>
@@ -7126,12 +6929,12 @@ VCCB is the 3.3V side and will drive its outputs to VCCB</text>
 <instance part="FRAME4" gate="G$1" x="0" y="0"/>
 <instance part="FRAME4" gate="G$2" x="147.32" y="0"/>
 <instance part="V4" gate="GND" x="160.02" y="86.36" rot="MR0"/>
-<instance part="C25" gate="G$1" x="203.2" y="86.36" smashed="yes">
+<instance part="C25" gate="G$1" x="203.2" y="88.9" smashed="yes">
 <attribute name="LCSC_PART" x="205.74" y="86.36" size="1.27" layer="96"/>
 <attribute name="NAME" x="205.994" y="89.281" size="1.778" layer="95"/>
 <attribute name="VALUE" x="205.994" y="82.931" size="1.778" layer="96"/>
 </instance>
-<instance part="C19" gate="G$1" x="137.16" y="101.6" smashed="yes" rot="MR0">
+<instance part="C19" gate="G$1" x="137.16" y="104.14" smashed="yes" rot="MR0">
 <attribute name="LCSC_PART" x="134.62" y="101.6" size="1.27" layer="96" rot="MR0"/>
 <attribute name="NAME" x="134.366" y="104.521" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="134.366" y="98.171" size="1.778" layer="96" rot="MR0"/>
@@ -7196,7 +6999,7 @@ VCCB is the 3.3V side and will drive its outputs to VCCB</text>
 <segment>
 <pinref part="V7" gate="GND" pin="GND"/>
 <pinref part="C19" gate="G$1" pin="2"/>
-<wire x1="137.16" y1="96.52" x2="137.16" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="99.06" x2="137.16" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C25" gate="G$1" pin="2"/>
@@ -7440,25 +7243,25 @@ VCCB is the 3.3V side and will drive its outputs to VCCB</text>
 <instance part="U5" gate="G$1" x="60.96" y="114.3">
 <attribute name="LCSC_PART" x="64.77" y="93.98" size="1.27" layer="96"/>
 </instance>
-<instance part="C20" gate="G$1" x="55.88" y="142.24" smashed="yes">
+<instance part="C20" gate="G$1" x="55.88" y="144.78" smashed="yes">
 <attribute name="NAME" x="53.086" y="145.669" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="53.086" y="141.859" size="1.778" layer="96" rot="R180"/>
 <attribute name="LCSC_PART" x="52.07" y="143.51" size="1.27" layer="96" rot="R180"/>
 </instance>
 <instance part="C23" gate="G$1" x="63.5" y="144.78" smashed="yes">
-<attribute name="NAME" x="66.294" y="146.431" size="1.778" layer="95"/>
-<attribute name="VALUE" x="66.294" y="142.621" size="1.778" layer="96"/>
-<attribute name="LCSC_PART" x="67.31" y="144.78" size="1.27" layer="96"/>
+<attribute name="NAME" x="66.294" y="143.891" size="1.778" layer="95"/>
+<attribute name="VALUE" x="66.294" y="140.081" size="1.778" layer="96"/>
+<attribute name="LCSC_PART" x="67.31" y="142.24" size="1.27" layer="96"/>
 </instance>
-<instance part="C22" gate="G$1" x="60.96" y="35.56" smashed="yes">
+<instance part="C22" gate="G$1" x="60.96" y="38.1" smashed="yes">
 <attribute name="NAME" x="58.166" y="40.259" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="58.166" y="36.449" size="1.778" layer="96" rot="R180"/>
 <attribute name="LCSC_PART" x="57.15" y="38.1" size="1.27" layer="96" rot="R180"/>
 </instance>
 <instance part="C21" gate="G$1" x="71.12" y="38.1" smashed="yes">
-<attribute name="NAME" x="73.914" y="41.021" size="1.778" layer="95"/>
-<attribute name="VALUE" x="73.914" y="37.211" size="1.778" layer="96"/>
-<attribute name="LCSC_PART" x="74.93" y="39.37" size="1.27" layer="96"/>
+<attribute name="NAME" x="73.914" y="38.481" size="1.778" layer="95"/>
+<attribute name="VALUE" x="73.914" y="34.671" size="1.778" layer="96"/>
+<attribute name="LCSC_PART" x="74.93" y="36.83" size="1.27" layer="96"/>
 </instance>
 <instance part="V22" gate="GND" x="59.69" y="137.16" rot="MR0"/>
 <instance part="V25" gate="GND" x="66.04" y="30.48" rot="MR0"/>
@@ -8080,42 +7883,42 @@ out is one less part to break.</text>
 <instance part="U1" gate="G$1" x="177.8" y="101.6">
 <attribute name="LCSC_PART" x="190.5" y="48.26" size="1.27" layer="96"/>
 </instance>
-<instance part="C7" gate="G$1" x="10.16" y="22.86" smashed="yes">
+<instance part="C7" gate="G$1" x="10.16" y="25.4" smashed="yes">
 <attribute name="NAME" x="6.604" y="25.781" size="1.778" layer="95"/>
 <attribute name="VALUE" x="8.001" y="21.336" size="1.778" layer="96" rot="R270"/>
 <attribute name="LCSC_PART" x="6.35" y="21.59" size="1.27" layer="96" rot="R270"/>
 </instance>
-<instance part="C15" gate="G$1" x="142.24" y="160.02" smashed="yes" rot="R270">
+<instance part="C15" gate="G$1" x="144.78" y="160.02" smashed="yes" rot="R270">
 <attribute name="NAME" x="146.304" y="160.401" size="1.778" layer="95"/>
 <attribute name="VALUE" x="140.716" y="159.639" size="1.778" layer="96" rot="R180"/>
 <attribute name="LCSC_PART" x="146.05" y="157.48" size="1.27" layer="96"/>
 </instance>
-<instance part="C14" gate="G$1" x="17.78" y="22.86" smashed="yes">
+<instance part="C14" gate="G$1" x="17.78" y="25.4" smashed="yes">
 <attribute name="NAME" x="14.224" y="25.781" size="1.778" layer="95"/>
 <attribute name="VALUE" x="15.621" y="21.336" size="1.778" layer="96" rot="R270"/>
 <attribute name="LCSC_PART" x="13.97" y="21.59" size="1.27" layer="96" rot="R270"/>
 </instance>
-<instance part="C8" gate="G$1" x="25.4" y="22.86" smashed="yes">
+<instance part="C8" gate="G$1" x="25.4" y="25.4" smashed="yes">
 <attribute name="NAME" x="21.844" y="25.781" size="1.778" layer="95"/>
 <attribute name="VALUE" x="23.241" y="21.336" size="1.778" layer="96" rot="R270"/>
 <attribute name="LCSC_PART" x="21.59" y="21.59" size="1.27" layer="96" rot="R270"/>
 </instance>
-<instance part="C6" gate="G$1" x="33.02" y="22.86" smashed="yes">
+<instance part="C6" gate="G$1" x="33.02" y="25.4" smashed="yes">
 <attribute name="NAME" x="29.464" y="25.781" size="1.778" layer="95"/>
 <attribute name="VALUE" x="30.861" y="21.336" size="1.778" layer="96" rot="R270"/>
 <attribute name="LCSC_PART" x="29.21" y="21.59" size="1.27" layer="96" rot="R270"/>
 </instance>
-<instance part="C5" gate="G$1" x="40.64" y="22.86" smashed="yes">
+<instance part="C5" gate="G$1" x="40.64" y="25.4" smashed="yes">
 <attribute name="NAME" x="37.084" y="25.781" size="1.778" layer="95"/>
 <attribute name="VALUE" x="38.481" y="21.336" size="1.778" layer="96" rot="R270"/>
 <attribute name="LCSC_PART" x="36.83" y="21.59" size="1.27" layer="96" rot="R270"/>
 </instance>
-<instance part="C1" gate="G$1" x="142.24" y="167.64" smashed="yes" rot="R270">
+<instance part="C1" gate="G$1" x="144.78" y="167.64" smashed="yes" rot="R270">
 <attribute name="NAME" x="146.304" y="168.021" size="1.778" layer="95"/>
 <attribute name="VALUE" x="140.716" y="167.259" size="1.778" layer="96" rot="R180"/>
 <attribute name="LCSC_PART" x="146.05" y="165.1" size="1.27" layer="96"/>
 </instance>
-<instance part="C2" gate="G$1" x="48.26" y="22.86" smashed="yes">
+<instance part="C2" gate="G$1" x="48.26" y="25.4" smashed="yes">
 <attribute name="NAME" x="44.704" y="25.781" size="1.778" layer="95"/>
 <attribute name="VALUE" x="46.101" y="21.336" size="1.778" layer="96" rot="R270"/>
 <attribute name="LCSC_PART" x="44.45" y="21.59" size="1.27" layer="96" rot="R270"/>
@@ -8160,13 +7963,13 @@ out is one less part to break.</text>
 <instance part="+3V15" gate="G$1" x="33.02" y="146.05" smashed="yes">
 <attribute name="VALUE" x="30.48" y="147.32" size="1.778" layer="96"/>
 </instance>
-<instance part="C9" gate="G$1" x="33.02" y="129.54" smashed="yes">
+<instance part="C9" gate="G$1" x="33.02" y="132.08" smashed="yes">
 <attribute name="NAME" x="34.544" y="132.461" size="1.778" layer="95"/>
 <attribute name="VALUE" x="35.941" y="128.016" size="1.778" layer="96" rot="R270"/>
 <attribute name="LCSC_PART" x="34.29" y="128.27" size="1.27" layer="96" rot="R270"/>
 </instance>
 <instance part="C10" gate="G$1" x="22.86" y="132.08" smashed="yes">
-<attribute name="NAME" x="24.384" y="135.001" size="1.778" layer="95"/>
+<attribute name="NAME" x="24.384" y="132.461" size="1.778" layer="95"/>
 <attribute name="VALUE" x="19.431" y="129.286" size="1.778" layer="96" rot="R270"/>
 <attribute name="LCSC_PART" x="17.78" y="129.54" size="1.27" layer="96" rot="R270"/>
 </instance>
@@ -8276,33 +8079,33 @@ out is one less part to break.</text>
 </segment>
 <segment>
 <pinref part="C7" gate="G$1" pin="2"/>
-<pinref part="C14" gate="G$1" pin="2"/>
-<pinref part="C8" gate="G$1" pin="2"/>
 <pinref part="C6" gate="G$1" pin="2"/>
 <pinref part="C5" gate="G$1" pin="2"/>
 <pinref part="C2" gate="G$1" pin="2"/>
-<wire x1="33.02" y1="20.32" x2="33.02" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="V10" gate="GND" pin="GND"/>
-<wire x1="10.16" y1="20.32" x2="10.16" y2="17.78" width="0.1524" layer="91"/>
-<junction x="33.02" y="17.78"/>
-<wire x1="10.16" y1="17.78" x2="17.78" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="17.78" x2="25.4" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="17.78" x2="33.02" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="17.78" x2="40.64" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="17.78" x2="48.26" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="17.78" x2="48.26" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="20.32" x2="17.78" y2="17.78" width="0.1524" layer="91"/>
-<junction x="17.78" y="17.78"/>
-<wire x1="25.4" y1="20.32" x2="25.4" y2="17.78" width="0.1524" layer="91"/>
-<junction x="25.4" y="17.78"/>
-<wire x1="40.64" y1="20.32" x2="40.64" y2="17.78" width="0.1524" layer="91"/>
-<junction x="40.64" y="17.78"/>
 <pinref part="C4" gate="G$1" pin="2"/>
-<junction x="48.26" y="17.78"/>
-<wire x1="48.26" y1="17.78" x2="63.5" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="63.5" y1="17.78" x2="68.58" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="63.5" y1="20.32" x2="63.5" y2="17.78" width="0.1524" layer="91"/>
 <junction x="63.5" y="17.78"/>
+<wire x1="63.5" y1="17.78" x2="48.26" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="17.78" x2="40.64" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="17.78" x2="33.02" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="17.78" x2="25.4" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="17.78" x2="17.78" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="17.78" x2="10.16" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="17.78" x2="10.16" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="20.32" x2="33.02" y2="17.78" width="0.1524" layer="91"/>
+<junction x="33.02" y="17.78"/>
+<wire x1="40.64" y1="20.32" x2="40.64" y2="17.78" width="0.1524" layer="91"/>
+<junction x="40.64" y="17.78"/>
+<wire x1="48.26" y1="20.32" x2="48.26" y2="17.78" width="0.1524" layer="91"/>
+<junction x="48.26" y="17.78"/>
+<pinref part="C8" gate="G$1" pin="2"/>
+<pinref part="C14" gate="G$1" pin="2"/>
+<wire x1="17.78" y1="17.78" x2="17.78" y2="20.32" width="0.1524" layer="91"/>
+<junction x="17.78" y="17.78"/>
+<wire x1="25.4" y1="17.78" x2="25.4" y2="20.32" width="0.1524" layer="91"/>
+<junction x="25.4" y="17.78"/>
 </segment>
 <segment>
 <pinref part="C18" gate="G$1" pin="1"/>
@@ -8981,7 +8784,7 @@ out is one less part to break.</text>
 </instance>
 <instance part="V14" gate="GND" x="187.96" y="68.58"/>
 <instance part="M2" gate="G$1" x="165.1" y="109.22"/>
-<instance part="C27" gate="G$1" x="38.1" y="35.56" smashed="yes">
+<instance part="C27" gate="G$1" x="38.1" y="38.1" smashed="yes">
 <attribute name="NAME" x="35.306" y="38.989" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="35.306" y="35.179" size="1.778" layer="96" rot="R180"/>
 <attribute name="LCSC_PART" x="34.29" y="36.83" size="1.27" layer="96" rot="R180"/>
@@ -9008,7 +8811,7 @@ out is one less part to break.</text>
 <instance part="LED5" gate="G$1" x="86.36" y="15.24">
 <attribute name="LCSC_PART" x="71.12" y="5.08" size="1.27" layer="96"/>
 </instance>
-<instance part="C28" gate="G$1" x="48.26" y="12.7" smashed="yes">
+<instance part="C28" gate="G$1" x="48.26" y="15.24" smashed="yes">
 <attribute name="NAME" x="45.466" y="16.129" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="45.466" y="12.319" size="1.778" layer="96" rot="R180"/>
 <attribute name="LCSC_PART" x="44.45" y="13.97" size="1.27" layer="96" rot="R180"/>
@@ -9101,8 +8904,8 @@ out is one less part to break.</text>
 </segment>
 <segment>
 <pinref part="C27" gate="G$1" pin="2"/>
-<wire x1="38.1" y1="33.02" x2="38.1" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="V34" gate="GND" pin="GND"/>
+<wire x1="38.1" y1="33.02" x2="38.1" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="99.06" y1="48.26" x2="106.68" y2="48.26" width="0.1524" layer="91"/>
@@ -9116,8 +8919,8 @@ out is one less part to break.</text>
 </segment>
 <segment>
 <pinref part="C28" gate="G$1" pin="2"/>
-<wire x1="48.26" y1="10.16" x2="48.26" y2="7.62" width="0.1524" layer="91"/>
 <pinref part="V26" gate="GND" pin="GND"/>
+<wire x1="48.26" y1="10.16" x2="48.26" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="LED5" gate="G$1" pin="VSS"/>
@@ -9567,7 +9370,7 @@ out is one less part to break.</text>
 </instance>
 <instance part="V35" gate="GND" x="86.36" y="95.25"/>
 <instance part="V13" gate="GND" x="129.54" y="111.76" rot="R270"/>
-<instance part="C12" gate="G$1" x="134.62" y="96.52" smashed="yes">
+<instance part="C12" gate="G$1" x="134.62" y="99.06" smashed="yes">
 <attribute name="NAME" x="137.414" y="99.441" size="1.778" layer="95"/>
 <attribute name="VALUE" x="137.414" y="95.631" size="1.778" layer="96"/>
 <attribute name="LCSC_PART" x="138.43" y="97.79" size="1.27" layer="96"/>
