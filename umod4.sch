@@ -6774,8 +6774,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="Y1" library="SparkFun-Clocks" deviceset="CRYSTAL" device="SMD-3.2X2.5" value="12MHz">
 <attribute name="LCSC_PART" value="C9002"/>
 </part>
-<part name="R10" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="1K">
-<attribute name="LCSC_PART" value="C11702"/>
+<part name="R10" library="robins-v7" deviceset="RES" device="-0603-NOM" value="1K">
+<attribute name="LCSC_PART" value="C21190"/>
 </part>
 <part name="C11" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="33p/6.3V/COG">
 <attribute name="LCSC_PART" value="C1562"/>
@@ -6897,8 +6897,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <attribute name="LCSC_PART" value="C2296"/>
 </part>
 <part name="V37" library="supply2" deviceset="GND" device=""/>
-<part name="R27" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="1K">
-<attribute name="LCSC_PART" value="C11702"/>
+<part name="R27" library="robins-v7" deviceset="RES" device="-0603-NOM" value="1K">
+<attribute name="LCSC_PART" value="C21190"/>
 </part>
 <part name="R1" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0603-RES" value="100R">
 <attribute name="LCSC_PART" value="C22775"/>
@@ -6951,8 +6951,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="LED2" library="led" deviceset="LED" device="SML0805" value="KT-0805Y">
 <attribute name="LCSC_PART" value="C2296"/>
 </part>
-<part name="R6" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="1K">
-<attribute name="LCSC_PART" value="C11702"/>
+<part name="R6" library="robins-v7" deviceset="RES" device="-0603-NOM" value="1K">
+<attribute name="LCSC_PART" value="C21190"/>
 </part>
 <part name="R3" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="10K">
 <attribute name="LCSC_PART" value="C25744"/>
@@ -6991,8 +6991,8 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="C26" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="4u7/10V/X5R">
 <attribute name="LCSC_PART" value="C23733"/>
 </part>
-<part name="R14" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="1K">
-<attribute name="LCSC_PART" value="C11702"/>
+<part name="R14" library="robins-v7" deviceset="RES" device="-0603-NOM" value="1K">
+<attribute name="LCSC_PART" value="C21190"/>
 </part>
 <part name="TP15" library="robins-v7" deviceset="TEST-POINT" device="-1035" value="1035"/>
 <part name="C24" library="robins-v7" deviceset="CAP" device="-0805" value="10u/25V/X5R">
