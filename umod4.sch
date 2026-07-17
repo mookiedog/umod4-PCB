@@ -6472,6 +6472,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <attribute name="LCSC_PART" value="C191023"/>
 </part>
 <part name="TP16" library="robins-v7" deviceset="TEST-POINT" device="-1035" value="1035"/>
+<part name="TP17" library="robins-v7" deviceset="TEST-POINT" device="-1035" value="1035"/>
 </parts>
 <sheets>
 <sheet>
@@ -7574,6 +7575,9 @@ out is one less part to break.</text>
 <attribute name="NAME" x="42.164" y="89.281" size="1.778" layer="95"/>
 <attribute name="VALUE" x="42.164" y="84.201" size="1.778" layer="96"/>
 </instance>
+<instance part="TP17" gate="G$1" x="99.06" y="81.28" smashed="yes">
+<attribute name="NAME" x="97.79" y="81.28" size="1.778" layer="95" rot="R90"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -7689,7 +7693,11 @@ out is one less part to break.</text>
 <segment>
 <pinref part="U3" gate="G$1" pin="OUT"/>
 <label x="104.14" y="76.2" size="1.27" layer="95" xref="yes"/>
-<wire x1="86.36" y1="76.2" x2="104.14" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="76.2" x2="99.06" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="TP17" gate="G$1" pin="TP"/>
+<wire x1="99.06" y1="76.2" x2="104.14" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="76.2" x2="99.06" y2="81.28" width="0.1524" layer="91"/>
+<junction x="99.06" y="76.2"/>
 </segment>
 </net>
 </nets>
