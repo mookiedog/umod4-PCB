@@ -6850,7 +6850,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="JP2" library="pinhead" deviceset="PINHD-1X2" device=""/>
 <part name="+3V23" library="supply1" deviceset="+3V3" device=""/>
 <part name="V38" library="supply2" deviceset="GND" device=""/>
-<part name="R20" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0603-RES" value="100R">
+<part name="R20" library="robins-v7" deviceset="RES" device="-0603-NOM" value="100R">
 <attribute name="LCSC_PART" value="C22775"/>
 </part>
 <part name="U2" library="SparkFun-IC-Memory" deviceset="W25Q32FV" device="SS" value="W25Q128JVSIQ">
@@ -6900,10 +6900,10 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="R27" library="robins-v7" deviceset="RES" device="-0603-NOM" value="1K">
 <attribute name="LCSC_PART" value="C21190"/>
 </part>
-<part name="R1" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0603-RES" value="100R">
+<part name="R1" library="robins-v7" deviceset="RES" device="-0603-NOM" value="100R">
 <attribute name="LCSC_PART" value="C22775"/>
 </part>
-<part name="R2" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0603-RES" value="100R">
+<part name="R2" library="robins-v7" deviceset="RES" device="-0603-NOM" value="100R">
 <attribute name="LCSC_PART" value="C22775"/>
 </part>
 <part name="R11" library="SparkFun-03-01-2010" deviceset="RESISTOR" device="0402-RES" value="10K">
