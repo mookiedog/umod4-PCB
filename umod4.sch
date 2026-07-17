@@ -6620,14 +6620,14 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="C9" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="100n/16V/X7R">
 <attribute name="LCSC_PART" value="C1525"/>
 </part>
-<part name="C10" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="2u2/6.3V/X5R">
+<part name="C10" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="2u2/6.3V/X5R">
 <attribute name="LCSC_PART" value="C12530"/>
 </part>
-<part name="C3" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="2u2/6.3V/X5R">
+<part name="C3" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="2u2/6.3V/X5R">
 <attribute name="LCSC_PART" value="C12530"/>
 </part>
 <part name="V16" library="supply2" deviceset="GND" device=""/>
-<part name="C4" library="SparkFun-03-01-2010" deviceset="CAP" device="0402-CAP" value="2u2/6.3V/X5R">
+<part name="C4" library="robins-v7" deviceset="CAP" device="-0402-NOM" value="2u2/6.3V/X5R">
 <attribute name="LCSC_PART" value="C12530"/>
 </part>
 <part name="U4" library="robins-v7" deviceset="74LVC2G04" device="-SOT23-6" value="74LVC2G04">
@@ -8165,18 +8165,18 @@ out is one less part to break.</text>
 <attribute name="VALUE" x="35.941" y="128.016" size="1.778" layer="96" rot="R270"/>
 <attribute name="LCSC_PART" x="34.29" y="128.27" size="1.27" layer="96" rot="R270"/>
 </instance>
-<instance part="C10" gate="G$1" x="22.86" y="129.54" smashed="yes">
-<attribute name="NAME" x="24.384" y="132.461" size="1.778" layer="95"/>
-<attribute name="VALUE" x="19.431" y="126.746" size="1.778" layer="96" rot="R270"/>
-<attribute name="LCSC_PART" x="17.78" y="127" size="1.27" layer="96" rot="R270"/>
+<instance part="C10" gate="G$1" x="22.86" y="132.08" smashed="yes">
+<attribute name="NAME" x="24.384" y="135.001" size="1.778" layer="95"/>
+<attribute name="VALUE" x="19.431" y="129.286" size="1.778" layer="96" rot="R270"/>
+<attribute name="LCSC_PART" x="17.78" y="129.54" size="1.27" layer="96" rot="R270"/>
 </instance>
-<instance part="C3" gate="G$1" x="142.24" y="175.26" smashed="yes" rot="R270">
+<instance part="C3" gate="G$1" x="144.78" y="175.26" smashed="yes" rot="R270">
 <attribute name="NAME" x="146.304" y="175.641" size="1.778" layer="95"/>
 <attribute name="VALUE" x="140.716" y="177.419" size="1.778" layer="96" rot="R180"/>
 <attribute name="LCSC_PART" x="146.05" y="172.72" size="1.27" layer="96"/>
 </instance>
 <instance part="V16" gate="GND" x="134.62" y="172.72" rot="MR0"/>
-<instance part="C4" gate="G$1" x="63.5" y="22.86" smashed="yes">
+<instance part="C4" gate="G$1" x="63.5" y="25.4" smashed="yes">
 <attribute name="NAME" x="59.944" y="25.781" size="1.778" layer="95"/>
 <attribute name="VALUE" x="61.341" y="21.336" size="1.778" layer="96" rot="R270"/>
 <attribute name="LCSC_PART" x="59.69" y="21.59" size="1.27" layer="96" rot="R270"/>
@@ -8298,11 +8298,11 @@ out is one less part to break.</text>
 <wire x1="40.64" y1="20.32" x2="40.64" y2="17.78" width="0.1524" layer="91"/>
 <junction x="40.64" y="17.78"/>
 <pinref part="C4" gate="G$1" pin="2"/>
-<wire x1="48.26" y1="17.78" x2="63.5" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="17.78" x2="63.5" y2="20.32" width="0.1524" layer="91"/>
 <junction x="48.26" y="17.78"/>
-<junction x="63.5" y="17.78"/>
+<wire x1="48.26" y1="17.78" x2="63.5" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="63.5" y1="17.78" x2="68.58" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="20.32" x2="63.5" y2="17.78" width="0.1524" layer="91"/>
+<junction x="63.5" y="17.78"/>
 </segment>
 <segment>
 <pinref part="C18" gate="G$1" pin="1"/>
